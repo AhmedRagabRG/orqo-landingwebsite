@@ -36,11 +36,13 @@ PUBLIC_SHOW_REVIEW=true npm run dev
 |---|---|
 | App links (sign-up, login), email, WhatsApp, socials, demo link, docs link | `src/config/site.ts` |
 | Header navigation | `src/data/nav.ts` |
+| FAQ questions and tabs | `src/data/faq.ts` |
 | Plans, prices, plan features | `src/data/plans.ts` |
 | Pricing comparison table | `src/data/compare.ts` |
 | Privacy policy, terms | `src/content/legal/*.md` (set `draft: false` once reviewed) |
 | Home sections | `src/components/home/*.astro` |
 | Header, footer, icons | `src/components/Header.astro`, `Footer.astro`, `Icons.astro` (SVG sprite) |
+| Section heading, CTA pair | `src/components/ui/SectionHead.astro`, `CtaPair.astro` |
 | Colours, fonts, spacing | `:root` tokens at the top of `src/styles/landing.css` |
 
 All prices, limits, phone numbers and social links are **sample data** for now. See [`LAUNCH_CHECKLIST.md`](LAUNCH_CHECKLIST.md).
@@ -50,15 +52,17 @@ All prices, limits, phone numbers and social links are **sample data** for now. 
 ```
 src/
   config/site.ts          site-wide links and settings
-  data/                   nav, plans, comparison table
+  data/                   nav, plans, comparison table, FAQ
   content/legal/          privacy.md, terms.md
   layouts/Base.astro      <head>, SEO, header, footer, scripts
   layouts/Legal.astro     legal page template (auto contents + numbering)
   components/             Header, Footer, Icons, ReviewToggle
-  components/home/        16 home-page sections
+  components/home/        14 home-page sections
+  components/ui/          SectionHead, CtaPair (shared section building blocks)
   components/pricing/     PlanCard, BillingToggle, CompareTable
   styles/landing.css      design system and section styles
   styles/site.css         Astro-specific additions
+  styles/v2.css           home redesign: gradient tiles, dark panels, bands, FAQ, footer
   scripts/landing.js      all interactions (guarded per page)
   assets/                 images Astro optimises (hero screenshots)
 public/                   fonts, favicon, og.png, robots.txt
@@ -81,7 +85,7 @@ Copy `.env.example` to `.env`.
 2. Port **80**. Domain **orqo.site** (and `www.orqo.site` if wanted).
 3. Optional build args: `PUBLIC_CONTACT_ENDPOINT`.
 
-The image builds the site and serves `dist/` with nginx (`nginx.conf`): clean URLs, long caching for hashed assets, and the custom 404 page.
+The image builds the site and serves `dist/` with nginx (`nginx.conf`): clean URLs (each page is built as `page/index.html`, so `/pricing` and `/pricing/` both work on any static host), long caching for hashed assets, and the custom 404 page.
 
 ### Cloudflare Pages / Netlify / any static host
 

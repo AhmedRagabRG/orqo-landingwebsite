@@ -1,15 +1,11 @@
 ---
 import { site } from '../../config/site';
+import SectionHead from '../ui/SectionHead.astro';
 ---
 <section class="sec connect" id="integrations" aria-labelledby="con-title">
   <div class="wrap">
-    <div class="sec-head split-head">
-      <div>
-        <p class="eyebrow" id="developers">التكاملات والـAPI</p>
-        <h2 id="con-title" class="h2">قنواتك وأدواتك متصلة بمساحة واحدة.</h2>
-      </div>
-      <p class="body-lg">ربط رسمي مع قنوات Meta، وتكاملات جاهزة مع متجرك وأدوات Google، وعقدة موثّقة في n8n. وما لم تجده، تربطه بالـAPI.</p>
-    </div>
+    <span id="developers"></span>
+    <SectionHead id="con-title" chip="التكاملات والـAPI" icon="i-code" title="قنواتك وأدواتك" accent="متصلة بمساحة واحدة." lead="ربط رسمي مع قنوات Meta، وتكاملات جاهزة مع متجرك وأدوات Google، وعقدة موثّقة في n8n. وما لم تجده، تربطه بالـAPI." />
 
     <div class="igrid">
       <article class="icard icard-meta" id="int-meta">

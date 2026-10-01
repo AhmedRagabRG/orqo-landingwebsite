@@ -1,13 +1,12 @@
-<section class="sec journey" id="journey" aria-labelledby="journey-title">
+---
+import SectionHead from '../ui/SectionHead.astro';
+import CtaPair from '../ui/CtaPair.astro';
+---
+<section class="panel-dark ai-panel" id="journey" aria-labelledby="ai-title">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">الوكيل الذكي داخل رحلة العميل</p>
-      <h2 id="journey-title" class="h2 h2-wide">وكيل ذكي يرد، ويسجّل، وينقل العميل إلى الخطوة التالية.</h2>
-      <p class="body-lg">تابع محادثة من بيئة العرض في ORQO: عميلة تسأل عن سعر استشارة على واتساب، وتنتهي بموعد محجوز. خمس خطوات، في مساحة عمل واحدة.</p>
-    </div>
+    <SectionHead id="ai-title" tone="dark" chip="الوكيل الذكي يعمل عنك" title="لا ترد على كل رسالة بنفسك." accent="وكيل ذكي يدير المحادثة مع فريقك." lead="تابع محادثة حقيقية من بيئة العرض: عميلة تسأل عن سعر استشارة على واتساب، وتنتهي بموعد محجوز." />
 
-    <div class="journey-grid">
-      <div class="journey-stage-col">
+    <div class="ai-stage">
         <div class="jstage" aria-live="polite" data-step="1">
           <div class="js-head">
             <span class="js-av">م<i class="js-ch"><svg aria-hidden="true"><use href="#i-wa"/></svg></i></span>
@@ -42,10 +41,8 @@
           </div>
           <button type="button" class="jnav-btn jnext" aria-label="الخطوة التالية"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
-        <p class="review-tag">إعادة بناء متحركة للمحادثة الحقيقية المزروعة في بيئة العرض · يمكن استبدالها بتسجيل شاشة (A1)</p>
-      </div>
-
-      <ol class="jsteps">
+        <div class="ai-steps">
+        <ol class="jsteps">
         <li class="jstep is-active" data-step="1">
           <span class="jnum">1</span>
           <h3>العميلة تسأل، والوكيل يرد فورًا</h3>
@@ -72,6 +69,62 @@
           <p>يؤكد الموظف الموعد، وتنتقل العميلة إلى مرحلة Booked. من أول رسالة حتى الحجز في نفس المساحة، والفريق كله يرى ما حدث.</p>
         </li>
       </ol>
+        </div>
+      </div>
+
+    <p class="ai-caption">ليس مجرد بوت يرد على الأسئلة. الوكيل يفهم ما يريده العميل، ويسجّل بياناته، وينقله للخطوة التالية داخل ORQO.</p>
+
+    <div class="aitiles">
+      <article class="aitile">
+        <div class="ait-art g-mint" aria-hidden="true">
+          <div class="ait-ui"><p class="mt-in">بكام الاستشارة؟</p><p class="mt-out">500 جنيه ومدتها 30 دقيقة 👌</p><p class="mt-in">متاح الخميس؟</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>رد فوري</span>
+        </div>
+        <h3>يفهم العميل ويرد فورًا</h3>
+        <p>يرد من معلومات شغلك بالنبرة التي تحددها، ليلًا ونهارًا.</p>
+      </article>
+      <article class="aitile">
+        <div class="ait-art g-sky" aria-hidden="true">
+          <div class="ait-ui"><p class="mt-field"><span>الاسم</span><b>منى عادل</b><i>✓</i></p><p class="mt-field"><span>الهاتف</span><b dir="ltr">+20 10 ··· 0000</b><i>✓</i></p><p class="mt-field"><span>البريد</span><b>—</b></p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>تم تحديث ملف العميل</span>
+        </div>
+        <h3>يسجّل بيانات العميل</h3>
+        <p>الاسم والهاتف والبريد تُحفظ في ملف العميل أثناء المحادثة.</p>
+      </article>
+      <article class="aitile">
+        <div class="ait-art g-teal" aria-hidden="true">
+          <div class="ait-ui"><p class="mt-stages"><i>جديد</i><span>←</span><i class="on">Qualified</i><span>←</span><i>Booked</i></p><p class="mt-tag">وسم: عميل مهتم</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>نقل إلى Qualified</span>
+        </div>
+        <h3>ينقل العميل للمرحلة التالية</h3>
+        <p>يضيف الوسوم وينقل العميل بين المراحل حين تتحقق الشروط.</p>
+      </article>
+      <article class="aitile">
+        <div class="ait-art g-sand" aria-hidden="true">
+          <div class="ait-ui"><p class="mt-hand"><span class="mt-av mt-ai">AI</span><span class="mt-line"></span><span class="mt-av" lang="en">AR</span></p><p class="mt-sys">النظام عيّن المحادثة إلى Ahmed Ragab</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>تم تحويل المحادثة</span>
+        </div>
+        <h3>يعرف متى يسلّم لموظف</h3>
+        <p>يحوّل المحادثة لفريقك حسب قواعدك، ومعها كل السياق.</p>
+      </article>
+      <article class="aitile">
+        <div class="ait-art g-green" aria-hidden="true">
+          <div class="ait-ui"><p class="mt-sum"><b>ملخص المحادثة</b>مهتمة بحجز استشارة بـ500 جنيه، وتفضّل الخميس بعد 6 مساءً، وطلبت التحدث مع الفريق.</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>ملخص جاهز للفريق</span>
+        </div>
+        <h3>يكتب ملخصًا للمحادثة</h3>
+        <p>الموظف يفهم المطلوب في سطرين بدل قراءة المحادثة كاملة.</p>
+      </article>
+      <article class="aitile">
+        <div class="ait-art g-info" aria-hidden="true">
+          <div class="ait-ui"><p class="mt-docs"><i>PDF</i><i>أسئلة شائعة</i><i>DOCX</i><i>رابط</i><i>CSV</i><i>خريطة الموقع</i></p><p class="mt-out">حسب قائمة الأسعار: الباقة السنوية 2,400 جنيه.</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>مصادر معرفة الوكيل</span>
+        </div>
+        <h3>يرد من مصادر معرفتك</h3>
+        <p>أضف أسعارك وأسئلتك الشائعة وملفاتك وصفحات موقعك.</p>
+      </article>
     </div>
+
+    <CtaPair tone="dark" note="الوكيل الذكي متاح في كل الخطط، ومعه رصيد AI شهري." />
   </div>
 </section>

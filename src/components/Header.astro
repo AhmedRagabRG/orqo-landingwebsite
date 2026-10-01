@@ -1,7 +1,7 @@
 ---
 import { site } from '../config/site';
 import { nav } from '../data/nav';
-const path = Astro.url.pathname.replace(/\.html$/, '');
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/(.)\/$/, '$1');
 const isCurrent = (href: string) => !href.includes('#') && href === path;
 ---
 <header class="site-head" id="top">

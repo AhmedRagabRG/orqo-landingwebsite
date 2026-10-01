@@ -1,0 +1,20 @@
+---
+const items = [
+  { icon: 'i-globe', t: 'عربي من الأساس', d: 'واجهة من اليمين لليسار بالكامل، ووكيل يرد على عملائك بالعربي، مع دعم الإنجليزية.' },
+  { icon: 'i-shield', t: 'ربط رسمي مع Meta', d: 'ORQO مسجّل كـ Meta Tech Provider، والربط يتم عبر واجهات Meta الرسمية.' },
+  { icon: 'i-bot', t: 'ذكاء اصطناعي وفريق معًا', d: 'الوكيل يرد ويسجّل وينقل العميل، وفريقك يستلم حين يلزم، ومعه ملخص.' },
+  { icon: 'i-layers', t: 'كل شيء متصل', d: 'المحادثات، وملف العميل، والحملات، والأتمتة، والتقارير في مساحة واحدة.' },
+  { icon: 'i-bolt', t: 'تبدأ في دقائق، ومجانًا', d: 'اربط رقمك وابدأ بالخطة المجانية، بدون بطاقة دفع وبدون إعداد معقّد.' },
+  { icon: 'i-code', t: 'يتصل بأدواتك', d: 'متجرك وأدوات Google وعقدة n8n الموثّقة، و API لأي نظام آخر.' },
+];
+---
+<section class="sec why" aria-labelledby="why-title">
+  <div class="wrap why-grid">
+    <h2 id="why-title" class="why-t">لماذا تختار<span>ORQO؟</span></h2>
+    <ul class="why-cards">
+      {items.map((it) => (
+        <li><svg aria-hidden="true"><use href={`#${it.icon}`} /></svg><b>{it.t}</b><span>{it.d}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>

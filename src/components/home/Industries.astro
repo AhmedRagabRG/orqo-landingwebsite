@@ -1,40 +1,28 @@
-<section class="sec industries" id="industries" aria-labelledby="ind-title">
+---
+import SectionHead from '../ui/SectionHead.astro';
+const items = [
+  { icon: 'i-med', g: 'g-mint', t: 'العيادات والمراكز الطبية', q: 'عايزة أحجز كشف يوم السبت', a: 'حجز ومواعيد وتذكيرات' },
+  { icon: 'i-cap', g: 'g-sky', t: 'التعليم والتدريب', q: 'الكورس أونلاين ولا حضوري؟', a: 'استفسارات وتسجيل ومتابعة' },
+  { icon: 'i-home', g: 'g-sand', t: 'العقارات', q: 'الشقة لسه متاحة؟', a: 'تأهيل العميل ومواعيد المعاينة' },
+  { icon: 'i-plane', g: 'g-info', t: 'السفر والسياحة', q: 'الباقة لشخصين بكام؟', a: 'باقات وعروض أسعار' },
+  { icon: 'i-cart', g: 'g-green', t: 'المتاجر الإلكترونية', q: 'الأوردر هيوصل إمتى؟', a: 'تأكيد COD وسلات متروكة' },
+  { icon: 'i-headset', g: 'g-teal', t: 'الخدمات وفرق الدعم', q: 'عندي مشكلة في الخدمة', a: 'دعم وتحويل للشخص المناسب' },
+];
+---
+<section class="sec inds" id="industries" aria-labelledby="ind-title">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">لمن ORQO؟</p>
-      <h2 id="ind-title" class="h2 h2-wide">إذا كان عملك يستقبل رسائل عملاء، فـ<span lang="en">ORQO</span> مصمم لك.</h2>
-    </div>
-    <ul class="ind-list">
-      <li class="ind">
-        <h3>عيادات ومراكز طبية</h3>
-        <p class="ind-q"><span class="bubble-in">عايزة أحجز كشف يوم السبت</span></p>
-        <p class="ind-a">يرد على الأسعار والمواعيد، ويسجل بيانات المريض، ويسلّم الحجز لموظف الاستقبال.</p>
-      </li>
-      <li class="ind">
-        <h3>تعليم وتدريب</h3>
-        <p class="ind-q"><span class="bubble-in">الكورس أونلاين ولا حضوري؟</span></p>
-        <p class="ind-a">يشرح البرامج، ويعرف اهتمام الطالب، ويتابع معه حتى التسجيل.</p>
-      </li>
-      <li class="ind">
-        <h3>عقارات</h3>
-        <p class="ind-q"><span class="bubble-in">الشقة لسه متاحة؟</span></p>
-        <p class="ind-a">يؤهّل العميل حسب الميزانية والمنطقة، ويرتّب موعد معاينة مع فريق المبيعات.</p>
-      </li>
-      <li class="ind">
-        <h3>سفر وسياحة</h3>
-        <p class="ind-q"><span class="bubble-in">الباقة لشخصين بكام؟</span></p>
-        <p class="ind-a">يرد بتفاصيل الباقات، ويجهّز العميل لعرض السعر، ويرسل التذكيرات قبل السفر.</p>
-      </li>
-      <li class="ind">
-        <h3>متاجر إلكترونية</h3>
-        <p class="ind-q"><span class="bubble-in">الأوردر هيوصل إمتى؟</span></p>
-        <p class="ind-a">يربط محادثات العملاء بطلبات المتجر، ويتابع السلات المتروكة بالأتمتة.</p>
-      </li>
-      <li class="ind">
-        <h3>شركات خدمات وفرق دعم</h3>
-        <p class="ind-q"><span class="bubble-in">عندي مشكلة في الخدمة</span></p>
-        <p class="ind-a">يرد على المشكلات المتكررة، ويحوّل الحالات الخاصة للشخص المناسب في الفريق.</p>
-      </li>
+    <SectionHead id="ind-title" chip="لمن ORQO" icon="i-layers" title="من العيادة إلى المتجر الإلكتروني." accent="كل عمل يستقبل رسائل عملاء، مكانه ORQO." />
+    <ul class="ind-tiles">
+      {items.map((it) => (
+        <li class="indt">
+          <div class:list={['indt-art', it.g]} aria-hidden="true">
+            <svg class="indt-ico"><use href={`#${it.icon}`} /></svg>
+            <span class="indt-q">{it.q}</span>
+          </div>
+          <h3>{it.t}</h3>
+          <p>{it.a}</p>
+        </li>
+      ))}
     </ul>
   </div>
 </section>

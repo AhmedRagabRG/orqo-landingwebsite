@@ -1,13 +1,22 @@
-<section class="sec crm" id="contacts" aria-labelledby="crm-title">
+---
+import SectionHead from '../ui/SectionHead.astro';
+import CtaPair from '../ui/CtaPair.astro';
+---
+<section class="panel-dark crm-panel" id="contacts" aria-labelledby="crm-title">
   <div class="wrap">
-    <div class="sec-head split-head">
-      <div>
-        <p class="eyebrow">جهات الاتصال و CRM</p>
-        <h2 id="crm-title" class="h2">كل عملائك في مكان واحد، ومعهم كل التفاصيل.</h2>
-      </div>
-      <p class="body-lg">كل من يراسلك على أي قناة يصبح جهة اتصال تلقائيًا. أضف حقولًا تناسب عملك، وصنّف عملاءك بالوسوم، وابنِ شرائح تستهدفها في الحملات والأتمتة.</p>
-    </div>
-
+    <SectionHead id="crm-title" tone="dark" chip="جهات الاتصال و CRM" icon="i-user" title="من أول رسالة إلى ملف عميل كامل." accent="كل شيء عن عميلك في مكان واحد." lead="كل من يراسلك على أي قناة يصبح جهة اتصال تلقائيًا، ومعه بياناته ووسومه وملاحظاته وطلباته." />
+    <ul class="dcards">
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-user" /></svg><b>ملف عميل كامل</b><span>كل بياناته ومحادثاته من كل القنوات في مكان واحد.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-list" /></svg><b>حقول مخصصة</b><span>المدينة، الميزانية، نوع الخدمة، أو أي حقل يحتاجه عملك.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-tag" /></svg><b>الوسوم والشرائح</b><span>صنّف عملاءك وابنِ شرائح بشروط للحملات والأتمتة.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-note" /></svg><b>الملاحظات الداخلية</b><span>كل ما يعرفه فريقك عن العميل يبقى محفوظًا.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-clock" /></svg><b>النشاط والسجل</b><span>كل تغيير ومحادثة ومرحلة في سجل واحد.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-cart" /></svg><b>طلبات المتجر</b><span>طلبات Shopify و WooCommerce و EasyOrders في ملف العميل.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-layers" /></svg><b>مراحل العملاء</b><span>من أول استفسار حتى الحجز أو البيع.</span></li>
+      <li class="dcard"><svg aria-hidden="true"><use href="#i-copy" /></svg><b>استيراد وتصدير</b><span>انقل عملاءك من CSV و Excel في دقائق.</span></li>
+    </ul>
+    <CtaPair tone="dark" />
+    <div class="crm-show">
     <div class="crmx" aria-label="مثال لقائمة جهات الاتصال والشرائح وملف عميل">
       <aside class="crm-seg" aria-hidden="true">
         <p class="cs-h">الشرائح</p>
@@ -45,13 +54,6 @@
       <span class="demo-flag">أرقام مثال</span>
     </div>
 
-    <ul class="feat-points">
-      <li><svg aria-hidden="true"><use href="#i-inbox"/></svg><span><b>تلقائيًا من كل قناة</b>كل محادثة جديدة تنشئ جهة اتصال أو تضيف إلى ملفها.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-list"/></svg><span><b>حقول مخصصة لعملك</b>المدينة، الميزانية، نوع الخدمة، أو أي حقل تحتاجه.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-tag"/></svg><span><b>وسوم وملاحظات ونشاط</b>كل ما تعرفه عن العميل يبقى في ملفه.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-users"/></svg><span><b>شرائح بشروط</b>استهدفها في الحملات وابدأ بها الأتمتة.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-copy"/></svg><span><b>استيراد وتصدير</b>انقل عملاءك من CSV و Excel في دقائق.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-cart"/></svg><span><b>عملاء متجرك</b>عملاء Shopify و WooCommerce و EasyOrders يُضافون تلقائيًا.</span></li>
-    </ul>
+    </div>
   </div>
 </section>

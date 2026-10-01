@@ -1,0 +1,15 @@
+---
+import { site } from '../../config/site';
+interface Props {
+  tone?: 'light' | 'dark';
+  note?: string;
+}
+const { tone = 'light', note } = Astro.props;
+---
+<div class:list={['ctapair', `ctapair-${tone}`]}>
+  <div class="ctapair-btns">
+    <a class={tone === 'dark' ? 'btn btn-mint btn-lg' : 'btn btn-primary btn-lg'} href={site.signupUrl}>ابدأ مجانًا <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+    <a class={tone === 'dark' ? 'btn btn-ghost-deep btn-lg' : 'btn btn-ghost btn-lg'} href="/contact"><svg aria-hidden="true"><use href="#i-meet" /></svg> احجز عرضًا توضيحيًا</a>
+  </div>
+  {note && <p class="ctapair-note">{note}</p>}
+</div>

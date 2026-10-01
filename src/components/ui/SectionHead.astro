@@ -1,0 +1,21 @@
+---
+/** Centered section heading in the site's style: pill label, two-line title (second line in brand colour), lead. */
+interface Props {
+  chip?: string;
+  icon?: string;
+  title: string;
+  accent?: string;
+  lead?: string;
+  id?: string;
+  tone?: 'light' | 'dark' | 'band';
+}
+const { chip, icon = 'i-spark', title, accent, lead, id, tone = 'light' } = Astro.props;
+---
+<header class:list={['shead', `shead-${tone}`]}>
+  {chip && <p class="chip"><svg aria-hidden="true"><use href={`#${icon}`} /></svg>{chip}</p>}
+  <h2 id={id} class="shead-t">
+    <span>{title}</span>
+    {accent && <span class="shead-a">{accent}</span>}
+  </h2>
+  {lead && <p class="shead-l">{lead}</p>}
+</header>

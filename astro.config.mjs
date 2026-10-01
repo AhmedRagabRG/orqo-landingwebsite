@@ -4,8 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://orqo.site',
-  trailingSlash: 'never',
-  build: { format: 'file' },
+  trailingSlash: 'ignore',
+  build: { format: 'directory' },
   i18n: {
     defaultLocale: 'ar',
     locales: ['ar', 'en'],

@@ -1,21 +1,19 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/home/Hero.astro';
-import Problem from '../components/home/Problem.astro';
-import Journey from '../components/home/Journey.astro';
-import Handoff from '../components/home/Handoff.astro';
-import Contacts from '../components/home/Contacts.astro';
-import Campaigns from '../components/home/Campaigns.astro';
-import Automation from '../components/home/Automation.astro';
-import Cod from '../components/home/Cod.astro';
-import Pipeline from '../components/home/Pipeline.astro';
-import Reports from '../components/home/Reports.astro';
+import Problems from '../components/home/Problems.astro';
+import AiPanel from '../components/home/AiPanel.astro';
+import CampaignBand from '../components/home/CampaignBand.astro';
 import Industries from '../components/home/Industries.astro';
+import MetaBanner from '../components/home/MetaBanner.astro';
+import TrialCta from '../components/home/TrialCta.astro';
+import Tools from '../components/home/Tools.astro';
+import CrmPanel from '../components/home/CrmPanel.astro';
+import Automation from '../components/home/Automation.astro';
 import Integrations from '../components/home/Integrations.astro';
-import Trust from '../components/home/Trust.astro';
 import PricingPreview from '../components/home/PricingPreview.astro';
 import Faq from '../components/home/Faq.astro';
-import FinalCta from '../components/home/FinalCta.astro';
+import WhyOrqo from '../components/home/WhyOrqo.astro';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -34,19 +32,17 @@ const jsonLd = {
   jsonLd={jsonLd}
 >
   <Hero />
-  <Problem />
-  <Journey />
-  <Handoff />
-  <Contacts />
-  <Campaigns />
-  <Automation />
-  <Cod />
-  <Pipeline />
-  <Reports />
+  <Problems />
+  <AiPanel />
+  <CampaignBand />
   <Industries />
+  <MetaBanner />
+  <TrialCta />
+  <Tools />
+  <CrmPanel />
+  <Automation />
   <Integrations />
-  <Trust />
   <PricingPreview />
   <Faq />
-  <FinalCta />
+  <WhyOrqo />
 </Base>

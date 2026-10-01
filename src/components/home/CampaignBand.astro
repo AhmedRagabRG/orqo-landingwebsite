@@ -1,0 +1,78 @@
+---
+import { site } from '../../config/site';
+import SectionHead from '../ui/SectionHead.astro';
+
+const steps = [
+  { t: 'اختر جمهورك', d: 'شريحة من عملائك حسب الوسوم والحقول وآخر تواصل. ومن ألغى الاشتراك يُستبعد تلقائيًا.' },
+  { t: 'قالب معتمد من Meta', d: 'رسائل بقوالب واتساب الرسمية، مع متغيرات مثل اسم العميل وأزرار للرد.' },
+  { t: 'أرسل الآن أو جدولها', d: 'حدّد موعد الإرسال، وتخرج الحملة من رقم واتساب الأعمال المربوط.' },
+  { t: 'تابع النتائج', d: 'كم رسالة أُرسلت ووصلت وقُرئت، والنقرات، ومن ألغى الاشتراك. والردود تدخل صندوق الوارد.' },
+];
+---
+<section class="band-mint camp-band" id="campaigns" aria-labelledby="cb-title">
+  <div class="wrap">
+    <SectionHead id="cb-title" tone="band" chip="حملات واتساب" icon="i-wa" title="عملاؤك على واتساب؟" accent="أرسل لهم حملات رسمية بقوالب معتمدة." lead="عروض وتذكيرات وإعلانات لآلاف العملاء من رقم واتساب أعمالك، بدون حلول غير رسمية." />
+
+    <div class="cb-grid" data-step="1">
+      <div class="cb-panel">
+        <ol class="cb-steps">
+          {steps.map((s, i) => (
+            <li>
+              <button type="button" class="cb-step" data-go={i + 1} aria-expanded={i === 0 ? 'true' : 'false'}>
+                <i>{i + 1}</i><b>{s.t}</b>
+              </button>
+              <p>{s.d}</p>
+            </li>
+          ))}
+        </ol>
+        <a class="btn btn-primary btn-lg cb-cta" href={site.signupUrl}>ابدأ حملتك الأولى <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        <p class="cb-more-h">والمزيد</p>
+        <ul class="cb-more">
+          <li><svg aria-hidden="true"><use href="#i-shield" /></svg><span><b>ربط رسمي عبر Meta</b>ORQO مسجّل كـ Meta Tech Provider.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-inbox" /></svg><span><b>الردود في صندوق الوارد</b>يكملها فريقك أو الوكيل الذكي.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-users" /></svg><span><b>شرائح بشروط</b>استهدف العميل المناسب بالرسالة المناسبة.</span></li>
+        </ul>
+      </div>
+
+      <div class="cb-phone" aria-hidden="true">
+        <div class="ph">
+          <div class="ph-top"><span>9:41</span><i></i></div>
+          <div class="ph-head"><b>حملة: عرض نهاية الأسبوع</b><small>ORQO · WhatsApp</small></div>
+
+          <div class="ph-scr" data-scr="1">
+            <p class="ph-k">الجمهور</p>
+            <div class="ph-card"><p class="ph-seg"><svg><use href="#i-users" /></svg>عملاء مهتمون</p><p class="ph-rules"><i>الوسم = عميل مهتم</i><i>آخر تواصل +30 يومًا</i></p></div>
+            <div class="ph-big"><b>312</b><span>جهة اتصال</span></div>
+            <p class="ph-mute">استُبعد 6 ألغوا الاشتراك</p>
+          </div>
+
+          <div class="ph-scr" data-scr="2">
+            <p class="ph-k">القالب <span class="ph-ok">✓ معتمد</span></p>
+            <div class="ph-bubble">أهلًا <em>&#123;&#123;1&#125;&#125;</em> 🎁 خصم 20% على الاستشارات حتى الأحد. احجز موعدك الآن.<span dir="ltr">6:00 PM</span></div>
+            <span class="ph-btn">احجز الآن</span><span class="ph-btn">إلغاء الاشتراك</span>
+          </div>
+
+          <div class="ph-scr" data-scr="3">
+            <p class="ph-k">موعد الإرسال</p>
+            <p class="ph-opt"><i></i>إرسال الآن</p>
+            <p class="ph-opt on"><i></i>جدولة</p>
+            <div class="ph-date"><b>الخميس 2 أكتوبر</b><span dir="ltr">6:00 PM</span></div>
+          </div>
+
+          <div class="ph-scr" data-scr="4">
+            <p class="ph-done">✓ تم الإرسال بنجاح</p>
+            <div class="ph-stats">
+              <p><b>312</b><span>أُرسلت</span></p>
+              <p><b>305</b><span>وصلت</span></p>
+              <p><b>241</b><span>قُرئت</span></p>
+              <p><b>64</b><span>نقرات</span></p>
+            </div>
+            <p class="ph-mute">ألغى الاشتراك: 2 · الأرقام مثال</p>
+          </div>
+
+          <div class="ph-prog"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

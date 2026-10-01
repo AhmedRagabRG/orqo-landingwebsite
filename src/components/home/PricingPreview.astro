@@ -2,16 +2,11 @@
 import { plans } from '../../data/plans';
 import PlanCard from '../pricing/PlanCard.astro';
 import BillingToggle from '../pricing/BillingToggle.astro';
+import SectionHead from '../ui/SectionHead.astro';
 ---
 <section class="sec pricing-preview" id="pricing" aria-labelledby="price-title">
   <div class="wrap">
-    <div class="sec-head split-head">
-      <div>
-        <p class="eyebrow">الأسعار</p>
-        <h2 id="price-title" class="h2">ابدأ مجانًا، وادفع حين يكبر عملك.</h2>
-      </div>
-      <p class="body-lg">كل مزايا ORQO متاحة في كل الخطط. الفرق في حجم الاستخدام: الرسائل وجهات الاتصال وأعضاء الفريق ورصيد الذكاء الاصطناعي.</p>
-    </div>
+    <SectionHead id="price-title" chip="الأسعار" icon="i-cash" title="ابدأ مجانًا،" accent="وادفع حين يكبر عملك." lead="كل مزايا ORQO متاحة في كل الخطط. الفرق في حجم الاستخدام: الرسائل وجهات الاتصال وأعضاء الفريق ورصيد الذكاء الاصطناعي." />
     <BillingToggle />
     <div class="plans">
       {plans.map((plan) => <PlanCard plan={plan} />)}

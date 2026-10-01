@@ -1,6 +1,7 @@
 ---
 import '../styles/landing.css';
 import '../styles/site.css';
+import '../styles/v2.css';
 import { site } from '../config/site';
 import Icons from '../components/Icons.astro';
 import Header from '../components/Header.astro';
@@ -16,7 +17,8 @@ interface Props {
   noindex?: boolean;
 }
 const { title, description, page, jsonLd, noindex = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname.replace(/\.html$/, '') || '/', site.url);
+const cleanPath = Astro.url.pathname.replace(/(\.html|\/index\.html)$/, '').replace(/(.)\/$/, '$1') || '/';
+const canonical = new URL(cleanPath, site.url);
 const ogImage = new URL('/og.png', site.url);
 ---
 <!doctype html>

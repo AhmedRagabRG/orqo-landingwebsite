@@ -142,9 +142,47 @@
     $$('.legal-body section[id], .legal-prose h2[id]').forEach(function (sec) { tio.observe(sec); });
   }
 
+  /* ---------- campaigns band: numbered steps drive the phone ---------- */
+  var cbGrid = $('.cb-grid');
+  if (cbGrid) {
+    var cbBtns = $$('.cb-step', cbGrid), cbStep = 1, cbTimer = null, cbTouched = false;
+    var cbSet = function (n) {
+      cbStep = n; cbGrid.dataset.step = String(n);
+      cbBtns.forEach(function (b) { b.setAttribute('aria-expanded', String(Number(b.dataset.go) === n)); });
+    };
+    cbBtns.forEach(function (b) {
+      b.addEventListener('click', function () { cbTouched = true; clearInterval(cbTimer); cbSet(Number(b.dataset.go)); });
+    });
+    if (!reduce) inView(cbGrid, function (vis) {
+      clearInterval(cbTimer);
+      if (vis && !cbTouched) cbTimer = setInterval(function () { cbSet(cbStep >= 4 ? 1 : cbStep + 1); }, 4200);
+    }, { threshold: 0.4 });
+  }
+
+  /* ---------- FAQ tabs ---------- */
+  var fTabs = $$('.faqx-tabs [role="tab"]');
+  function fSelect(tab, focus) {
+    fTabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+      var panel = document.getElementById(t.getAttribute('aria-controls'));
+      if (panel) panel.hidden = !on;
+    });
+    if (focus) tab.focus();
+  }
+  fTabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { fSelect(t); });
+    t.addEventListener('keydown', function (e) {
+      var n = fTabs.length, j = null;
+      if (e.key === 'ArrowLeft') j = (i + 1) % n; else if (e.key === 'ArrowRight') j = (i - 1 + n) % n;
+      else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1;
+      if (j !== null) { e.preventDefault(); fSelect(fTabs[j], true); }
+    });
+  });
+
   /* ---------- problem: before / after ---------- */
   (function () {
-  if (!$('#problem')) return;
+  if (!$('#problem .board')) return;
   var problem = $('#problem'), board = $('.board', problem), touched = false;
   function setMode(mode) {
     problem.dataset.mode = mode; board.dataset.mode = mode;
@@ -271,8 +309,17 @@
   function isDesktop() { return window.matchMedia('(min-width: 901px)').matches; }
   goStep(1, true);
   $$('.jdots button').forEach(function (b) { b.addEventListener('click', function () { goStep(Number(b.dataset.go)); }); });
-  $('.jprev').addEventListener('click', function () { goStep(cur - 1); });
-  $('.jnext').addEventListener('click', function () { goStep(cur + 1); });
+  var jTouched = false, jTimer = null;
+  function jStop() { jTouched = true; clearInterval(jTimer); }
+  $$('.jdots button').forEach(function (b) { b.addEventListener('click', jStop); });
+  $('.jprev').addEventListener('click', function () { jStop(); goStep(cur - 1); });
+  $('.jnext').addEventListener('click', function () { jStop(); goStep(cur + 1); });
+  if (!reduce && $('.ai-stage')) {
+    inView($('.ai-stage'), function (vis) {
+      clearInterval(jTimer);
+      if (vis && !jTouched) jTimer = setInterval(function () { goStep(cur >= 5 ? 1 : cur + 1); }, 6500);
+    }, { threshold: 0.45 });
+  }
   if ('IntersectionObserver' in window) {
     var jio = new IntersectionObserver(function (entries) {
       if (!isDesktop()) return;
