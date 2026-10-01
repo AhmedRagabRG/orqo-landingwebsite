@@ -1,0 +1,301 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+import { plans } from '../data/plans';
+import PlanCard from '../components/pricing/PlanCard.astro';
+import BillingToggle from '../components/pricing/BillingToggle.astro';
+import CompareTable from '../components/pricing/CompareTable.astro';
+---
+<Base
+  title="أسعار ORQO — ابدأ مجانًا"
+  description="خطط ORQO: خطة مجانية دائمة بدون بطاقة دفع، وخطط Pro و Business. كل المزايا في كل الخطط، والفرق في حجم الاستخدام."
+  page="pricing"
+>
+<section class="page-hero" aria-labelledby="ph-title">
+  <div class="wrap page-hero-inner">
+    <p class="eyebrow"><span class="dot"></span>الأسعار</p>
+    <h1 id="ph-title" class="display-3">ابدأ مجانًا.<br><span class="mint-line">وادفع حين يكبر عملك.</span></h1>
+    <p class="body-lg">كل مزايا ORQO متاحة في كل خطة، من صندوق الوارد إلى الوكلاء الأذكياء والحملات وتأكيد الطلبات. الفرق بين الخطط في حجم الاستخدام فقط.</p>
+  </div>
+</section>
+
+<section class="plans-sec" id="plans" aria-label="الخطط">
+  <div class="wrap">
+    <BillingToggle />
+    <div class="plans plans-full">
+      {plans.map((plan) => <PlanCard plan={plan} full />)}
+    </div>
+    <div class="plans-foot">
+      <p>تحتاج حدودًا مختلفة أو أكثر من 10 مساحات عمل؟ <a href="/contact">تحدث مع فريق المبيعات</a>.</p>
+      <p class="review-tag">الأسعار والحدود من كتالوج الخطط التجريبي في الكود (PlanSeeder) · أكّد القيم الفعلية والتجربة المجانية (P1)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE SHOWCASE ============ -->
+<section class="sec showcase" id="features" aria-labelledby="sc-title">
+  <div class="wrap">
+    <div class="sec-head split-head">
+      <div>
+        <p class="eyebrow">ماذا تحصل عليه في كل خطة</p>
+        <h2 id="sc-title" class="h2">منصة واحدة بدل خمس أدوات.</h2>
+      </div>
+      <p class="body-lg">من أول رسالة حتى تأكيد الطلب ومتابعة العميل، كل جزء من الرحلة داخل ORQO.</p>
+    </div>
+
+    <div class="bento">
+      <!-- COD -->
+      <article class="fcard fc-full tint-sand">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-cash"/></svg>التجارة الإلكترونية</p>
+          <h3>تأكيد طلبات الدفع عند الاستلام</h3>
+          <p>كل طلب جديد من متجرك على Shopify أو WooCommerce أو EasyOrders يصل للعميل على واتساب للتأكيد. ورد العميل يظهر لفريقك مع الطلب، فتشحن الطلبات المؤكدة فقط.</p>
+        </div>
+        <div class="fv fv-cod" aria-hidden="true">
+          <div class="cod-order">
+            <p class="cod-src"><img src="/img/easyorders.png" width="16" height="16" alt="">طلب جديد · EasyOrders</p>
+            <p class="cod-no" dir="ltr">#1042</p>
+            <p class="cod-item">سماعة لاسلكية × 1</p>
+            <p class="cod-pay"><span>الدفع عند الاستلام</span><b>1,250 ج.م</b></p>
+          </div>
+          <span class="fv-arrow"></span>
+          <div class="cod-wa">
+            <p class="cod-bubble">أهلًا أحمد 👋 طلبك رقم <span dir="ltr">#1042</span> بقيمة 1,250 ج.م جاهز للشحن. تأكد الطلب؟</p>
+            <span class="cod-btn is-tap">تأكيد الطلب</span>
+            <span class="cod-btn">إلغاء الطلب</span>
+            <p class="cod-reply">تأكيد الطلب <i>✓✓</i></p>
+          </div>
+          <span class="fv-arrow"></span>
+          <div class="cod-status">
+            <span class="st-chip st-ok"><svg><use href="#i-check"/></svg>مؤكَّد</span>
+            <span class="st-chip">وسم: COD مؤكد</span>
+            <span class="st-chip st-ghost">جاهز للشحن</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Campaigns -->
+      <article class="fcard fc-wide tint-mint">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-send"/></svg>حملات واتساب</p>
+          <h3>رسائل لآلاف العملاء، بقوالب معتمدة</h3>
+          <p>عروض وتذكيرات وإعلانات لشرائح من عملائك، مع تقرير لكل حملة: كم رسالة أُرسلت ووصلت وقُرئت.</p>
+        </div>
+        <div class="fv fv-camp" aria-hidden="true">
+          <div class="camp-msg">
+            <p class="cm-top"><svg class="c-wa"><use href="#i-wa"/></svg>عرض نهاية الأسبوع 🎁 <small>إلى 4,231 عميل</small></p>
+            <p>خصم 20% على كل الباقات حتى الأحد. رد بـ «عايز» ونرسل لك التفاصيل.</p>
+          </div>
+          <div class="camp-bars">
+            <p><span>أُرسلت</span><i style="--w:100%"></i><b>4,231</b></p>
+            <p><span>وصلت</span><i style="--w:96%"></i><b>4,062</b></p>
+            <p><span>قُرئت</span><i style="--w:71%"></i><b>3,004</b></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- CRM -->
+      <article class="fcard fc-wide tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-user"/></svg>جهات الاتصال و CRM</p>
+          <h3>كل ما تعرفه عن العميل في ملف واحد</h3>
+          <p>حقول مخصصة، ووسوم، وملاحظات، وشرائح، واستيراد من Excel.</p>
+        </div>
+        <div class="fv fv-crm" aria-hidden="true">
+          <div class="crm-card">
+            <p class="crm-h"><span class="crm-av">أ</span><span><b>أحمد سامي</b><small dir="ltr">+20 10 ···· 4567</small></span><svg class="c-wa"><use href="#i-wa"/></svg></p>
+            <dl><div><dt>المدينة</dt><dd>القاهرة</dd></div><div><dt>الاهتمام</dt><dd>باقة سنوية</dd></div></dl>
+            <p class="crm-tags"><i>عميل مهتم</i><i>VIP</i><i class="ghost">+ وسم</i></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI agent -->
+      <article class="fcard tint-mint">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-bot"/></svg>الوكلاء الأذكياء</p>
+          <h3>يرد، وينفّذ داخل النظام</h3>
+          <p>يحدّث الملف، ويضيف الوسوم، وينقل العميل، ويسلّم لموظف.</p>
+        </div>
+        <div class="fv fv-ai" aria-hidden="true">
+          <p class="ai-in">عندكم مقاس 42؟</p>
+          <p class="ai-out">متاح يا فندم 👌 تحب أحجزه لك؟</p>
+          <p class="ai-acts"><i>✓ وسم: مهتم</i><i>✓ نقل إلى Qualified</i></p>
+        </div>
+      </article>
+
+      <!-- Inbox -->
+      <article class="fcard tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-inbox"/></svg>صندوق وارد موحّد</p>
+          <h3>كل القنوات، قائمة واحدة</h3>
+          <p>واتساب وإنستجرام وماسنجر لكل الفريق، مع ملاحظات داخلية وردود جاهزة.</p>
+        </div>
+        <div class="fv fv-inbox" aria-hidden="true">
+          <p><svg class="c-wa"><use href="#i-wa"/></svg><b>منى</b><span>بكام الاستشارة؟</span><i class="own-ai">AI</i></p>
+          <p><svg class="c-ig"><use href="#i-ig"/></svg><b>سلمى</b><span>لسه متاح؟</span><i>Ahmed</i></p>
+          <p><svg class="c-ms"><use href="#i-ms"/></svg><b>كريم</b><span>الباقة بكام؟</span><i>سارة</i></p>
+        </div>
+      </article>
+
+      <!-- Team routing -->
+      <article class="fcard tint-sky">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-users"/></svg>إدارة الفريق</p>
+          <h3>كل محادثة تصل للشخص المناسب</h3>
+          <p>توزيع تلقائي على الفريق، وأدوار وصلاحيات لكل عضو.</p>
+        </div>
+        <div class="fv fv-team" aria-hidden="true">
+          <span class="tm-core"><svg><use href="#i-inbox"/></svg></span>
+          <span class="tm tm-1">AR</span><span class="tm tm-2">س</span><span class="tm tm-3">خ</span><span class="tm tm-4 tm-ai"><svg><use href="#i-bot"/></svg></span>
+        </div>
+      </article>
+
+      <!-- Automation -->
+      <article class="fcard tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-bolt"/></svg>الأتمتة</p>
+          <h3>متابعات تعمل وحدها</h3>
+          <p>عند حدث معيّن، نفّذ سلسلة خطوات بدون تدخل.</p>
+        </div>
+        <div class="fv fv-auto" aria-hidden="true">
+          <p class="an an-t"><svg><use href="#i-cart"/></svg>سلة متروكة</p>
+          <p class="an"><svg><use href="#i-clock"/></svg>انتظار ساعة</p>
+          <p class="an an-w"><svg><use href="#i-wa"/></svg>إرسال قالب تذكير</p>
+        </div>
+      </article>
+
+      <!-- Pipeline -->
+      <article class="fcard tint-mint">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-list"/></svg>مراحل العملاء</p>
+          <h3>اعرف أين يقف كل عميل</h3>
+          <p>مراحل بأسماء عملك، مرتبطة بالمحادثات.</p>
+        </div>
+        <div class="fv fv-pipe" aria-hidden="true">
+          <div><p>جديد</p><i></i><i></i></div>
+          <div><p>مؤهَّل</p><i class="hot"></i><i></i></div>
+          <div><p>تم ✓</p><i></i></div>
+        </div>
+      </article>
+
+      <!-- Reports -->
+      <article class="fcard tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-chart"/></svg>التقارير</p>
+          <h3>المحادثات والفريق والحملات بالأرقام</h3>
+          <p>محادثات فُتحت وحُلّت، وزمن أول رد، وأداء كل عضو، ونتائج الحملات والأتمتة.</p>
+        </div>
+        <div class="fv fv-rep" aria-hidden="true">
+          <div class="rp-k"><small>زمن أول رد</small><b>4:12 <span>دقيقة</span></b></div>
+          <div class="rp-k"><small>محادثات حُلّت</small><b>1,097</b></div>
+          <div class="rp-bars"><i style="--h:45%"></i><i style="--h:58%"></i><i style="--h:50%"></i><i style="--h:70%"></i><i style="--h:64%"></i><i style="--h:82%"></i><i class="last" style="--h:94%"></i></div>
+        </div>
+      </article>
+
+      <!-- Integrations -->
+      <article class="fcard fc-full fc-row tint-sky">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-code"/></svg>التكاملات و API</p>
+          <h3>يتصل بأدواتك، وبأي نظام آخر</h3>
+          <p>قنوات Meta، ومتجرك، وأدوات Google، وعقدة موثّقة في n8n، و API مفتوح.</p>
+        </div>
+        <div class="fv fv-int" aria-hidden="true">
+          <i><svg class="c-wa"><use href="#i-wa"/></svg></i><i><svg class="c-ig"><use href="#i-ig"/></svg></i><i><svg class="c-ms"><use href="#i-ms"/></svg></i><i><svg class="c-shop"><use href="#i-shopify"/></svg></i><i><svg class="c-woo"><use href="#i-woo"/></svg></i><i><img src="/img/easyorders.png" width="22" height="22" alt=""></i><i><svg class="c-sheet"><use href="#i-sheets"/></svg></i><i><svg class="c-meet"><use href="#i-meet"/></svg></i><i class="wide"><svg class="c-n8n"><use href="#i-n8n"/></svg>n8n</i><i class="wide mono">API</i>
+        </div>
+      </article>
+    </div>
+    <p class="review-tag">رسوم توضيحية مبنية بأسماء الخصائص الحقيقية · الأرقام داخلها أمثلة · أكّد آلية تأكيد طلبات COD كما هي في المنتج (P4)</p>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="sec compare" id="compare" aria-labelledby="cmp-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">مقارنة كاملة</p>
+      <h2 id="cmp-title" class="h2">كل الحدود والمزايا، جنبًا إلى جنب.</h2>
+    </div>
+
+    <div class="cmp-switch" role="tablist" aria-label="اختر خطة للعرض">
+      <button type="button" role="tab" data-plan="1" aria-selected="false" lang="en">Free</button>
+      <button type="button" role="tab" data-plan="2" aria-selected="true" lang="en">Pro</button>
+      <button type="button" role="tab" data-plan="3" aria-selected="false" lang="en">Business</button>
+    </div>
+
+    <CompareTable />
+    <p class="review-tag">المزايا ليست مقيّدة بالخطة في الكود، والحدود فقط هي المختلفة · أكّد أن هذا صحيح للخطة المجانية (P2)</p>
+  </div>
+</section>
+
+<!-- ============ USAGE ============ -->
+<section class="sec usage" aria-labelledby="use-title">
+  <div class="wrap usage-grid">
+    <div class="usage-copy">
+      <p class="eyebrow">كيف تُحسب الحدود</p>
+      <h2 id="use-title" class="h2">ترى استهلاكك دائمًا، ولا مفاجآت.</h2>
+      <ul class="ticks ticks-light">
+        <li>الحدود على مستوى المؤسسة، وتُجمع من كل مساحات العمل.</li>
+        <li>الحدود الشهرية تبدأ من جديد مع كل شهر.</li>
+        <li>عند الاقتراب من الحد يظهر لك تنبيه داخل لوحة التحكم.</li>
+        <li>تقدر تغيّر خطتك في أي وقت، وعند الإلغاء يعود حسابك للخطة المجانية.</li>
+      </ul>
+    </div>
+    <div class="meter-card" aria-label="مثال لاستهلاك الخطة المجانية">
+      <p class="mc-h"><b>استهلاك هذا الشهر</b><span lang="en">Free</span></p>
+      <div class="meter"><p><span>رسائل واتساب</span><b>640 / 1,000</b></p><i style="--w:64%"></i></div>
+      <div class="meter"><p><span>جهات الاتصال</span><b>812 / 1,000</b></p><i class="warn" style="--w:81%"></i></div>
+      <div class="meter"><p><span>رصيد AI</span><b>37 / 100</b></p><i style="--w:37%"></i></div>
+      <div class="meter"><p><span>الحملات</span><b>2 / 5</b></p><i style="--w:40%"></i></div>
+      <p class="mc-note">جهات الاتصال تقترب من الحد. <a href="#plans">رقِّ إلى Pro</a></p>
+      <span class="demo-flag">مثال توضيحي</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING FAQ ============ -->
+<section class="sec faq" id="faq" aria-labelledby="pfaq-title">
+  <div class="wrap faq-grid">
+    <h2 id="pfaq-title" class="h2">أسئلة عن الأسعار</h2>
+    <div class="faq-list">
+      <details>
+        <summary>هل الخطة المجانية مجانية فعلًا؟</summary>
+        <p>نعم. الخطة المجانية دائمة ولا تحتاج بطاقة دفع، وفيها كل مزايا ORQO بحدود استخدام أصغر.</p>
+      </details>
+      <details>
+        <summary>ماذا يحدث عندما أصل إلى حد الاستخدام؟</summary>
+        <p>يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو ترقّي خطتك.</p>
+      </details>
+      <details>
+        <summary>هل الحدود لكل مساحة عمل؟</summary>
+        <p>الحدود على مستوى المؤسسة. استهلاك كل مساحات العمل التابعة لها يُجمع معًا.</p>
+      </details>
+      <details>
+        <summary>هل تشمل الأسعار رسوم Meta على رسائل واتساب؟</summary>
+        <p>رسوم Meta على محادثات واتساب منفصلة عن اشتراك ORQO، وتُحتسب حسب تسعير Meta لكل دولة ونوع رسالة.</p>
+        <p class="review-tag">أكّد طريقة احتساب رسوم Meta ومن يدفعها (P3)</p>
+      </details>
+      <details>
+        <summary>بأي عملة أدفع؟</summary>
+        <p>الأسعار بالدولار الأمريكي، ويظهر لزوار مصر سعر تقريبي بالجنيه المصري. يتم الدفع بالبطاقة عبر بوابة دفع آمنة.</p>
+      </details>
+      <details>
+        <summary>هل أستطيع الإلغاء في أي وقت؟</summary>
+        <p>نعم. عند الإلغاء أو انتهاء الاشتراك يعود حسابك تلقائيًا إلى الخطة المجانية، وتبقى بياناتك كما هي.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final band-deep" aria-labelledby="pf-title">
+  <div class="wrap final-inner">
+    <svg class="final-arc" viewBox="0 0 120 40" aria-hidden="true"><use href="#arc"/></svg>
+    <h2 id="pf-title" class="display-2">جرّب ORQO اليوم،<br>مجانًا.</h2>
+    <p class="body-lg">اربط رقم واتساب، وجهّز وكيلك الأول، وادعُ فريقك. وحين تحتاج أكثر، رقِّ خطتك بضغطة.</p>
+    <div class="cta-row">
+      <a class="btn btn-mint btn-lg" href={site.signupUrl}>ابدأ مجانًا <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost-deep btn-lg" href="/contact">تحدث مع المبيعات</a>
+    </div>
+  </div>
+</section>
+</Base>

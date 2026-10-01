@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+---
+<Base
+  title="تواصل مع ORQO"
+  description="تواصل مع فريق ORQO للمبيعات أو الدعم الفني أو الشراكات عبر البريد الإلكتروني أو واتساب أو الهاتف."
+  page="contact"
+>
+<section class="page-hero contact-hero" aria-labelledby="ct-title">
+  <div class="wrap page-hero-inner">
+    <p class="eyebrow"><span class="dot"></span>تواصل معنا</p>
+    <h1 id="ct-title" class="display-3">تحدث مع فريق <span lang="en">ORQO</span>.</h1>
+    <p class="body-lg">سؤال عن الخطط، أو عرض توضيحي لفريقك، أو مساعدة في الربط. اختر الطريقة الأنسب لك، ونرد عليك في أقرب وقت.</p>
+  </div>
+</section>
+
+<section class="contact-sec" aria-label="طرق التواصل">
+  <div class="wrap contact-grid">
+
+    <div class="channels">
+      <article class="chan chan-wa">
+        <span class="chan-ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
+        <div class="chan-body">
+          <h2>واتساب</h2>
+          <p>أسرع طريقة للوصول إلينا، للمبيعات والدعم.</p>
+          <p class="chan-val" dir="ltr">+20 1X XXXX XXXX</p>
+        </div>
+        <div class="chan-acts">
+          <a class="btn btn-primary btn-sm" href={site.whatsappUrl}>راسلنا على واتساب</a>
+          <button type="button" class="copy-btn" data-copy="+20 1X XXXX XXXX" aria-label="نسخ رقم واتساب"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </div>
+        <span class="review-tag">مطلوب: رقم واتساب الأعمال (C1)</span>
+      </article>
+
+      <article class="chan">
+        <span class="chan-ico chan-ico-ink"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <div class="chan-body">
+          <h2>البريد الإلكتروني</h2>
+          <p>للاستفسارات العامة وطلبات التكامل والشراكات.</p>
+          <p class="chan-val" dir="ltr">{site.email}</p>
+        </div>
+        <div class="chan-acts">
+          <a class="btn btn-ghost btn-sm" href={`mailto:${site.email}`}>أرسل بريدًا</a>
+          <button type="button" class="copy-btn" data-copy={site.email} aria-label="نسخ البريد الإلكتروني"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </div>
+      </article>
+
+      <article class="chan">
+        <span class="chan-ico chan-ico-ink"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <div class="chan-body">
+          <h2>الهاتف</h2>
+          <p>مصر والسعودية، في ساعات العمل.</p>
+          <p class="chan-val" dir="ltr">+20 XX XXXX XXXX</p>
+          <p class="chan-val" dir="ltr">+966 XX XXX XXXX</p>
+        </div>
+        <div class="chan-acts">
+          <button type="button" class="copy-btn" data-copy="+20 XX XXXX XXXX" aria-label="نسخ رقم الهاتف"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </div>
+        <span class="review-tag">مطلوب: أرقام الهاتف وساعات العمل (C2)</span>
+      </article>
+
+      <article class="chan chan-demo">
+        <span class="chan-ico chan-ico-mint"><svg aria-hidden="true"><use href="#i-meet"/></svg></span>
+        <div class="chan-body">
+          <h2>عرض توضيحي مباشر</h2>
+          <p>30 دقيقة على Google Meet نشرح فيها ORQO على حالة عملك.</p>
+        </div>
+        <div class="chan-acts">
+          <a class="btn btn-ghost btn-sm" href={site.demoUrl}>احجز موعدًا</a>
+        </div>
+        <span class="review-tag">مطلوب: رابط الحجز (C3)</span>
+      </article>
+
+      <div class="social-block">
+        <p class="list-label-ink">تابعنا</p>
+        <ul class="socials socials-lg">
+          <li><a href={site.social.facebook}><svg aria-hidden="true"><use href="#i-fb"/></svg><span>فيسبوك</span></a></li>
+          <li><a href={site.social.instagram}><svg aria-hidden="true"><use href="#i-ig"/></svg><span>إنستجرام</span></a></li>
+          <li><a href={site.social.linkedin}><svg aria-hidden="true"><use href="#i-li"/></svg><span>لينكدإن</span></a></li>
+          <li><a href={site.social.x}><svg aria-hidden="true"><use href="#i-xx"/></svg><span>إكس</span></a></li>
+          <li><a href={site.social.youtube}><svg aria-hidden="true"><use href="#i-yt"/></svg><span>يوتيوب</span></a></li>
+          <li><a href={site.social.tiktok}><svg aria-hidden="true"><use href="#i-tt"/></svg><span>تيك توك</span></a></li>
+        </ul>
+        <span class="review-tag">مطلوب: روابط الحسابات (C4)</span>
+      </div>
+    </div>
+
+    <form class="cform" id="contact-form" novalidate data-endpoint={site.contactEndpoint} aria-labelledby="cf-title">
+      <h2 id="cf-title" class="h3">أرسل لنا رسالة</h2>
+      <div class="cf-row">
+        <label for="cf-name">الاسم<input id="cf-name" name="name" type="text" autocomplete="name" required></label>
+        <label for="cf-company">الشركة<input id="cf-company" name="company" type="text" autocomplete="organization"></label>
+      </div>
+      <div class="cf-row">
+        <label for="cf-email">البريد الإلكتروني<input id="cf-email" name="email" type="email" autocomplete="email" dir="ltr" required></label>
+        <label for="cf-phone">رقم واتساب<input id="cf-phone" name="phone" type="tel" autocomplete="tel" dir="ltr" placeholder="+20"></label>
+      </div>
+      <fieldset class="cf-topics">
+        <legend>بخصوص</legend>
+        <label><input type="radio" name="topic" id="cf-t1" value="sales" checked><span>المبيعات والخطط</span></label>
+        <label><input type="radio" name="topic" id="cf-t2" value="demo"><span>عرض توضيحي</span></label>
+        <label><input type="radio" name="topic" id="cf-t3" value="support"><span>دعم فني</span></label>
+        <label><input type="radio" name="topic" id="cf-t4" value="partners"><span>شراكات وتكامل</span></label>
+      </fieldset>
+      <label for="cf-msg">رسالتك<textarea id="cf-msg" name="message" rows="5" required placeholder="أخبرنا عن عملك وما تحتاجه"></textarea></label>
+      <button type="submit" class="btn btn-primary btn-lg">أرسل الرسالة <svg aria-hidden="true"><use href="#i-send"/></svg></button>
+      <p class="cf-status" role="status" hidden></p>
+      <span class="review-tag">النموذج غير متصل بعد · حدد وجهة الإرسال (C5)</span>
+    </form>
+  </div>
+</section>
+
+<section class="sec contact-meta" aria-label="عن ORQO">
+  <div class="wrap cm-grid">
+    <div class="meta-cred meta-cred-lg">
+      <svg class="mc-logo" aria-hidden="true"><use href="#i-meta"/></svg>
+      <div>
+        <p class="mc-k" lang="en">Meta Tech Provider</p>
+        <p class="mc-v">ORQO مسجّل كمزوّد تقني لدى Meta. نساعدك تربط رقم واتساب أعمالك وصفحاتك على إنستجرام وماسنجر من خلال الربط الرسمي.</p>
+      </div>
+    </div>
+    <dl class="biz-info">
+      <div><dt>ساعات العمل</dt><dd>الأحد إلى الخميس، 9 صباحًا حتى 6 مساءً</dd></div>
+      <div><dt>المقر</dt><dd>القاهرة، مصر</dd></div>
+      <div><dt>اللغات</dt><dd>العربية والإنجليزية</dd></div>
+    </dl>
+    <p class="review-tag">مطلوب: ساعات العمل والعنوان الفعليان (C2)</p>
+  </div>
+</section>
+</Base>

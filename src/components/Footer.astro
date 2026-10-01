@@ -1,0 +1,30 @@
+---
+import { site } from '../config/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo"/></svg>
+      <p>مساحة عمل واحدة لمحادثات عملائك وفريقك والذكاء الاصطناعي.</p>
+      <span class="meta-badge meta-badge-sm"><svg class="mb-logo" aria-hidden="true"><use href="#i-meta"/></svg><span><b lang="en">Meta Tech Provider</b></span></span>
+      <ul class="socials" aria-label="حسابات ORQO">
+        <li><a href={site.social.facebook} aria-label="فيسبوك"><svg aria-hidden="true"><use href="#i-fb"/></svg></a></li>
+        <li><a href={site.social.instagram} aria-label="إنستجرام"><svg aria-hidden="true"><use href="#i-ig"/></svg></a></li>
+        <li><a href={site.social.linkedin} aria-label="لينكدإن"><svg aria-hidden="true"><use href="#i-li"/></svg></a></li>
+        <li><a href={site.social.x} aria-label="إكس"><svg aria-hidden="true"><use href="#i-xx"/></svg></a></li>
+        <li><a href={site.social.youtube} aria-label="يوتيوب"><svg aria-hidden="true"><use href="#i-yt"/></svg></a></li>
+        <li><a href={site.social.tiktok} aria-label="تيك توك"><svg aria-hidden="true"><use href="#i-tt"/></svg></a></li>
+      </ul>
+    </div>
+    <nav class="foot-cols" aria-label="روابط التذييل">
+      <div><p>المنصة</p><a href="/#problem">صندوق الوارد</a><a href="/#journey">الوكلاء الأذكياء</a><a href="/#contacts">جهات الاتصال و CRM</a><a href="/#automation">الأتمتة</a><a href="/#campaigns">الحملات</a><a href="/#reports">التقارير</a></div>
+      <div><p>الاستخدامات</p><a href="/#industries">عيادات</a><a href="/#industries">تعليم وتدريب</a><a href="/#industries">عقارات</a><a href="/#industries">سفر وسياحة</a><a href="/#industries">متاجر إلكترونية</a></div>
+      <div><p>الشركة</p><a href="/pricing">الأسعار</a><a href="/contact">تواصل معنا</a><a href="/#developers">للمطورين و API</a><a href="/privacy" data-page="privacy">سياسة الخصوصية</a><a href="/terms" data-page="terms">الشروط والأحكام</a></div>
+    </nav>
+  </div>
+  <div class="wrap"><div class="foot-base">
+    <p>© {year} <span lang="en">ORQO</span> · <a href={`mailto:${site.email}`} dir="ltr">{site.email}</a></p>
+    <a class="lang" href={site.englishUrl} hreflang="en" lang="en">English</a>
+  </div></div>
+</footer>

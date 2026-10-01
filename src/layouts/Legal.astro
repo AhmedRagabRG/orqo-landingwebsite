@@ -1,0 +1,46 @@
+---
+import Base from './Base.astro';
+import { getEntry, render } from 'astro:content';
+
+interface Props {
+  slug: 'privacy' | 'terms';
+}
+const entry = await getEntry('legal', Astro.props.slug);
+if (!entry) throw new Error(`Missing legal page: ${Astro.props.slug}`);
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2);
+const { title, description, scope, updated, draft, summary } = entry.data;
+const updatedText = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' }).format(updated);
+---
+<Base title={`${title} — ORQO`} description={description} page={Astro.props.slug}>
+  <section class="page-hero legal-hero" aria-labelledby="lg-title">
+    <div class="wrap page-hero-inner">
+      <p class="eyebrow"><span class="dot"></span>قانوني</p>
+      <h1 id="lg-title" class="display-3">{title}</h1>
+      <p class="legal-meta">آخر تحديث: {updatedText} · {scope}</p>
+      {draft && <p class="review-tag legal-draft">مسودة للمراجعة القانونية · لا تُنشر قبل مراجعة محامٍ واستكمال البيانات المظللة (L1)</p>}
+    </div>
+  </section>
+
+  <section class="legal-sec">
+    <div class="wrap legal-grid">
+      <nav class="legal-toc" aria-label="محتويات الصفحة">
+        <p>المحتويات</p>
+        <ol>
+          {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+        </ol>
+      </nav>
+      <article class="legal-body">
+        {summary.length > 0 && (
+          <aside class="legal-sum" aria-label="باختصار">
+            <p class="ls-h">باختصار</p>
+            <ul>{summary.map((s) => <li>{s}</li>)}</ul>
+          </aside>
+        )}
+        <div class="legal-prose">
+          <Content />
+        </div>
+      </article>
+    </div>
+  </section>
+</Base>

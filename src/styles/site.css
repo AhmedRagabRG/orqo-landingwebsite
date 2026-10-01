@@ -1,0 +1,28 @@
+/* Astro-site additions on top of the prototype stylesheet (landing.css). */
+
+/* Legal pages render from Markdown: numbered h2 badges via CSS counters. */
+.legal-prose { counter-reset: lsec; }
+.legal-prose > * + * { margin-top: 14px; }
+.legal-prose h2 { counter-increment: lsec; display: flex; align-items: center; gap: 12px; font-size: var(--t-lg); font-weight: 500; color: var(--ink); line-height: 1.4; margin-top: 44px; scroll-margin-top: calc(var(--head-h) + 20px); }
+.legal-prose h2:first-child { margin-top: 0; }
+.legal-prose h2::before { content: counter(lsec); width: 32px; height: 32px; flex: none; border-radius: 10px; background: var(--mint-soft); color: var(--mint-ink); display: grid; place-items: center; font-family: var(--mono); font-size: var(--t-xs); }
+.legal-prose p, .legal-prose li { color: var(--ink-2); line-height: 1.95; }
+.legal-prose ul { display: grid; gap: 8px; }
+.legal-prose ul li { position: relative; padding-inline-start: 20px; }
+.legal-prose ul li::before { content: ""; position: absolute; inset-inline-start: 2px; top: .85em; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
+.legal-prose strong { color: var(--ink); font-weight: 500; }
+.legal-prose a { color: var(--mint-ink); }
+.legal-prose table { display: block; overflow-x: auto; width: 100%; border: 1px solid var(--line); border-radius: var(--radius); border-collapse: separate; border-spacing: 0; font-size: var(--t-sm); }
+.legal-prose th { text-align: start; background: var(--paper-2); color: var(--ink-3); font-weight: 400; padding: 10px 16px; }
+.legal-prose td { padding: 10px 16px; border-top: 1px solid var(--line); color: var(--ink-2); }
+.legal-prose td:first-child { color: var(--ink); font-weight: 500; white-space: nowrap; }
+.legal-body { gap: 32px; }
+.legal-sum { margin-bottom: 8px; }
+.legal-sum ul { list-style: none; display: grid; gap: 8px; }
+.legal-sum ul li { position: relative; padding-inline-start: 20px; line-height: 1.9; }
+.legal-sum ul li::before { content: ""; position: absolute; inset-inline-start: 2px; top: .85em; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
+/* Drafts: hide the review notice outside review mode */
+body:not(.review-on) .legal-draft { display: none; }
+
+/* let wide tables scroll inside the article instead of widening the page */
+.legal-body, .legal-prose { min-width: 0; }

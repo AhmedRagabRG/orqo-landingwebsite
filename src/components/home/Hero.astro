@@ -1,0 +1,46 @@
+---
+import { site } from '../../config/site';
+import { getImage } from 'astro:assets';
+import inboxBooked from '../../assets/inbox-booked.webp';
+import inboxList from '../../assets/inbox-list.webp';
+const desktop = await getImage({ src: inboxBooked, widths: [800, 1200, 1656], format: 'webp' });
+const mobile = await getImage({ src: inboxList, width: 354, format: 'webp' });
+---
+<section class="hero hero-c" aria-labelledby="hero-title">
+  <div class="wrap hc-copy">
+    <span class="hc-badge"><svg class="mb-logo" aria-hidden="true"><use href="#i-meta"/></svg><b lang="en">Meta Tech Provider</b><span>ربط رسمي مع واتساب</span></span>
+    <h1 id="hero-title" class="hc-title">
+      <span class="hc-l1">محادثات عملائك في مساحة واحدة.</span>
+      <span class="hc-l2">ذكاء <span class="arc-word">يرد<svg class="arc-under" aria-hidden="true"><use href="#arc"/></svg></span>، وفريق يكمّل.</span>
+    </h1>
+    <p class="hc-lead">واتساب وإنستجرام وماسنجر في صندوق وارد واحد، مع ملف لكل عميل، وحملات واتساب، وأتمتة لشغلك المتكرر، ووكيل ذكاء اصطناعي يرد ويسلّم لفريقك حين يلزم.</p>
+    <div class="hc-ctas">
+      <a class="btn btn-mint btn-lg" href={site.signupUrl}>ابدأ مجانًا <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost-deep btn-lg" href="/contact"><svg aria-hidden="true"><use href="#i-meet"/></svg> احجز عرضًا توضيحيًا</a>
+    </div>
+    <ul class="hc-ticks">
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>خطة مجانية دائمة</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>بدون بطاقة دفع</li>
+      <li><svg aria-hidden="true"><use href="#i-check"/></svg>عربي بالكامل</li>
+    </ul>
+  </div>
+
+  <div class="wrap">
+    <figure class="hc-shot">
+      <div class="hc-frame">
+        <picture>
+          <source media="(max-width: 720px)" srcset={mobile.src} width={mobile.attributes.width} height={mobile.attributes.height}>
+          <img src={desktop.src} srcset={desktop.srcSet.attribute} sizes="(max-width: 1180px) 92vw, 1100px" width="1656" height="1017" alt="صندوق وارد ORQO: قائمة محادثات من واتساب وإنستجرام وماسنجر، ومحادثة منى عادل مع الوكيل الذكي ثم الموظف، وملف العميلة بجانبها." fetchpriority="high" decoding="async">
+        </picture>
+      </div>
+
+      <div class="hc-float hf-wa"><span class="ch-ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>منى عادل</b><small>بكام الاستشارة؟</small></span></div>
+      <div class="hc-float hf-ig"><span class="ch-ico"><svg aria-hidden="true"><use href="#i-ig"/></svg></span><span><b>سلمى حسن</b><small>المجموعة الجديدة متاحة؟</small></span></div>
+      <div class="hc-float hf-ms hf-camp"><span class="ch-ico"><svg aria-hidden="true"><use href="#i-send"/></svg></span><span><b>حملة واتساب مجدولة</b><small>عملاء مهتمون · الخميس 6 م</small></span></div>
+      <div class="hc-float hf-ai"><span class="mini-av av-ai"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span><b>ليلى · وكيل ذكي</b><small>ردّت وسجّلت الاسم والهاتف</small></span></div>
+      <div class="hc-float hf-hand"><span class="f-assign-txt"><s>ليلى · AI</s><span class="arrow-l">←</span><b lang="en">Ahmed Ragab</b></span></div>
+      <div class="hc-float hf-sum"><p class="f-title"><svg aria-hidden="true"><use href="#i-note"/></svg>ملخص المحادثة</p><p>مهتمة باستشارة بـ500 جنيه، وتفضّل الخميس بعد 6 مساءً.</p></div>
+      <figcaption class="review-tag">لقطة حقيقية · حالة Booked من بيئة العرض</figcaption>
+    </figure>
+  </div>
+</section>

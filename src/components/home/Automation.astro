@@ -1,0 +1,35 @@
+<section class="sec automation" id="automation" aria-labelledby="auto-title">
+  <div class="wrap auto-grid">
+    <div class="auto-copy">
+      <p class="eyebrow">الأتمتة</p>
+      <h2 id="auto-title" class="h2">اترك المهام المتكررة تعمل وحدها.</h2>
+      <p class="body-lg">رد خارج ساعات العمل، متابعة بعد يومين، وسم للعميل المهتم، تعيين للموظف المناسب. تبنيها مرة واحدة، وتعمل في كل مرة.</p>
+      <dl class="outcomes">
+        <div><dt>رد أسرع</dt><dd>لا رسالة تنتظر حتى يفتح أحد التطبيق.</dd></div>
+        <div><dt>متابعة لا تُنسى</dt><dd>تذكير ورسالة متابعة في موعدها.</dd></div>
+        <div><dt>توزيع صحيح</dt><dd>كل محادثة تصل للشخص المناسب.</dd></div>
+        <div><dt>فرص أقل تضيع</dt><dd>العميل الصامت يعود إلى المحادثة.</dd></div>
+      </dl>
+      <p class="triggers"><span>تبدأ الأتمتة عند:</span> رسالة جديدة · جهة اتصال جديدة · إضافة وسم · إرسال حملة · طلب جديد من المتجر · سلة متروكة · Webhook</p>
+    </div>
+
+    <figure class="flow" aria-label="مثال لأتمتة: عند استلام رسالة خارج ساعات العمل يرد الوكيل الذكي، وإلا تُعيَّن لموظف، ثم انتظار يومين وإرسال قالب متابعة.">
+      <svg class="flow-lines" viewBox="0 0 520 600" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M260 78 V 150"/>
+        <path d="M260 214 C 260 250, 140 240, 140 282"/>
+        <path d="M260 214 C 260 250, 380 240, 380 282"/>
+        <path d="M140 346 C 140 390, 260 380, 260 420"/>
+        <path d="M380 346 C 380 390, 260 380, 260 420"/>
+        <path d="M260 484 V 520"/>
+      </svg>
+      <div class="fnode fn-trigger" style="--x:50%;--y:2%;--d:0"><span class="fi"><svg aria-hidden="true"><use href="#i-bolt"/></svg></span><span><small>المُشغِّل</small><b>استلام رسالة</b></span></div>
+      <div class="fnode fn-cond" style="--x:50%;--y:25%;--d:1"><span class="fi"><svg aria-hidden="true"><use href="#i-split"/></svg></span><span><small>شرط (إذا/وإلا)</small><b>خارج ساعات العمل؟</b></span></div>
+      <span class="fyes" style="--x:27%;--y:41%">نعم</span><span class="fno" style="--x:73%;--y:41%">لا</span>
+      <div class="fnode fn-ai" style="--x:27%;--y:47%;--d:2"><span class="fi"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span><small>رد AI</small><b>الوكيل يرد ويسجّل</b></span></div>
+      <div class="fnode fn-assign" style="--x:73%;--y:47%;--d:2"><span class="fi"><svg aria-hidden="true"><use href="#i-user"/></svg></span><span><small>تعيين وكيل</small><b>فريق المبيعات</b></span></div>
+      <div class="fnode fn-wait" style="--x:50%;--y:70%;--d:3"><span class="fi"><svg aria-hidden="true"><use href="#i-clock"/></svg></span><span><small>انتظار / تأخير</small><b>يومان</b></span></div>
+      <div class="fnode fn-send" style="--x:50%;--y:87%;--d:4"><span class="fi wa"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><small>إرسال قالب</small><b>رسالة متابعة</b></span></div>
+      <figcaption class="review-tag">رسم توضيحي بأسماء العقد الحقيقية · لقطة منشئ الأتمتة اختيارية (A3)</figcaption>
+    </figure>
+  </div>
+</section>

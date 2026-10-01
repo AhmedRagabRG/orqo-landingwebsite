@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orqo.site/sitemap-index.xml

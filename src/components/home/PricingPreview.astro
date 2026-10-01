@@ -1,0 +1,24 @@
+---
+import { plans } from '../../data/plans';
+import PlanCard from '../pricing/PlanCard.astro';
+import BillingToggle from '../pricing/BillingToggle.astro';
+---
+<section class="sec pricing-preview" id="pricing" aria-labelledby="price-title">
+  <div class="wrap">
+    <div class="sec-head split-head">
+      <div>
+        <p class="eyebrow">الأسعار</p>
+        <h2 id="price-title" class="h2">ابدأ مجانًا، وادفع حين يكبر عملك.</h2>
+      </div>
+      <p class="body-lg">كل مزايا ORQO متاحة في كل الخطط. الفرق في حجم الاستخدام: الرسائل وجهات الاتصال وأعضاء الفريق ورصيد الذكاء الاصطناعي.</p>
+    </div>
+    <BillingToggle />
+    <div class="plans">
+      {plans.map((plan) => <PlanCard plan={plan} />)}
+    </div>
+    <div class="pricing-more">
+      <a class="link-arrow" href="/pricing">قارن كل الخطط والحدود والمزايا <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <p class="review-tag">الأسعار والحدود من كتالوج الخطط التجريبي في الكود (PlanSeeder) · أكّد القيم الفعلية (P1)</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Orqo">
+  <title>Orqo</title>
+  <!-- Ring: a stroked circle, so the counter stays a true hole. -->
+  <circle cx="256" cy="250" r="148" fill="none" stroke="#054F56" stroke-width="68"/>
+  <!-- Tail: laid over the ring's lower right, forming the Q. -->
+  <path d="M241 398C243 338 276 302 319 309C346 314 351 369 358 396C365 371 379 347 401 350C421 353 433 390 441 417C447 441 425 455 400 452C351 449 302 452 269 439C247 431 237 417 241 398Z" fill="#60CFC3"/>
+</svg>

@@ -1,0 +1,33 @@
+---
+import { site } from '../config/site';
+import { nav } from '../data/nav';
+const path = Astro.url.pathname.replace(/\.html$/, '');
+const isCurrent = (href: string) => !href.includes('#') && href === path;
+---
+<header class="site-head" id="top">
+  <div class="wrap head-row">
+    <a class="brand" href="/" aria-label="ORQO — الصفحة الرئيسية">
+      <svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo"/></svg>
+    </a>
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      {nav.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
+    </nav>
+    <div class="head-actions">
+      <a class="lang" href={site.englishUrl} hreflang="en" lang="en">EN</a>
+      <a class="link-quiet" href={site.loginUrl}>تسجيل الدخول</a>
+      <a class="btn btn-primary btn-sm" href={site.signupUrl}>ابدأ مجانًا</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة">
+        <svg aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <nav class="wrap" aria-label="التنقل على الجوال">
+      {nav.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
+      <div class="mobile-nav-cta">
+        <a class="btn btn-primary" href={site.signupUrl}>ابدأ مجانًا</a>
+        <a class="btn btn-ghost" href={site.loginUrl}>تسجيل الدخول</a>
+      </div>
+    </nav>
+  </div>
+</header>

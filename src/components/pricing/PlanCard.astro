@@ -1,0 +1,33 @@
+---
+import { site } from '../../config/site';
+import { perMonth, type Plan } from '../../data/plans';
+
+interface Props {
+  plan: Plan;
+  /** Pricing page version: full feature list and the monthly/yearly sub-line. */
+  full?: boolean;
+}
+const { plan, full = false } = Astro.props;
+const free = plan.monthly === 0;
+const Heading = full ? 'h2' : 'h3';
+---
+<article class:list={['plan', { 'plan-rec': plan.recommended }]}>
+  {plan.recommended && <span class="plan-flag">{plan.recommended}</span>}
+  <header class="plan-h"><Heading lang="en">{plan.name}</Heading><p>{plan.tagline}</p></header>
+  {free ? (
+    <p class="price"><b>0$</b><span>للأبد</span></p>
+  ) : (
+    <p class="price">
+      <b data-m={`${plan.monthly}$`} data-y={`${plan.yearly}$`}>{plan.monthly}$</b>
+      <span data-m="شهريًا" data-y="سنويًا">شهريًا</span>
+    </p>
+  )}
+  {full && (free
+    ? <p class="price-sub">بدون بطاقة دفع</p>
+    : <p class="price-sub" data-m={`أو ${plan.yearly}$ سنويًا`} data-y={`يعادل ${perMonth(plan.yearly)} شهريًا`}>أو {plan.yearly}$ سنويًا</p>)}
+  <a class={`btn btn-${plan.cta.style}`} href={site.signupUrl}>{plan.cta.label}</a>
+  {full && <p class="plan-inc">{plan.includesLabel}</p>}
+  <ul class="plan-list">
+    {(full ? plan.features : plan.highlights).map((f) => <li set:html={f} />)}
+  </ul>
+</article>
