@@ -142,13 +142,13 @@
     $$('.legal-body section[id], .legal-prose h2[id]').forEach(function (sec) { tio.observe(sec); });
   }
 
-  /* ---------- campaigns band: numbered steps drive the phone ---------- */
+  /* ---------- campaigns: numbered steps drive the composer window ---------- */
   var cbGrid = $('.cb-grid');
   if (cbGrid) {
     var cbBtns = $$('.cb-step', cbGrid), cbStep = 1, cbTimer = null, cbTouched = false;
     var cbSet = function (n) {
       cbStep = n; cbGrid.dataset.step = String(n);
-      cbBtns.forEach(function (b) { b.setAttribute('aria-expanded', String(Number(b.dataset.go) === n)); });
+      cbBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(Number(b.dataset.go) === n)); });
     };
     cbBtns.forEach(function (b) {
       b.addEventListener('click', function () { cbTouched = true; clearInterval(cbTimer); cbSet(Number(b.dataset.go)); });
@@ -159,25 +159,34 @@
     }, { threshold: 0.4 });
   }
 
-  /* ---------- FAQ tabs ---------- */
-  var fTabs = $$('.faqx-tabs [role="tab"]');
-  function fSelect(tab, focus) {
-    fTabs.forEach(function (t) {
-      var on = t === tab;
-      t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
-      var panel = document.getElementById(t.getAttribute('aria-controls'));
-      if (panel) panel.hidden = !on;
+  /* ---------- tabs (FAQ topics, industries inbox) ---------- */
+  $$('[data-tabs]').forEach(function (list) {
+    var tabs = $$('[role="tab"]', list);
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = tabs.length, j = null;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') j = (i + 1) % n;
+        else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') j = (i - 1 + n) % n;
+        else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1;
+        if (j !== null) { e.preventDefault(); select(tabs[j], true); }
+      });
     });
-    if (focus) tab.focus();
-  }
-  fTabs.forEach(function (t, i) {
-    t.addEventListener('click', function () { fSelect(t); });
-    t.addEventListener('keydown', function (e) {
-      var n = fTabs.length, j = null;
-      if (e.key === 'ArrowLeft') j = (i + 1) % n; else if (e.key === 'ArrowRight') j = (i - 1 + n) % n;
-      else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = n - 1;
-      if (j !== null) { e.preventDefault(); fSelect(fTabs[j], true); }
-    });
+  });
+
+  /* ---------- reveal-on-scroll (closing chat) ---------- */
+  $$('[data-reveal]').forEach(function (el) {
+    if (reduce) { el.classList.add('is-in'); return; }
+    inView(el, function (vis) { if (vis) el.classList.add('is-in'); }, { threshold: 0.35 });
   });
 
   /* ---------- problem: before / after ---------- */

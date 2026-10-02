@@ -1,23 +1,20 @@
 ---
 import Base from '../layouts/Base.astro';
-import { site } from '../config/site';
 import { plans } from '../data/plans';
 import PlanCard from '../components/pricing/PlanCard.astro';
 import BillingToggle from '../components/pricing/BillingToggle.astro';
 import CompareTable from '../components/pricing/CompareTable.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import SectionHead from '../components/ui/SectionHead.astro';
+import Faq from '../components/ui/Faq.astro';
+import { pricingFaq } from '../data/faq';
 ---
 <Base
   title="أسعار ORQO — ابدأ مجانًا"
   description="خطط ORQO: خطة مجانية دائمة بدون بطاقة دفع، وخطط Pro و Business. كل المزايا في كل الخطط، والفرق في حجم الاستخدام."
   page="pricing"
 >
-<section class="page-hero" aria-labelledby="ph-title">
-  <div class="wrap page-hero-inner">
-    <p class="eyebrow"><span class="dot"></span>الأسعار</p>
-    <h1 id="ph-title" class="display-3">ابدأ مجانًا.<br><span class="mint-line">وادفع حين يكبر عملك.</span></h1>
-    <p class="body-lg">كل مزايا ORQO متاحة في كل خطة، من صندوق الوارد إلى الوكلاء الأذكياء والحملات وتأكيد الطلبات. الفرق بين الخطط في حجم الاستخدام فقط.</p>
-  </div>
-</section>
+<PageHero chip="الأسعار" icon="i-cash" title="ابدأ مجانًا." accent="وادفع حين يكبر عملك." lead="كل مزايا ORQO متاحة في كل خطة، من صندوق الوارد إلى الوكلاء الأذكياء والحملات وتأكيد الطلبات. الفرق بين الخطط في حجم الاستخدام فقط." />
 
 <section class="plans-sec" id="plans" aria-label="الخطط">
   <div class="wrap">
@@ -35,13 +32,7 @@ import CompareTable from '../components/pricing/CompareTable.astro';
 <!-- ============ FEATURE SHOWCASE ============ -->
 <section class="sec showcase" id="features" aria-labelledby="sc-title">
   <div class="wrap">
-    <div class="sec-head split-head">
-      <div>
-        <p class="eyebrow">ماذا تحصل عليه في كل خطة</p>
-        <h2 id="sc-title" class="h2">منصة واحدة بدل خمس أدوات.</h2>
-      </div>
-      <p class="body-lg">من أول رسالة حتى تأكيد الطلب ومتابعة العميل، كل جزء من الرحلة داخل ORQO.</p>
-    </div>
+    <SectionHead id="sc-title" layout="split" chip="ماذا تحصل عليه في كل خطة" icon="i-layers" title="منصة واحدة" accent="بدل خمس أدوات." lead="من أول رسالة حتى تأكيد الطلب ومتابعة العميل، كل جزء من الرحلة داخل ORQO." />
 
     <div class="bento">
       <!-- COD -->
@@ -194,7 +185,7 @@ import CompareTable from '../components/pricing/CompareTable.astro';
       </article>
 
       <!-- Integrations -->
-      <article class="fcard fc-full fc-row tint-sky">
+      <article class="fcard fc-full fc-row tint-sky" id="integrations">
         <div class="fc-copy">
           <p class="fc-tag"><svg aria-hidden="true"><use href="#i-code"/></svg>التكاملات و API</p>
           <h3>يتصل بأدواتك، وبأي نظام آخر</h3>
@@ -212,10 +203,7 @@ import CompareTable from '../components/pricing/CompareTable.astro';
 <!-- ============ COMPARISON ============ -->
 <section class="sec compare" id="compare" aria-labelledby="cmp-title">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">مقارنة كاملة</p>
-      <h2 id="cmp-title" class="h2">كل الحدود والمزايا، جنبًا إلى جنب.</h2>
-    </div>
+    <SectionHead id="cmp-title" chip="مقارنة كاملة" icon="i-list" title="كل الحدود والمزايا،" accent="جنبًا إلى جنب." />
 
     <div class="cmp-switch" role="tablist" aria-label="اختر خطة للعرض">
       <button type="button" role="tab" data-plan="1" aria-selected="false" lang="en">Free</button>
@@ -232,8 +220,7 @@ import CompareTable from '../components/pricing/CompareTable.astro';
 <section class="sec usage" aria-labelledby="use-title">
   <div class="wrap usage-grid">
     <div class="usage-copy">
-      <p class="eyebrow">كيف تُحسب الحدود</p>
-      <h2 id="use-title" class="h2">ترى استهلاكك دائمًا، ولا مفاجآت.</h2>
+      <SectionHead id="use-title" layout="start" chip="كيف تُحسب الحدود" icon="i-chart" title="ترى استهلاكك دائمًا،" accent="ولا مفاجآت." />
       <ul class="ticks ticks-light">
         <li>الحدود على مستوى المؤسسة، وتُجمع من كل مساحات العمل.</li>
         <li>الحدود الشهرية تبدأ من جديد مع كل شهر.</li>
@@ -253,49 +240,5 @@ import CompareTable from '../components/pricing/CompareTable.astro';
   </div>
 </section>
 
-<!-- ============ PRICING FAQ ============ -->
-<section class="sec faq" id="faq" aria-labelledby="pfaq-title">
-  <div class="wrap faq-grid">
-    <h2 id="pfaq-title" class="h2">أسئلة عن الأسعار</h2>
-    <div class="faq-list">
-      <details>
-        <summary>هل الخطة المجانية مجانية فعلًا؟</summary>
-        <p>نعم. الخطة المجانية دائمة ولا تحتاج بطاقة دفع، وفيها كل مزايا ORQO بحدود استخدام أصغر.</p>
-      </details>
-      <details>
-        <summary>ماذا يحدث عندما أصل إلى حد الاستخدام؟</summary>
-        <p>يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو ترقّي خطتك.</p>
-      </details>
-      <details>
-        <summary>هل الحدود لكل مساحة عمل؟</summary>
-        <p>الحدود على مستوى المؤسسة. استهلاك كل مساحات العمل التابعة لها يُجمع معًا.</p>
-      </details>
-      <details>
-        <summary>هل تشمل الأسعار رسوم Meta على رسائل واتساب؟</summary>
-        <p>رسوم Meta على محادثات واتساب منفصلة عن اشتراك ORQO، وتُحتسب حسب تسعير Meta لكل دولة ونوع رسالة.</p>
-        <p class="review-tag">أكّد طريقة احتساب رسوم Meta ومن يدفعها (P3)</p>
-      </details>
-      <details>
-        <summary>بأي عملة أدفع؟</summary>
-        <p>الأسعار بالدولار الأمريكي، ويظهر لزوار مصر سعر تقريبي بالجنيه المصري. يتم الدفع بالبطاقة عبر بوابة دفع آمنة.</p>
-      </details>
-      <details>
-        <summary>هل أستطيع الإلغاء في أي وقت؟</summary>
-        <p>نعم. عند الإلغاء أو انتهاء الاشتراك يعود حسابك تلقائيًا إلى الخطة المجانية، وتبقى بياناتك كما هي.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="final band-deep" aria-labelledby="pf-title">
-  <div class="wrap final-inner">
-    <svg class="final-arc" viewBox="0 0 120 40" aria-hidden="true"><use href="#arc"/></svg>
-    <h2 id="pf-title" class="display-2">جرّب ORQO اليوم،<br>مجانًا.</h2>
-    <p class="body-lg">اربط رقم واتساب، وجهّز وكيلك الأول، وادعُ فريقك. وحين تحتاج أكثر، رقِّ خطتك بضغطة.</p>
-    <div class="cta-row">
-      <a class="btn btn-mint btn-lg" href={site.signupUrl}>ابدأ مجانًا <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn-ghost-deep btn-lg" href="/contact">تحدث مع المبيعات</a>
-    </div>
-  </div>
-</section>
+<Faq groups={pricingFaq} title="أسئلة عن الأسعار" key="pfaq" />
 </Base>

@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import PageHero from '../components/ui/PageHero.astro';
 import { getEntry, render } from 'astro:content';
 
 interface Props {
@@ -13,14 +14,10 @@ const { title, description, scope, updated, draft, summary } = entry.data;
 const updatedText = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' }).format(updated);
 ---
 <Base title={`${title} — ORQO`} description={description} page={Astro.props.slug}>
-  <section class="page-hero legal-hero" aria-labelledby="lg-title">
-    <div class="wrap page-hero-inner">
-      <p class="eyebrow"><span class="dot"></span>قانوني</p>
-      <h1 id="lg-title" class="display-3">{title}</h1>
-      <p class="legal-meta">آخر تحديث: {updatedText} · {scope}</p>
-      {draft && <p class="review-tag legal-draft">مسودة للمراجعة القانونية · لا تُنشر قبل مراجعة محامٍ واستكمال البيانات المظللة (L1)</p>}
-    </div>
-  </section>
+  <PageHero id="lg-title" chip="قانوني" icon="i-shield" title={title}>
+    <p class="legal-meta">آخر تحديث: {updatedText} · {scope}</p>
+    {draft && <p class="review-tag legal-draft">مسودة للمراجعة القانونية · لا تُنشر قبل مراجعة محامٍ واستكمال البيانات المظللة (L1)</p>}
+  </PageHero>
 
   <section class="legal-sec">
     <div class="wrap legal-grid">

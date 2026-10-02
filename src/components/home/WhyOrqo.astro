@@ -1,20 +1,86 @@
 ---
-const items = [
-  { icon: 'i-globe', t: 'عربي من الأساس', d: 'واجهة من اليمين لليسار بالكامل، ووكيل يرد على عملائك بالعربي، مع دعم الإنجليزية.' },
-  { icon: 'i-shield', t: 'ربط رسمي مع Meta', d: 'ORQO مسجّل كـ Meta Tech Provider، والربط يتم عبر واجهات Meta الرسمية.' },
-  { icon: 'i-bot', t: 'ذكاء اصطناعي وفريق معًا', d: 'الوكيل يرد ويسجّل وينقل العميل، وفريقك يستلم حين يلزم، ومعه ملخص.' },
-  { icon: 'i-layers', t: 'كل شيء متصل', d: 'المحادثات، وملف العميل، والحملات، والأتمتة، والتقارير في مساحة واحدة.' },
-  { icon: 'i-bolt', t: 'تبدأ في دقائق، ومجانًا', d: 'اربط رقمك وابدأ بالخطة المجانية، بدون بطاقة دفع وبدون إعداد معقّد.' },
-  { icon: 'i-code', t: 'يتصل بأدواتك', d: 'متجرك وأدوات Google وعقدة n8n الموثّقة، و API لأي نظام آخر.' },
+import SectionHead from '../ui/SectionHead.astro';
+import MetaBadge from '../ui/MetaBadge.astro';
+
+const tools = [
+  { icon: 'i-shopify', c: 'c-shop', name: 'Shopify' },
+  { icon: 'i-woo', c: 'c-woo', name: 'WooCommerce' },
+  { img: '/img/easyorders.png', name: 'EasyOrders' },
+  { icon: 'i-sheets', c: 'c-sheet', name: 'Google Sheets' },
+  { icon: 'i-meet', c: 'c-meet', name: 'Google Meet' },
+  { icon: 'i-n8n', c: 'c-n8n', name: 'n8n' },
+  { icon: 'i-code', c: '', name: 'API' },
 ];
+const flow = ['المحادثة', 'ملف العميل', 'المرحلة', 'الحملة', 'التقرير'];
 ---
-<section class="sec why" aria-labelledby="why-title">
-  <div class="wrap why-grid">
-    <h2 id="why-title" class="why-t">لماذا تختار<span>ORQO؟</span></h2>
-    <ul class="why-cards">
-      {items.map((it) => (
-        <li><svg aria-hidden="true"><use href={`#${it.icon}`} /></svg><b>{it.t}</b><span>{it.d}</span></li>
-      ))}
+<section class="sec why" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <SectionHead id="why-title" layout="split" chip="لماذا ORQO" icon="i-shield" title="مبني لطريقة شغلك،" accent="وبلغة عملائك." lead="ستة أسباب تجعل الفرق العربية تختار ORQO لإدارة محادثاتها." />
+
+    <ul class="wb">
+      <li class="wb-c wb-ar">
+        <div class="wb-copy">
+          <h3>عربي من الأساس</h3>
+          <p>واجهة من اليمين لليسار بالكامل، ووكيل يفهم اللهجات ويرد بالعربي، مع دعم الإنجليزية.</p>
+        </div>
+        <div class="wb-art" aria-hidden="true">
+          <span class="wb-glyph">ع</span>
+          <p class="wb-b wb-b-in">ممكن أعرف المواعيد المتاحة؟</p>
+          <p class="wb-b wb-b-out">أكيد! السبت 11 ص أو الأحد 2 م.</p>
+          <p class="wb-lang"><i class="on">العربية</i><i lang="en">English</i></p>
+        </div>
+      </li>
+
+      <li class="wb-c wb-meta">
+        <div class="wb-copy">
+          <h3>ربط رسمي مع Meta</h3>
+          <p>ORQO مسجّل كمزوّد تقني لدى Meta. تربط رقم واتساب أعمالك وحسابات إنستجرام وماسنجر عبر الواجهات الرسمية، بدون حلول غير رسمية.</p>
+        </div>
+        <div class="wb-art" aria-hidden="true">
+          <svg class="wb-meta-logo"><use href="#i-meta" /></svg>
+        </div>
+        <MetaBadge size="lg" tone="dark" />
+      </li>
+
+      <li class="wb-c wb-tools">
+        <div class="wb-copy">
+          <h3>يتصل بأدواتك</h3>
+          <p>متجرك، وأدوات Google، وعقدة ORQO الموثّقة في n8n، و API لأي نظام آخر.</p>
+          <a class="link-arrow" href="/pricing#integrations">كل التكاملات <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+        </div>
+        <div class="wb-hub" aria-hidden="true">
+          <span class="wb-core"><svg viewBox="0 0 512 512"><use href="#logo-mark" /></svg></span>
+          {tools.map((t, i) => (
+            <span class="wb-node" style={`--k:${i}`}>
+              {t.img ? <img src={t.img} width="20" height="20" alt="" /> : <svg class={t.c}><use href={`#${t.icon}`} /></svg>}
+              <small lang="en">{t.name}</small>
+            </span>
+          ))}
+        </div>
+      </li>
+
+      <li class="wb-c wb-free">
+        <p class="wb-num" dir="ltr">0$</p>
+        <h3>تبدأ مجانًا</h3>
+        <p>خطة مجانية دائمة، بدون بطاقة دفع وبدون إعداد معقّد.</p>
+      </li>
+
+      <li class="wb-c wb-team">
+        <p class="wb-num" dir="ltr">24/7</p>
+        <h3>وكيل ذكي وفريق معًا</h3>
+        <p>الوكيل يرد طوال اليوم، وفريقك يستلم حين يلزم ومعه ملخص.</p>
+        <p class="wb-hand" aria-hidden="true"><i class="ai">AI</i><span></span><i>AR</i></p>
+      </li>
+
+      <li class="wb-c wb-all">
+        <div class="wb-copy">
+          <h3>كل شيء متصل</h3>
+          <p>3 قنوات في صندوق وارد واحد، وكل محادثة تبني ملف العميل وتحرّكه في مراحلك وحملاتك وتقاريرك.</p>
+        </div>
+        <ol class="wb-flow" aria-hidden="true">
+          {flow.map((f) => <li>{f}</li>)}
+        </ol>
+      </li>
     </ul>
   </div>
 </section>

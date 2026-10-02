@@ -1,0 +1,19 @@
+---
+/** Top of inner pages (pricing, contact, legal, 404): same heading system as the home sections. */
+import SectionHead from './SectionHead.astro';
+interface Props {
+  chip: string;
+  icon?: string;
+  title: string;
+  accent?: string;
+  lead?: string;
+  id?: string;
+}
+const { id = 'page-title', ...head } = Astro.props;
+---
+<section class="phero" aria-labelledby={id}>
+  <div class="wrap">
+    <SectionHead {...head} id={id} level={1} />
+    <slot />
+  </div>
+</section>

@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
 import { site } from '../config/site';
-import inboxList from '../assets/inbox-list.webp';
+import ChatCta from './ChatCta.astro';
+import MetaBadge from './ui/MetaBadge.astro';
 
 interface Props {
-  /** Hide the start card (e.g. on pages that already end with a CTA). */
+  /** Show the closing chat CTA above the links (off on pages that are already a contact point). */
   cta?: boolean;
 }
 const { cta = true } = Astro.props;
@@ -13,39 +13,16 @@ const year = new Date().getFullYear();
 <footer class="fx">
   <div class="fx-panel">
     <div class="wrap">
-      {cta && (
-        <div class="fx-start">
-          <div class="fx-price">
-            <p class="fx-from">ابدأ من</p>
-            <p class="fx-amt"><b>0$</b><span>الخطة المجانية دائمة</span></p>
-            <a class="btn btn-mint" href={site.signupUrl}>ابدأ مجانًا <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
-            <ul class="fx-ticks">
-              <li><svg aria-hidden="true"><use href="#i-check" /></svg>بدون بطاقة دفع</li>
-              <li><svg aria-hidden="true"><use href="#i-check" /></svg>عربي بالكامل</li>
-            </ul>
-          </div>
-          <div class="fx-phone" aria-hidden="true">
-            <div class="fx-ph"><Image src={inboxList} alt="" width={300} loading="lazy" /></div>
-          </div>
-          <div class="fx-steps">
-            <p class="fx-st-h">ابدأ مع ORQO في 3 خطوات</p>
-            <ol>
-              <li><i>1</i>أنشئ حسابك مجانًا</li>
-              <li><i>2</i>اربط واتساب وإنستجرام وماسنجر</li>
-              <li><i>3</i>جهّز وكيلك وادعُ فريقك</li>
-            </ol>
-          </div>
-        </div>
-      )}
+      {cta && <ChatCta />}
 
       <div class="fx-cols">
         <div class="fx-brand">
           <a href="/" aria-label="ORQO — الصفحة الرئيسية"><svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo" /></svg></a>
           <p>مساحة عمل واحدة لمحادثات عملائك وفريقك والذكاء الاصطناعي.</p>
-          <span class="meta-badge meta-badge-sm"><svg class="mb-logo" aria-hidden="true"><use href="#i-meta" /></svg><span><b lang="en">Meta Tech Provider</b></span></span>
+          <MetaBadge tone="dark" />
         </div>
         <nav class="fx-links" aria-label="روابط التذييل">
-          <div><p>المنصة</p><a href="/#journey">الوكيل الذكي</a><a href="/#campaigns">حملات واتساب</a><a href="/#contacts">جهات الاتصال</a><a href="/#automation">الأتمتة</a><a href="/#integrations">التكاملات</a></div>
+          <div><p>المنصة</p><a href="/#journey">الوكيل الذكي</a><a href="/#campaigns">حملات واتساب</a><a href="/#contacts">جهات الاتصال</a><a href="/#automation">الأتمتة</a><a href="/pricing#integrations">التكاملات</a></div>
           <div><p>الشركة</p><a href="/pricing">الأسعار</a><a href="/contact">تواصل معنا</a><a href="/privacy">سياسة الخصوصية</a><a href="/terms">الشروط والأحكام</a></div>
           <div><p>تواصل معنا</p>
             <a href={`mailto:${site.email}`} dir="ltr" class="fx-mail">{site.email}</a>
@@ -61,8 +38,6 @@ const year = new Date().getFullYear();
           </div>
         </nav>
       </div>
-
-      <svg class="fx-word" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo" /></svg>
 
       <div class="fx-base">
         <p>© {year} <span lang="en">ORQO</span>. جميع الحقوق محفوظة.</p>

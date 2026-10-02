@@ -1,0 +1,46 @@
+---
+/**
+ * FAQ block used on the home and pricing pages.
+ * More than one group renders topic tabs; a single group renders a plain list.
+ */
+import { site } from '../../config/site';
+import type { FaqGroup } from '../../data/faq';
+import SectionHead from './SectionHead.astro';
+
+interface Props {
+  groups: FaqGroup[];
+  title?: string;
+  accent?: string;
+  /** Prefix for element ids; must be unique on the page. */
+  key?: string;
+}
+const { groups, title = 'أسئلة قبل البداية', accent, key = 'faq' } = Astro.props;
+const tabs = groups.length > 1;
+---
+<section class="sec faqx" id="faq" aria-labelledby={`${key}-title`}>
+  <div class="wrap faqx-inner">
+    <SectionHead id={`${key}-title`} chip="الأسئلة الشائعة" icon="i-note" title={title} accent={accent} />
+    {tabs && (
+      <div class="faqx-tabs" role="tablist" aria-label="موضوعات الأسئلة" data-tabs>
+        {groups.map((g, i) => (
+          <button type="button" role="tab" id={`${key}-t-${g.id}`} aria-controls={`${key}-p-${g.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{g.label}</button>
+        ))}
+      </div>
+    )}
+    {groups.map((g, i) => (
+      <div class="faqx-panel" role={tabs ? 'tabpanel' : undefined} id={`${key}-p-${g.id}`} aria-labelledby={tabs ? `${key}-t-${g.id}` : undefined} hidden={i !== 0}>
+        {g.items.map((it, j) => (
+          <details class="faqx-item" name={`${key}-${g.id}`} open={i === 0 && j === 0}>
+            <summary>{it.q}<svg aria-hidden="true"><use href="#i-chev" /></svg></summary>
+            <p>{it.a}</p>
+            {it.review && <p class="review-tag">{it.review}</p>}
+          </details>
+        ))}
+      </div>
+    ))}
+    <div class="faqx-ask">
+      <p><b>عندك سؤال آخر؟</b> يسعدنا نرد عليك على واتساب.</p>
+      <a class="btn btn-wa btn-sm" href={site.whatsappUrl}><svg aria-hidden="true"><use href="#i-wa" /></svg>تواصل معنا على واتساب</a>
+    </div>
+  </div>
+</section>

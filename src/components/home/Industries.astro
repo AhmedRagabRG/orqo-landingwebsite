@@ -1,28 +1,53 @@
 ---
 import SectionHead from '../ui/SectionHead.astro';
+
+/** Sample conversations per industry. Replies, prices and names are examples. */
 const items = [
-  { icon: 'i-med', g: 'g-mint', t: 'العيادات والمراكز الطبية', q: 'عايزة أحجز كشف يوم السبت', a: 'حجز ومواعيد وتذكيرات' },
-  { icon: 'i-cap', g: 'g-sky', t: 'التعليم والتدريب', q: 'الكورس أونلاين ولا حضوري؟', a: 'استفسارات وتسجيل ومتابعة' },
-  { icon: 'i-home', g: 'g-sand', t: 'العقارات', q: 'الشقة لسه متاحة؟', a: 'تأهيل العميل ومواعيد المعاينة' },
-  { icon: 'i-plane', g: 'g-info', t: 'السفر والسياحة', q: 'الباقة لشخصين بكام؟', a: 'باقات وعروض أسعار' },
-  { icon: 'i-cart', g: 'g-green', t: 'المتاجر الإلكترونية', q: 'الأوردر هيوصل إمتى؟', a: 'تأكيد COD وسلات متروكة' },
-  { icon: 'i-headset', g: 'g-teal', t: 'الخدمات وفرق الدعم', q: 'عندي مشكلة في الخدمة', a: 'دعم وتحويل للشخص المناسب' },
+  { id: 'clinic', icon: 'i-med', tone: 'mint', ch: 'wa', t: 'العيادات والمراكز الطبية', who: 'سارة', q: 'عايزة أحجز كشف يوم السبت', a: 'متاح السبت 11 ص أو 1 م. تحبي أي ميعاد؟', q2: '11 تمام', acts: ['تم حجز موعد السبت 11 ص', 'تذكير قبل الموعد بيوم'], use: 'حجز ومواعيد وتذكيرات' },
+  { id: 'edu', icon: 'i-cap', tone: 'sky', ch: 'ig', t: 'التعليم والتدريب', who: 'يوسف', q: 'الكورس أونلاين ولا حضوري؟', a: 'الاتنين متاحين، والدفعة الجاية تبدأ 15 أكتوبر. أبعتلك تفاصيل التسجيل؟', q2: 'ياريت', acts: ['اهتمام: كورس التسويق', 'أُضيف إلى شريحة: دفعة أكتوبر'], use: 'استفسارات وتسجيل ومتابعة' },
+  { id: 'realestate', icon: 'i-home', tone: 'sand', ch: 'wa', t: 'العقارات', who: 'محمود', q: 'الشقة لسه متاحة؟', a: 'أيوه متاحة. تحب تعاين يوم الأربعاء ولا الخميس؟', q2: 'الخميس بعد العصر', acts: ['المرحلة: معاينة', 'تم التحويل إلى فريق المبيعات'], use: 'تأهيل العميل ومواعيد المعاينة' },
+  { id: 'travel', icon: 'i-plane', tone: 'info', ch: 'ms', t: 'السفر والسياحة', who: 'نور', q: 'الباقة لشخصين بكام؟', a: 'باقة الغردقة 4 ليالي لشخصين شاملة الإفطار. أبعتلك عرض السعر؟', q2: 'أيوه لو سمحت', acts: ['عرض سعر مُرسل', 'متابعة تلقائية بعد يومين'], use: 'باقات وعروض أسعار' },
+  { id: 'store', icon: 'i-cart', tone: 'green', ch: 'wa', t: 'المتاجر الإلكترونية', who: 'كريم', q: 'الأوردر هيوصل إمتى؟', a: 'طلبك #1042 اتشحن، ويوصلك خلال يومين.', q2: 'تمام شكرًا', acts: ['طلب #1042 · تم الشحن', 'تأكيد الدفع عند الاستلام ✓'], use: 'تأكيد COD وسلات متروكة' },
+  { id: 'support', icon: 'i-headset', tone: 'teal', ch: 'ig', t: 'الخدمات وفرق الدعم', who: 'منى', q: 'عندي مشكلة في الخدمة', a: 'آسفين على ده. هحوّلك دلوقتي لأحمد من فريق الدعم، ومعاه ملخص المشكلة.', q2: 'تمام', acts: ['تم التحويل إلى: الدعم الفني', 'ملخص جاهز للفريق'], use: 'دعم وتحويل للشخص المناسب' },
 ];
+const chName: Record<string, string> = { wa: 'WhatsApp', ig: 'Instagram', ms: 'Messenger' };
 ---
 <section class="sec inds" id="industries" aria-labelledby="ind-title">
   <div class="wrap">
-    <SectionHead id="ind-title" chip="لمن ORQO" icon="i-layers" title="من العيادة إلى المتجر الإلكتروني." accent="كل عمل يستقبل رسائل عملاء، مكانه ORQO." />
-    <ul class="ind-tiles">
-      {items.map((it) => (
-        <li class="indt">
-          <div class:list={['indt-art', it.g]} aria-hidden="true">
-            <svg class="indt-ico"><use href={`#${it.icon}`} /></svg>
-            <span class="indt-q">{it.q}</span>
+    <SectionHead id="ind-title" layout="split" chip="لمن ORQO" icon="i-users" title="كل عمل يستقبل رسائل،" accent="له مكان في ORQO." lead="اختر مجالك من القائمة، وشاهد محادثة نموذجية وما يفعله ORQO بعدها." />
+
+    <div class="inb">
+      <div class="inb-side">
+      <p class="inb-lh" aria-hidden="true"><svg><use href="#i-inbox" /></svg>صندوق الوارد<span>{items.length}</span></p>
+      <div class="inb-list" role="tablist" aria-label="المجالات" aria-orientation="vertical" data-tabs>
+        {items.map((it, i) => (
+          <button type="button" role="tab" class="inb-item" id={`ind-t-${it.id}`} aria-controls={`ind-p-${it.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>
+            <span class:list={['inb-av', `tone-${it.tone}`]} aria-hidden="true"><svg><use href={`#${it.icon}`} /></svg></span>
+            <span class="inb-txt"><b>{it.t}</b><small>{it.q}</small></span>
+            <svg class={`inb-ch c-${it.ch}`} aria-hidden="true"><use href={`#i-${it.ch}`} /></svg>
+          </button>
+        ))}
+      </div>
+      </div>
+
+      {items.map((it, i) => (
+        <div class="inb-conv" role="tabpanel" id={`ind-p-${it.id}`} aria-labelledby={`ind-t-${it.id}`} hidden={i !== 0}>
+          <div class="inb-head">
+            <span class:list={['inb-av', `tone-${it.tone}`]} aria-hidden="true"><svg><use href={`#${it.icon}`} /></svg></span>
+            <span class="inb-who"><b>{it.who}</b><small><svg class={`c-${it.ch}`} aria-hidden="true"><use href={`#i-${it.ch}`} /></svg><span lang="en">{chName[it.ch]}</span> · {it.t}</small></span>
+            <span class="inb-agent" aria-hidden="true"><svg><use href="#i-spark" /></svg>الوكيل الذكي</span>
           </div>
-          <h3>{it.t}</h3>
-          <p>{it.a}</p>
-        </li>
+          <div class="inb-msgs">
+            <p class="inb-m inb-in"><span class="sr-only">العميل: </span>{it.q}</p>
+            <p class="inb-m inb-out"><span class="sr-only">ORQO: </span>{it.a}</p>
+            <p class="inb-m inb-in"><span class="sr-only">العميل: </span>{it.q2}</p>
+            <ul class="inb-acts" aria-label="ما فعله ORQO">
+              {it.acts.map((a) => <li><svg aria-hidden="true"><use href="#i-check" /></svg>{a}</li>)}
+            </ul>
+          </div>
+          <p class="inb-use"><b>يناسب:</b> {it.use}</p>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>
 </section>

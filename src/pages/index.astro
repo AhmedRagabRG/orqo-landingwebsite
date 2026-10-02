@@ -3,17 +3,15 @@ import Base from '../layouts/Base.astro';
 import Hero from '../components/home/Hero.astro';
 import Problems from '../components/home/Problems.astro';
 import AiPanel from '../components/home/AiPanel.astro';
-import CampaignBand from '../components/home/CampaignBand.astro';
-import Industries from '../components/home/Industries.astro';
-import MetaBanner from '../components/home/MetaBanner.astro';
-import TrialCta from '../components/home/TrialCta.astro';
-import Tools from '../components/home/Tools.astro';
+import Campaigns from '../components/home/Campaigns.astro';
 import CrmPanel from '../components/home/CrmPanel.astro';
+import Tools from '../components/home/Tools.astro';
 import Automation from '../components/home/Automation.astro';
-import Integrations from '../components/home/Integrations.astro';
-import PricingPreview from '../components/home/PricingPreview.astro';
-import Faq from '../components/home/Faq.astro';
+import Industries from '../components/home/Industries.astro';
 import WhyOrqo from '../components/home/WhyOrqo.astro';
+import PricingPreview from '../components/home/PricingPreview.astro';
+import Faq from '../components/ui/Faq.astro';
+import { homeFaq } from '../data/faq';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -34,15 +32,12 @@ const jsonLd = {
   <Hero />
   <Problems />
   <AiPanel />
-  <CampaignBand />
-  <Industries />
-  <MetaBanner />
-  <TrialCta />
-  <Tools />
+  <Campaigns />
   <CrmPanel />
+  <Tools />
   <Automation />
-  <Integrations />
-  <PricingPreview />
-  <Faq />
+  <Industries />
   <WhyOrqo />
+  <PricingPreview />
+  <Faq groups={homeFaq} />
 </Base>

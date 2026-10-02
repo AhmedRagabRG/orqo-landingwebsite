@@ -1,19 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../config/site';
+import PageHero from '../components/ui/PageHero.astro';
+import MetaBadge from '../components/ui/MetaBadge.astro';
 ---
 <Base
   title="تواصل مع ORQO"
   description="تواصل مع فريق ORQO للمبيعات أو الدعم الفني أو الشراكات عبر البريد الإلكتروني أو واتساب أو الهاتف."
   page="contact"
 >
-<section class="page-hero contact-hero" aria-labelledby="ct-title">
-  <div class="wrap page-hero-inner">
-    <p class="eyebrow"><span class="dot"></span>تواصل معنا</p>
-    <h1 id="ct-title" class="display-3">تحدث مع فريق <span lang="en">ORQO</span>.</h1>
-    <p class="body-lg">سؤال عن الخطط، أو عرض توضيحي لفريقك، أو مساعدة في الربط. اختر الطريقة الأنسب لك، ونرد عليك في أقرب وقت.</p>
-  </div>
-</section>
+<PageHero chip="تواصل معنا" icon="i-mail" title="تحدث مع فريق ORQO." accent="نرد عليك في أقرب وقت." lead="سؤال عن الخطط، أو عرض توضيحي لفريقك، أو مساعدة في الربط. اختر الطريقة الأنسب لك." />
 
 <section class="contact-sec" aria-label="طرق التواصل">
   <div class="wrap contact-grid">
@@ -113,12 +109,9 @@ import { site } from '../config/site';
 
 <section class="sec contact-meta" aria-label="عن ORQO">
   <div class="wrap cm-grid">
-    <div class="meta-cred meta-cred-lg">
-      <svg class="mc-logo" aria-hidden="true"><use href="#i-meta"/></svg>
-      <div>
-        <p class="mc-k" lang="en">Meta Tech Provider</p>
-        <p class="mc-v">ORQO مسجّل كمزوّد تقني لدى Meta. نساعدك تربط رقم واتساب أعمالك وصفحاتك على إنستجرام وماسنجر من خلال الربط الرسمي.</p>
-      </div>
+    <div class="cm-meta">
+      <MetaBadge size="lg" />
+      <p>ORQO مسجّل كمزوّد تقني لدى Meta. نساعدك تربط رقم واتساب أعمالك وصفحاتك على إنستجرام وماسنجر من خلال الربط الرسمي.</p>
     </div>
     <dl class="biz-info">
       <div><dt>ساعات العمل</dt><dd>الأحد إلى الخميس، 9 صباحًا حتى 6 مساءً</dd></div>

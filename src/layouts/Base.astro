@@ -1,7 +1,7 @@
 ---
 import '../styles/landing.css';
 import '../styles/site.css';
-import '../styles/v2.css';
+import '../styles/sections.css';
 import { site } from '../config/site';
 import Icons from '../components/Icons.astro';
 import Header from '../components/Header.astro';
@@ -59,7 +59,7 @@ const ogImage = new URL('/og.png', site.url);
     <main id="main">
       <slot />
     </main>
-    <Footer />
+    <Footer cta={page !== 'contact' && page !== '404'} />
     {site.showReview && <ReviewToggle />}
     <script>
       import '../scripts/landing.js';

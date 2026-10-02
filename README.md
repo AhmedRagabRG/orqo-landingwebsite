@@ -36,13 +36,14 @@ PUBLIC_SHOW_REVIEW=true npm run dev
 |---|---|
 | App links (sign-up, login), email, WhatsApp, socials, demo link, docs link | `src/config/site.ts` |
 | Header navigation | `src/data/nav.ts` |
-| FAQ questions and tabs | `src/data/faq.ts` |
+| FAQ questions and tabs (home and pricing) | `src/data/faq.ts` |
 | Plans, prices, plan features | `src/data/plans.ts` |
 | Pricing comparison table | `src/data/compare.ts` |
 | Privacy policy, terms | `src/content/legal/*.md` (set `draft: false` once reviewed) |
 | Home sections | `src/components/home/*.astro` |
 | Header, footer, icons | `src/components/Header.astro`, `Footer.astro`, `Icons.astro` (SVG sprite) |
-| Section heading, CTA pair | `src/components/ui/SectionHead.astro`, `CtaPair.astro` |
+| Shared building blocks: section heading, page hero, FAQ, CTA pair, Meta badge | `src/components/ui/` |
+| Closing chat CTA in the footer | `src/components/ChatCta.astro` |
 | Colours, fonts, spacing | `:root` tokens at the top of `src/styles/landing.css` |
 
 All prices, limits, phone numbers and social links are **sample data** for now. See [`LAUNCH_CHECKLIST.md`](LAUNCH_CHECKLIST.md).
@@ -56,13 +57,13 @@ src/
   content/legal/          privacy.md, terms.md
   layouts/Base.astro      <head>, SEO, header, footer, scripts
   layouts/Legal.astro     legal page template (auto contents + numbering)
-  components/             Header, Footer, Icons, ReviewToggle
-  components/home/        14 home-page sections
-  components/ui/          SectionHead, CtaPair (shared section building blocks)
+  components/             Header, Footer, ChatCta, Icons, ReviewToggle
+  components/home/        home-page sections
+  components/ui/          SectionHead, PageHero, Faq, CtaPair, MetaBadge (used on every page)
   components/pricing/     PlanCard, BillingToggle, CompareTable
   styles/landing.css      design system and section styles
   styles/site.css         Astro-specific additions
-  styles/v2.css           home redesign: gradient tiles, dark panels, bands, FAQ, footer
+  styles/sections.css     section system: headings, panels, campaigns, inbox, bento, FAQ, footer
   scripts/landing.js      all interactions (guarded per page)
   assets/                 images Astro optimises (hero screenshots)
 public/                   fonts, favicon, og.png, robots.txt

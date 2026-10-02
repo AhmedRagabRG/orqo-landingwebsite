@@ -1,5 +1,10 @@
 ---
-/** Centered section heading in the site's style: pill label, two-line title (second line in brand colour), lead. */
+/**
+ * Section heading: speech-bubble label, two-part title (second part in brand colour), lead.
+ * layout="center" stacks everything in the middle; layout="split" puts the title on one side
+ * and the lead (plus anything in the default slot, e.g. a link) on the other;
+ * layout="start" stacks everything aligned to the start (for headings inside a column).
+ */
 interface Props {
   chip?: string;
   icon?: string;
@@ -7,15 +12,27 @@ interface Props {
   accent?: string;
   lead?: string;
   id?: string;
-  tone?: 'light' | 'dark' | 'band';
+  tone?: 'light' | 'dark';
+  layout?: 'center' | 'split' | 'start';
+  /** Heading level; pages use 1 for their top heading. */
+  level?: 1 | 2;
 }
-const { chip, icon = 'i-spark', title, accent, lead, id, tone = 'light' } = Astro.props;
+const { chip, icon = 'i-spark', title, accent, lead, id, tone = 'light', layout = 'center', level = 2 } = Astro.props;
+const H = level === 1 ? 'h1' : 'h2';
+const hasSide = lead || Astro.slots.has('default');
 ---
-<header class:list={['shead', `shead-${tone}`]}>
-  {chip && <p class="chip"><svg aria-hidden="true"><use href={`#${icon}`} /></svg>{chip}</p>}
-  <h2 id={id} class="shead-t">
-    <span>{title}</span>
-    {accent && <span class="shead-a">{accent}</span>}
-  </h2>
-  {lead && <p class="shead-l">{lead}</p>}
+<header class:list={['shead', `shead-${tone}`, `shead-${layout}`]}>
+  <div class="shead-main">
+    {chip && <p class="chip"><svg aria-hidden="true"><use href={`#${icon}`} /></svg>{chip}</p>}
+    <H id={id} class="shead-t">
+      <span>{title}</span>
+      {accent && <span class="shead-a">{accent}</span>}
+    </H>
+  </div>
+  {hasSide && (
+    <div class="shead-side">
+      {lead && <p class="shead-l">{lead}</p>}
+      <slot />
+    </div>
+  )}
 </header>
