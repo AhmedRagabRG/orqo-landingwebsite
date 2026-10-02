@@ -159,7 +159,7 @@
     }, { threshold: 0.4 });
   }
 
-  /* ---------- tabs (FAQ topics, industries inbox) ---------- */
+  /* ---------- tabs (FAQ topics) ---------- */
   $$('[data-tabs]').forEach(function (list) {
     var tabs = $$('[role="tab"]', list);
     function select(tab, focus) {

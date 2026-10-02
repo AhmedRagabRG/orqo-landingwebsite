@@ -34,7 +34,7 @@ PUBLIC_SHOW_REVIEW=true npm run dev
 
 | What | Where |
 |---|---|
-| App links (sign-up, login), email, WhatsApp, socials, demo link, docs link | `src/config/site.ts` |
+| App links (sign-up, login), email, WhatsApp, socials (Facebook, Instagram, LinkedIn), demo link, docs link, English site link (empty hides it) | `src/config/site.ts` |
 | Header navigation | `src/data/nav.ts` |
 | FAQ questions and tabs (home and pricing) | `src/data/faq.ts` |
 | Plans, prices, plan features | `src/data/plans.ts` |
@@ -43,7 +43,7 @@ PUBLIC_SHOW_REVIEW=true npm run dev
 | Home sections | `src/components/home/*.astro` |
 | Header, footer, icons | `src/components/Header.astro`, `Footer.astro`, `Icons.astro` (SVG sprite) |
 | Shared building blocks: section heading, page hero, FAQ, CTA pair, Meta badge | `src/components/ui/` |
-| Closing chat CTA in the footer | `src/components/ChatCta.astro` |
+| Closing CTA in the footer | `src/components/FooterCta.astro` |
 | Colours, fonts, spacing | `:root` tokens at the top of `src/styles/landing.css` |
 
 All prices, limits, phone numbers and social links are **sample data** for now. See [`LAUNCH_CHECKLIST.md`](LAUNCH_CHECKLIST.md).
@@ -57,7 +57,7 @@ src/
   content/legal/          privacy.md, terms.md
   layouts/Base.astro      <head>, SEO, header, footer, scripts
   layouts/Legal.astro     legal page template (auto contents + numbering)
-  components/             Header, Footer, ChatCta, Icons, ReviewToggle
+  components/             Header, Footer, FooterCta, Icons, ReviewToggle
   components/home/        home-page sections
   components/ui/          SectionHead, PageHero, Faq, CtaPair, MetaBadge (used on every page)
   components/pricing/     PlanCard, BillingToggle, CompareTable

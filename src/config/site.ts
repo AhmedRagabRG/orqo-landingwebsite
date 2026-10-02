@@ -15,7 +15,8 @@ export const site = {
   loginUrl: 'https://app.orqo.site/login',
   docsUrl: '/contact', // SAMPLE: replace with the API docs URL
 
-  englishUrl: '#', // SAMPLE: /en once the English pages exist
+  // English site URL (e.g. '/en'). Empty hides the EN / English links until the English pages exist.
+  englishUrl: '',
 
   // SAMPLE contact details (see ASSETS_NEEDED C1–C4)
   whatsappUrl: '#', // e.g. https://wa.me/20XXXXXXXXXX
@@ -24,9 +25,6 @@ export const site = {
     facebook: '#',
     instagram: '#',
     linkedin: '#',
-    x: '#',
-    youtube: '#',
-    tiktok: '#',
   },
 
   // Where the contact form posts JSON (an n8n webhook works well). Empty = form shows a notice instead.

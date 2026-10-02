@@ -13,7 +13,7 @@ const isCurrent = (href: string) => !href.includes('#') && href === path;
       {nav.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
     </nav>
     <div class="head-actions">
-      <a class="lang" href={site.englishUrl} hreflang="en" lang="en">EN</a>
+      {site.englishUrl && <a class="lang" href={site.englishUrl} hreflang="en" lang="en">EN</a>}
       <a class="link-quiet" href={site.loginUrl}>تسجيل الدخول</a>
       <a class="btn btn-primary btn-sm" href={site.signupUrl}>ابدأ مجانًا</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة">
