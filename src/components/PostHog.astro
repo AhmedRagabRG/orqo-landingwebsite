@@ -1,0 +1,15 @@
+---
+import { site } from '../config/site';
+
+// Renders nothing until PUBLIC_POSTHOG_KEY is set, so local dev and previews stay untracked.
+---
+{site.posthogKey && (
+  <script>
+    import posthog from 'posthog-js';
+    posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
+      api_host: import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+      capture_pageview: true,
+      capture_pageleave: true,
+    });
+  </script>
+)}

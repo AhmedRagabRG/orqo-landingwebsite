@@ -31,6 +31,10 @@ export const site = {
   // Where the contact form posts JSON (an n8n webhook works well). Empty = form shows a notice instead.
   contactEndpoint: env.PUBLIC_CONTACT_ENDPOINT ?? '',
 
+  // PostHog web analytics. Empty key = no tracking script is rendered at all.
+  posthogKey: env.PUBLIC_POSTHOG_KEY ?? '',
+  posthogHost: env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+
   // Show the orange review tags and placeholder highlights (design review mode).
   showReview: env.PUBLIC_SHOW_REVIEW === 'true',
 };
