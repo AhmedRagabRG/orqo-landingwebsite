@@ -6,7 +6,7 @@ const env = import.meta.env;
 
 export const site = {
   name: 'ORQO',
-  url: 'https://orqo.site',
+  url: 'https://www.orqo.site',
   email: 'hello@orqo.site',
 
   // The ORQO app (Laravel) lives on its own subdomain.

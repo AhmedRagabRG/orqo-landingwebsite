@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://orqo.site',
+  site: 'https://www.orqo.site',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
   i18n: {
