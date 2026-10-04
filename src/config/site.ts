@@ -39,6 +39,10 @@ export const site = {
   // different ID to override, or to an empty string to disable gtag entirely.
   gaId: env.PUBLIC_GA_ID ?? 'G-E85HF1Y9NY',
 
+  // Microsoft Clarity (session recordings & heatmaps). Defaults to the production project ID;
+  // set PUBLIC_CLARITY_ID to override, or to an empty string to disable Clarity entirely.
+  clarityId: env.PUBLIC_CLARITY_ID ?? 'ysmjkyk3yw',
+
   // Show the orange review tags and placeholder highlights (design review mode).
   showReview: env.PUBLIC_SHOW_REVIEW === 'true',
 };

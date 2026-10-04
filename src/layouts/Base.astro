@@ -9,6 +9,7 @@ import Footer from '../components/Footer.astro';
 import ReviewToggle from '../components/ReviewToggle.astro';
 import PostHog from '../components/PostHog.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import Clarity from '../components/Clarity.astro';
 
 interface Props {
   title: string;
@@ -54,6 +55,7 @@ const ogImage = new URL('/og.png', site.url);
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <GoogleAnalytics />
+    <Clarity />
     <PostHog />
   </head>
   <body class:list={{ 'review-on': site.showReview }} data-page={page}>
