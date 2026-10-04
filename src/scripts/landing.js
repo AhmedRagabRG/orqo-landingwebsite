@@ -101,7 +101,7 @@
     var endpoint = form.dataset.endpoint;
     if (!endpoint) {
       status.className = 'cf-status';
-      status.textContent = 'نموذج التواصل غير متصل بعد. راسلنا مباشرة على info@orqo.site';
+      status.textContent = 'نموذج التواصل غير متصل بعد. راسلنا مباشرة على hello@orqo.site';
       return;
     }
     var data = {}; new FormData(form).forEach(function (v, k) { data[k] = v; });
@@ -116,7 +116,7 @@
       })
       .catch(function () {
         status.className = 'cf-status is-err';
-        status.textContent = 'لم تُرسل الرسالة. حاول مرة أخرى أو راسلنا على info@orqo.site';
+        status.textContent = 'لم تُرسل الرسالة. حاول مرة أخرى أو راسلنا على hello@orqo.site';
       })
       .finally(function () { btn.disabled = false; });
   });

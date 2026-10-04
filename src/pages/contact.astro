@@ -20,13 +20,12 @@ import MetaBadge from '../components/ui/MetaBadge.astro';
         <div class="chan-body">
           <h2>واتساب</h2>
           <p>أسرع طريقة للوصول إلينا، للمبيعات والدعم.</p>
-          <p class="chan-val" dir="ltr">+20 1X XXXX XXXX</p>
+          <p class="chan-val" dir="ltr">{site.whatsappDisplay}</p>
         </div>
         <div class="chan-acts">
           <a class="btn btn-primary btn-sm" href={site.whatsappUrl}>راسلنا على واتساب</a>
-          <button type="button" class="copy-btn" data-copy="+20 1X XXXX XXXX" aria-label="نسخ رقم واتساب"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+          <button type="button" class="copy-btn" data-copy={site.whatsappDisplay} aria-label="نسخ رقم واتساب"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
         </div>
-        <span class="review-tag">مطلوب: رقم واتساب الأعمال (C1)</span>
       </article>
 
       <article class="chan">
@@ -42,32 +41,6 @@ import MetaBadge from '../components/ui/MetaBadge.astro';
         </div>
       </article>
 
-      <article class="chan">
-        <span class="chan-ico chan-ico-ink"><svg aria-hidden="true"><use href="#i-phone"/></svg></span>
-        <div class="chan-body">
-          <h2>الهاتف</h2>
-          <p>مصر والسعودية، في ساعات العمل.</p>
-          <p class="chan-val" dir="ltr">+20 XX XXXX XXXX</p>
-          <p class="chan-val" dir="ltr">+966 XX XXX XXXX</p>
-        </div>
-        <div class="chan-acts">
-          <button type="button" class="copy-btn" data-copy="+20 XX XXXX XXXX" aria-label="نسخ رقم الهاتف"><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
-        </div>
-        <span class="review-tag">مطلوب: أرقام الهاتف وساعات العمل (C2)</span>
-      </article>
-
-      <article class="chan chan-demo">
-        <span class="chan-ico chan-ico-mint"><svg aria-hidden="true"><use href="#i-meet"/></svg></span>
-        <div class="chan-body">
-          <h2>عرض توضيحي مباشر</h2>
-          <p>30 دقيقة على Google Meet نشرح فيها ORQO على حالة عملك.</p>
-        </div>
-        <div class="chan-acts">
-          <a class="btn btn-ghost btn-sm" href={site.demoUrl}>احجز موعدًا</a>
-        </div>
-        <span class="review-tag">مطلوب: رابط الحجز (C3)</span>
-      </article>
-
       <div class="social-block">
         <p class="list-label-ink">تابعنا</p>
         <ul class="socials socials-lg">
@@ -75,7 +48,6 @@ import MetaBadge from '../components/ui/MetaBadge.astro';
           <li><a href={site.social.instagram}><svg aria-hidden="true"><use href="#i-ig"/></svg><span>إنستجرام</span></a></li>
           <li><a href={site.social.linkedin}><svg aria-hidden="true"><use href="#i-li"/></svg><span>لينكدإن</span></a></li>
         </ul>
-        <span class="review-tag">مطلوب: روابط الحسابات (C4)</span>
       </div>
     </div>
 

@@ -7,7 +7,7 @@ const env = import.meta.env;
 export const site = {
   name: 'ORQO',
   url: 'https://orqo.site',
-  email: 'info@orqo.site',
+  email: 'hello@orqo.site',
 
   // The ORQO app (Laravel) lives on its own subdomain.
   appUrl: 'https://app.orqo.site',
@@ -18,13 +18,14 @@ export const site = {
   // English site URL (e.g. '/en'). Empty hides the EN / English links until the English pages exist.
   englishUrl: '',
 
-  // SAMPLE contact details (see ASSETS_NEEDED C1–C4)
-  whatsappUrl: '#', // e.g. https://wa.me/20XXXXXXXXXX
+  // Contact details
+  whatsappUrl: 'https://wa.me/201557730414',
+  whatsappDisplay: '+20 15 57730414',
   demoUrl: '#', // e.g. a Google Calendar appointment page
   social: {
-    facebook: '#',
-    instagram: '#',
-    linkedin: '#',
+    facebook: 'https://www.facebook.com/orqo.site/',
+    instagram: 'https://www.instagram.com/orqo.ai/',
+    linkedin: 'https://www.linkedin.com/company/103601046/',
   },
 
   // Where the contact form posts JSON (an n8n webhook works well). Empty = form shows a notice instead.
