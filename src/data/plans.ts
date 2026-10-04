@@ -18,6 +18,8 @@ export interface Plan {
   features: string[]; // full list on the pricing page
 }
 
+export const perMonth = (yearly: number) => `${Math.round((yearly / 12) * 10) / 10}$`;
+
 export const plans: Record<Lang, Plan[]> = {
   ar: [
     {

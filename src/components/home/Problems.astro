@@ -1,87 +1,91 @@
 ---
+import { I } from '../../i18n';
 import SectionHead from '../ui/SectionHead.astro';
 import CtaPair from '../ui/CtaPair.astro';
+const { t } = I(Astro);
+const m = t.mock;
+const c = t.problems.cards;
 ---
 <section class="sec probs" id="problem" aria-labelledby="probs-title">
   <div class="wrap">
-    <SectionHead id="probs-title" chip="المشكلة والحل" icon="i-inbox" title="مشكلات تواجهها كل يوم مع رسائل العملاء." accent="حلّيناها في مساحة واحدة." lead="نعرف ما يحدث كل يوم في متابعة رسائل العملاء على واتساب وإنستجرام وماسنجر. لذلك بنينا ORQO." />
+    <SectionHead id="probs-title" chip={t.problems.chip} icon="i-inbox" title={t.problems.title} accent={t.problems.accent} lead={t.problems.lead} />
 
     <div class="pgrid">
       <article class="pcardx pc-wide">
-        <p class="pc-tag t-ai"><svg aria-hidden="true"><use href="#i-bot" /></svg>الوكيل الذكي</p>
-        <h3>الدوام خلص؟ والرسائل هتستنى لبكرة؟</h3>
-        <p class="pc-ans"><span aria-hidden="true">↩</span>وكيل ذكي يرد فورًا بمعلومات شغلك، يسجّل بيانات العميل، ويسلّم لفريقك حين يلزم.</p>
+        <p class="pc-tag t-ai"><svg aria-hidden="true"><use href="#i-bot" /></svg>{c.ai.tag}</p>
+        <h3>{c.ai.h}</h3>
+        <p class="pc-ans"><span aria-hidden="true">↩</span>{c.ai.ans}</p>
         <div class="fv fv-ai pc-vis" aria-hidden="true">
-          <p class="ai-in">بكام الاستشارة؟ متاح الخميس؟</p>
-          <p class="ai-out">الاستشارة بـ500 جنيه ومدتها 30 دقيقة، ومتاح الخميس بعد 6 مساءً 👌</p>
-          <p class="ai-acts"><i>✓ سجّل الاسم والهاتف</i><i>✓ وسم: عميل مهتم</i><i>✓ نقل إلى Qualified</i></p>
+          <p class="ai-in">{c.ai.in}</p>
+          <p class="ai-out">{c.ai.out}</p>
+          <p class="ai-acts"><i>{c.ai.acts[0]}</i><i>{c.ai.acts[1]}</i><i>{c.ai.acts[2]}</i></p>
         </div>
       </article>
 
       <article class="pcardx">
-        <p class="pc-tag t-inbox"><svg aria-hidden="true"><use href="#i-inbox" /></svg>صندوق الوارد</p>
-        <h3>الرسائل موزعة بين أكثر من تطبيق ورقم؟</h3>
-        <p class="pc-ans"><span aria-hidden="true">↩</span>واتساب وإنستجرام وماسنجر في صندوق وارد واحد لكل الفريق.</p>
+        <p class="pc-tag t-inbox"><svg aria-hidden="true"><use href="#i-inbox" /></svg>{c.inbox.tag}</p>
+        <h3>{c.inbox.h}</h3>
+        <p class="pc-ans"><span aria-hidden="true">↩</span>{c.inbox.ans}</p>
         <div class="fv fv-inbox pc-vis" aria-hidden="true">
-          <p><svg class="c-wa"><use href="#i-wa" /></svg><b>منى</b><span>بكام الاستشارة؟</span><i class="own-ai">AI</i></p>
-          <p><svg class="c-ig"><use href="#i-ig" /></svg><b>سلمى</b><span>لسه متاح؟</span><i>Ahmed</i></p>
-          <p><svg class="c-ms"><use href="#i-ms" /></svg><b>كريم</b><span>الباقة بكام؟</span><i>سارة</i></p>
+          <p><svg class="c-wa"><use href="#i-wa" /></svg><b>{m.monaShort}</b><span>{m.consultQ}</span><i class="own-ai">AI</i></p>
+          <p><svg class="c-ig"><use href="#i-ig" /></svg><b>{m.salmaShort}</b><span>{m.availQ}</span><i>Ahmed</i></p>
+          <p><svg class="c-ms"><use href="#i-ms" /></svg><b>{m.karimShort}</b><span>{m.pkgQ}</span><i>{m.sarah}</i></p>
         </div>
       </article>
 
       <article class="pcardx">
         <p class="pc-tag t-crm"><svg aria-hidden="true"><use href="#i-user" /></svg>CRM</p>
-        <h3>بيانات العميل ضايعة بين الشات والإكسل؟</h3>
-        <p class="pc-ans"><span aria-hidden="true">↩</span>كل محادثة تبني ملف عميل: بيانات، وسوم، ملاحظات، وطلبات.</p>
+        <h3>{c.crm.h}</h3>
+        <p class="pc-ans"><span aria-hidden="true">↩</span>{c.crm.ans}</p>
         <div class="fv pc-vis" aria-hidden="true">
           <div class="crm-card">
-            <p class="crm-h"><span class="crm-av">أ</span><span><b>أحمد سامي</b><small dir="ltr">+20 10 ···· 4567</small></span><svg class="c-wa"><use href="#i-wa" /></svg></p>
-            <dl><div><dt>المدينة</dt><dd>القاهرة</dd></div><div><dt>الاهتمام</dt><dd>باقة سنوية</dd></div></dl>
-            <p class="crm-tags"><i>عميل مهتم</i><i>VIP</i></p>
+            <p class="crm-h"><span class="crm-av">{m.ahmedInitial}</span><span><b>{m.ahmedSamy}</b><small dir="ltr">{m.phone}</small></span><svg class="c-wa"><use href="#i-wa" /></svg></p>
+            <dl><div><dt>{m.cityLabel}</dt><dd>{m.city}</dd></div><div><dt>{m.interestLabel}</dt><dd>{m.interest}</dd></div></dl>
+            <p class="crm-tags"><i>{m.tag}</i><i>{m.vip}</i></p>
           </div>
         </div>
       </article>
 
       <article class="pcardx pc-wide">
-        <p class="pc-tag t-camp"><svg aria-hidden="true"><use href="#i-send" /></svg>حملات واتساب</p>
-        <h3>تحتاج ترسل عروض وتذكيرات لآلاف العملاء؟</h3>
-        <p class="pc-ans"><span aria-hidden="true">↩</span>حملات واتساب بقوالب معتمدة من Meta، وتقرير لكل حملة.</p>
+        <p class="pc-tag t-camp"><svg aria-hidden="true"><use href="#i-send" /></svg>{c.camp.tag}</p>
+        <h3>{c.camp.h}</h3>
+        <p class="pc-ans"><span aria-hidden="true">↩</span>{c.camp.ans}</p>
         <div class="fv fv-camp pc-vis" aria-hidden="true">
           <div class="camp-msg">
-            <p class="cm-top"><svg class="c-wa"><use href="#i-wa" /></svg>عرض نهاية الأسبوع 🎁 <small>إلى 4,231 عميل</small></p>
-            <p>خصم 20% على كل الباقات حتى الأحد. رد بـ «عايز» ونرسل لك التفاصيل.</p>
+            <p class="cm-top"><svg class="c-wa"><use href="#i-wa" /></svg>{m.campTitle} <small>{m.campTo}</small></p>
+            <p>{m.campBody}</p>
           </div>
           <div class="camp-bars">
-            <p><span>أُرسلت</span><i style="--w:100%"></i><b>4,231</b></p>
-            <p><span>وصلت</span><i style="--w:96%"></i><b>4,062</b></p>
-            <p><span>قُرئت</span><i style="--w:71%"></i><b>3,004</b></p>
+            <p><span>{m.sent}</span><i style="--w:100%"></i><b>4,231</b></p>
+            <p><span>{m.delivered}</span><i style="--w:96%"></i><b>4,062</b></p>
+            <p><span>{m.read}</span><i style="--w:71%"></i><b>3,004</b></p>
           </div>
         </div>
       </article>
 
       <article class="pcardx pc-wide">
-        <p class="pc-tag t-rep"><svg aria-hidden="true"><use href="#i-chart" /></svg>التقارير</p>
-        <h3>مش عارف إيه اللي بيحصل في محادثاتك؟</h3>
-        <p class="pc-ans"><span aria-hidden="true">↩</span>تقارير للمحادثات والفريق والحملات والأتمتة في مكان واحد.</p>
+        <p class="pc-tag t-rep"><svg aria-hidden="true"><use href="#i-chart" /></svg>{c.rep.tag}</p>
+        <h3>{c.rep.h}</h3>
+        <p class="pc-ans"><span aria-hidden="true">↩</span>{c.rep.ans}</p>
         <div class="fv fv-rep pc-vis" aria-hidden="true">
-          <div class="rp-k"><small>زمن أول رد</small><b>4:12 <span>دقيقة</span></b></div>
-          <div class="rp-k"><small>محادثات حُلّت</small><b>1,097</b></div>
+          <div class="rp-k"><small>{m.firstReply}</small><b>4:12 <span>{m.minutes}</span></b></div>
+          <div class="rp-k"><small>{m.resolved}</small><b>1,097</b></div>
           <div class="rp-bars"><i style="--h:45%"></i><i style="--h:58%"></i><i style="--h:50%"></i><i style="--h:70%"></i><i style="--h:64%"></i><i style="--h:82%"></i><i class="last" style="--h:94%"></i></div>
         </div>
       </article>
 
       <article class="pcardx">
-        <p class="pc-tag t-team"><svg aria-hidden="true"><use href="#i-users" /></svg>إدارة الفريق</p>
-        <h3>فريقك بيتلخبط مين يرد على مين؟</h3>
-        <p class="pc-ans"><span aria-hidden="true">↩</span>توزيع تلقائي للمحادثات، ولكل محادثة مسؤول واضح.</p>
+        <p class="pc-tag t-team"><svg aria-hidden="true"><use href="#i-users" /></svg>{c.team.tag}</p>
+        <h3>{c.team.h}</h3>
+        <p class="pc-ans"><span aria-hidden="true">↩</span>{c.team.ans}</p>
         <div class="fv fv-team pc-vis" aria-hidden="true">
           <span class="tm-core"><svg><use href="#i-inbox" /></svg></span>
-          <span class="tm tm-1">AR</span><span class="tm tm-2">س</span><span class="tm tm-3">خ</span><span class="tm tm-4 tm-ai"><svg><use href="#i-bot" /></svg></span>
+          <span class="tm tm-1" lang="en">AR</span><span class="tm tm-2">{m.salmaInitial}</span><span class="tm tm-3">{m.karimInitial}</span><span class="tm tm-4 tm-ai"><svg><use href="#i-bot" /></svg></span>
         </div>
       </article>
     </div>
 
     <CtaPair />
-    <p class="probs-more">وهذه مجرد البداية. شاهد كيف يحوّل ORQO رسائل عملائك إلى نتائج.<svg aria-hidden="true"><use href="#i-chev" /></svg></p>
+    <p class="probs-more">{t.problems.more}<svg aria-hidden="true"><use href="#i-chev" /></svg></p>
   </div>
 </section>

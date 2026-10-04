@@ -1,5 +1,6 @@
 ---
 import { site } from '../config/site';
+import { getLang, getT, href, switchPath } from '../i18n';
 import FooterCta from './FooterCta.astro';
 
 interface Props {
@@ -7,7 +8,10 @@ interface Props {
   cta?: boolean;
 }
 const { cta = true } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+const t = getT(Astro.currentLocale);
 const year = new Date().getFullYear();
+const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
 ---
 <footer class="fx">
   <div class="fx-panel">
@@ -16,27 +20,27 @@ const year = new Date().getFullYear();
 
       <div class="fx-cols">
         <div class="fx-brand">
-          <a href="/" aria-label="ORQO — الصفحة الرئيسية"><svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo" /></svg></a>
-          <p>مساحة عمل واحدة لمحادثات عملائك وفريقك والذكاء الاصطناعي.</p>
+          <a href={href(lang, '/')} aria-label={t.footer.brandAria}><svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo" /></svg></a>
+          <p>{t.footer.tagline}</p>
         </div>
-        <nav class="fx-links" aria-label="روابط التذييل">
-          <div><p>المنصة</p><a href="/#journey">الوكيل الذكي</a><a href="/#campaigns">حملات واتساب</a><a href="/#contacts">جهات الاتصال</a><a href="/#automation">الأتمتة</a><a href="/pricing#integrations">التكاملات</a></div>
-          <div><p>الشركة</p><a href="/pricing">الأسعار</a><a href="/contact">تواصل معنا</a><a href="/privacy">سياسة الخصوصية</a><a href="/terms">الشروط والأحكام</a></div>
-          <div><p>تواصل معنا</p>
+        <nav class="fx-links" aria-label={t.footer.navAria}>
+          <div><p>{t.footer.platform.title}</p>{t.footer.platform.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>
+          <div><p>{t.footer.company.title}</p>{t.footer.company.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>
+          <div><p>{t.footer.contactTitle}</p>
             <a href={`mailto:${site.email}`} dir="ltr" class="fx-mail">{site.email}</a>
-            <a href={site.whatsappUrl}>واتساب</a>
-            <ul class="socials fx-socials" aria-label="حسابات ORQO">
-              <li><a href={site.social.facebook} aria-label="فيسبوك"><svg aria-hidden="true"><use href="#i-fb" /></svg></a></li>
-              <li><a href={site.social.instagram} aria-label="إنستجرام"><svg aria-hidden="true"><use href="#i-ig" /></svg></a></li>
-              <li><a href={site.social.linkedin} aria-label="لينكدإن"><svg aria-hidden="true"><use href="#i-li" /></svg></a></li>
+            <a href={site.whatsappUrl}>{t.footer.whatsapp}</a>
+            <ul class="socials fx-socials" aria-label={t.footer.socialsAria}>
+              <li><a href={site.social.facebook} aria-label={t.footer.socials.facebook}><svg aria-hidden="true"><use href="#i-fb" /></svg></a></li>
+              <li><a href={site.social.instagram} aria-label={t.footer.socials.instagram}><svg aria-hidden="true"><use href="#i-ig" /></svg></a></li>
+              <li><a href={site.social.linkedin} aria-label={t.footer.socials.linkedin}><svg aria-hidden="true"><use href="#i-li" /></svg></a></li>
             </ul>
           </div>
         </nav>
       </div>
 
       <div class="fx-base">
-        <p>© {year} <span lang="en">ORQO</span>. جميع الحقوق محفوظة.</p>
-        {site.englishUrl && <a class="lang" href={site.englishUrl} hreflang="en" lang="en">English</a>}
+        <p>© {year} <span lang="en">ORQO</span>. {t.footer.rights}</p>
+        <a class="lang" href={altHref} hreflang={lang === 'ar' ? 'en' : 'ar'} lang={lang === 'ar' ? 'en' : 'ar'} aria-label={t.footer.switchAria}>{t.footer.switchTo}</a>
       </div>
     </div>
   </div>

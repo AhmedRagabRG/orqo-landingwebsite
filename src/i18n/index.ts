@@ -26,7 +26,7 @@ export const I = (astro: AstroGlobal) => {
 
 /** Given the current pathname, the same page in the other locale. */
 export const switchPath = (pathname: string, to: Lang) => {
-  const clean = pathname.replace(/\.html$/, '').replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
-  const stripped = clean === '/' ? '/' : clean.replace(/^\/en(?=\/|$)/, '');
+  const clean = pathname.replace(/\/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  const stripped = (clean === '/' ? '/' : clean.replace(/^\/en(?=\/|$)/, '')) || '/';
   return href(to, stripped);
 };

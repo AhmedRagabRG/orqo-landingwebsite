@@ -1675,3 +1675,19 @@ body:not(.review-on) mark.ph { background: none; border: 0; color: inherit; padd
   .ic-vis { height: 140px; }
   .ic-vis > * { zoom: .6; }
 }
+
+/* ============ LTR (English) ============ */
+/* Latin text reads better a touch tighter than the Arabic 1.8. */
+[dir="ltr"] body { line-height: 1.7; }
+/* Connector triangles are drawn for RTL flow (pointing left); mirror them. */
+[dir="ltr"] .fv-arrow::after,
+[dir="ltr"] .iv-arrow::after { left: auto; right: -1px; border: 5px solid transparent; border-left-color: var(--mint); border-right: 0; }
+[dir="ltr"] .icard .iv-store .iv-arrow::after { left: auto; right: -1px; border: 5px solid transparent; border-left-color: var(--mint); border-right: 0; }
+/* The hand-drawn arc is flipped for RTL; restore the natural direction. */
+[dir="ltr"] .arc-under { transform: none; }
+/* Assignment chip: Layla → Ahmed reads left-to-right in English. */
+[dir="ltr"] .arrow-l { display: inline-block; transform: scaleX(-1); }
+[dir="ltr"] .review-tag::before { content: "Review"; }
+/* English fallback line on the shared 404 page. */
+.nf-en { max-width: var(--wrap, 1180px); margin: -18px auto 0; padding: 0 24px; text-align: center; color: var(--ink-3); font-size: var(--t-sm); }
+.nf-en a { color: var(--ink-2); }

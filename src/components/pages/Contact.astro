@@ -1,0 +1,95 @@
+---
+/**
+ * Contact page body, shared by /contact (Arabic) and /en/contact (English).
+ */
+import Base from '../../layouts/Base.astro';
+import { site } from '../../config/site';
+import { I } from '../../i18n';
+import PageHero from '../ui/PageHero.astro';
+import MetaBadge from '../ui/MetaBadge.astro';
+
+const { t } = I(Astro);
+const P = t.contactPage;
+---
+<Base title={P.title} description={P.description} page="contact">
+<PageHero chip={P.hero.chip} icon="i-mail" title={P.hero.title} accent={P.hero.accent} lead={P.hero.lead} />
+
+<section class="contact-sec" aria-label={P.secAria}>
+  <div class="wrap contact-grid">
+
+    <div class="channels">
+      <article class="chan chan-wa">
+        <span class="chan-ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span>
+        <div class="chan-body">
+          <h2>{P.wa.h}</h2>
+          <p>{P.wa.p}</p>
+          <p class="chan-val" dir="ltr">{site.whatsappDisplay}</p>
+        </div>
+        <div class="chan-acts">
+          <a class="btn btn-primary btn-sm" href={site.whatsappUrl}>{P.wa.btn}</a>
+          <button type="button" class="copy-btn" data-copy={site.whatsappDisplay} aria-label={P.wa.copy}><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </div>
+      </article>
+
+      <article class="chan">
+        <span class="chan-ico chan-ico-ink"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+        <div class="chan-body">
+          <h2>{P.email.h}</h2>
+          <p>{P.email.p}</p>
+          <p class="chan-val" dir="ltr">{site.email}</p>
+        </div>
+        <div class="chan-acts">
+          <a class="btn btn-ghost btn-sm" href={`mailto:${site.email}`}>{P.email.btn}</a>
+          <button type="button" class="copy-btn" data-copy={site.email} aria-label={P.email.copy}><svg aria-hidden="true"><use href="#i-copy"/></svg></button>
+        </div>
+      </article>
+
+      <div class="social-block">
+        <p class="list-label-ink">{P.follow}</p>
+        <ul class="socials socials-lg">
+          <li><a href={site.social.facebook}><svg aria-hidden="true"><use href="#i-fb"/></svg><span>{P.socials.facebook}</span></a></li>
+          <li><a href={site.social.instagram}><svg aria-hidden="true"><use href="#i-ig"/></svg><span>{P.socials.instagram}</span></a></li>
+          <li><a href={site.social.linkedin}><svg aria-hidden="true"><use href="#i-li"/></svg><span>{P.socials.linkedin}</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <form class="cform" id="contact-form" novalidate data-endpoint={site.contactEndpoint} aria-labelledby="cf-title">
+      <h2 id="cf-title" class="h3">{P.form.h}</h2>
+      <div class="cf-row">
+        <label for="cf-name">{P.form.name}<input id="cf-name" name="name" type="text" autocomplete="name" required></label>
+        <label for="cf-company">{P.form.company}<input id="cf-company" name="company" type="text" autocomplete="organization"></label>
+      </div>
+      <div class="cf-row">
+        <label for="cf-email">{P.form.email}<input id="cf-email" name="email" type="email" autocomplete="email" dir="ltr" required></label>
+        <label for="cf-phone">{P.form.phone}<input id="cf-phone" name="phone" type="tel" autocomplete="tel" dir="ltr" placeholder="+20"></label>
+      </div>
+      <fieldset class="cf-topics">
+        <legend>{P.form.topicsLegend}</legend>
+        {P.form.topics.map((topic, i) => (
+          <label><input type="radio" name="topic" id={`cf-t${i + 1}`} value={['sales', 'demo', 'support', 'partners'][i]} checked={i === 0}><span>{topic}</span></label>
+        ))}
+      </fieldset>
+      <label for="cf-msg">{P.form.message}<textarea id="cf-msg" name="message" rows="5" required placeholder={P.form.placeholder}></textarea></label>
+      <button type="submit" class="btn btn-primary btn-lg">{P.form.submit} <svg aria-hidden="true"><use href="#i-send"/></svg></button>
+      <p class="cf-status" role="status" hidden></p>
+      <span class="review-tag">{P.form.review}</span>
+    </form>
+  </div>
+</section>
+
+<section class="sec contact-meta" aria-label={P.metaSec.aria}>
+  <div class="wrap cm-grid">
+    <div class="cm-meta">
+      <MetaBadge size="lg" />
+      <p>{P.metaSec.p}</p>
+    </div>
+    <dl class="biz-info">
+      <div><dt>{P.metaSec.hoursDt}</dt><dd>{P.metaSec.hoursDd}</dd></div>
+      <div><dt>{P.metaSec.hqDt}</dt><dd>{P.metaSec.hqDd}</dd></div>
+      <div><dt>{P.metaSec.langsDt}</dt><dd>{P.metaSec.langsDd}</dd></div>
+    </dl>
+    <p class="review-tag">{P.metaSec.review}</p>
+  </div>
+</section>
+</Base>

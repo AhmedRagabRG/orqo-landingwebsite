@@ -1,4 +1,5 @@
 ---
+import { I } from '../../i18n';
 import SectionHead from '../ui/SectionHead.astro';
 import MetaBadge from '../ui/MetaBadge.astro';
 
@@ -11,30 +12,31 @@ const tools = [
   { icon: 'i-n8n', c: 'c-n8n', name: 'n8n' },
   { icon: 'i-code', c: '', name: 'API' },
 ];
-const flow = ['المحادثة', 'ملف العميل', 'المرحلة', 'الحملة', 'التقرير'];
+const { t, href: lp } = I(Astro);
+const p = t.why;
 ---
 <section class="sec why" id="why" aria-labelledby="why-title">
   <div class="wrap">
-    <SectionHead id="why-title" layout="split" chip="لماذا ORQO" icon="i-shield" title="مبني لطريقة شغلك،" accent="وبلغة عملائك." lead="ستة أسباب تجعل الفرق العربية تختار ORQO لإدارة محادثاتها." />
+    <SectionHead id="why-title" layout="split" chip={p.chip} icon="i-shield" title={p.title} accent={p.accent} lead={p.lead} />
 
     <ul class="wb">
       <li class="wb-c wb-ar">
         <div class="wb-copy">
-          <h3>عربي من الأساس</h3>
-          <p>واجهة من اليمين لليسار بالكامل، ووكيل يفهم اللهجات ويرد بالعربي، مع دعم الإنجليزية.</p>
+          <h3>{p.ar.h}</h3>
+          <p>{p.ar.p}</p>
         </div>
         <div class="wb-art" aria-hidden="true">
           <span class="wb-glyph">ع</span>
-          <p class="wb-b wb-b-in">ممكن أعرف المواعيد المتاحة؟</p>
-          <p class="wb-b wb-b-out">أكيد! السبت 11 ص أو الأحد 2 م.</p>
-          <p class="wb-lang"><i class="on">العربية</i><i lang="en">English</i></p>
+          <p class="wb-b wb-b-in">{p.ar.b1}</p>
+          <p class="wb-b wb-b-out">{p.ar.b2}</p>
+          <p class="wb-lang"><i class="on">{p.ar.langOn}</i><i lang="en">English</i></p>
         </div>
       </li>
 
       <li class="wb-c wb-meta">
         <div class="wb-copy">
-          <h3>ربط رسمي مع Meta</h3>
-          <p>ORQO مسجّل كمزوّد تقني لدى Meta. تربط رقم واتساب أعمالك وحسابات إنستجرام وماسنجر عبر الواجهات الرسمية، بدون حلول غير رسمية.</p>
+          <h3>{p.meta.h}</h3>
+          <p>{p.meta.p}</p>
         </div>
         <div class="wb-art" aria-hidden="true">
           <svg class="wb-meta-logo"><use href="#i-meta" /></svg>
@@ -44,16 +46,16 @@ const flow = ['المحادثة', 'ملف العميل', 'المرحلة', 'ال
 
       <li class="wb-c wb-tools">
         <div class="wb-copy">
-          <h3>يتصل بأدواتك</h3>
-          <p>متجرك، وأدوات Google، وعقدة ORQO الموثّقة في n8n، و API لأي نظام آخر.</p>
-          <a class="link-arrow" href="/pricing#integrations">كل التكاملات <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+          <h3>{p.tools.h}</h3>
+          <p>{p.tools.p}</p>
+          <a class="link-arrow" href={lp('/pricing#integrations')}>{p.tools.link} <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
         </div>
         <div class="wb-hub" aria-hidden="true">
           <span class="wb-core"><svg viewBox="0 0 512 512"><use href="#logo-mark" /></svg></span>
-          {tools.map((t, i) => (
+          {tools.map((tool, i) => (
             <span class="wb-node" style={`--k:${i}`}>
-              {t.img ? <img src={t.img} width="20" height="20" alt="" /> : <svg class={t.c}><use href={`#${t.icon}`} /></svg>}
-              <small lang="en">{t.name}</small>
+              {tool.img ? <img src={tool.img} width="20" height="20" alt="" /> : <svg class={tool.c}><use href={`#${tool.icon}`} /></svg>}
+              <small lang="en">{tool.name}</small>
             </span>
           ))}
         </div>
@@ -61,24 +63,24 @@ const flow = ['المحادثة', 'ملف العميل', 'المرحلة', 'ال
 
       <li class="wb-c wb-free">
         <p class="wb-num" dir="ltr">0$</p>
-        <h3>تبدأ مجانًا</h3>
-        <p>خطة مجانية دائمة، بدون بطاقة دفع وبدون إعداد معقّد.</p>
+        <h3>{p.free.h}</h3>
+        <p>{p.free.p}</p>
       </li>
 
       <li class="wb-c wb-team">
         <p class="wb-num" dir="ltr">24/7</p>
-        <h3>وكيل ذكي وفريق معًا</h3>
-        <p>الوكيل يرد طوال اليوم، وفريقك يستلم حين يلزم ومعه ملخص.</p>
-        <p class="wb-hand" aria-hidden="true"><i class="ai">AI</i><span></span><i>AR</i></p>
+        <h3>{p.team.h}</h3>
+        <p>{p.team.p}</p>
+        <p class="wb-hand" aria-hidden="true"><i class="ai" lang="en">AI</i><span></span><i lang="en">AR</i></p>
       </li>
 
       <li class="wb-c wb-all">
         <div class="wb-copy">
-          <h3>كل شيء متصل</h3>
-          <p>3 قنوات في صندوق وارد واحد، وكل محادثة تبني ملف العميل وتحرّكه في مراحلك وحملاتك وتقاريرك.</p>
+          <h3>{p.all.h}</h3>
+          <p>{p.all.p}</p>
         </div>
         <ol class="wb-flow" aria-hidden="true">
-          {flow.map((f) => <li>{f}</li>)}
+          {p.tools.flow.map((f) => <li>{f}</li>)}
         </ol>
       </li>
     </ul>

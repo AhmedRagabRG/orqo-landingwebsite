@@ -1,32 +1,36 @@
 ---
 import { site } from '../config/site';
 import { nav } from '../data/nav';
+import { I, switchPath } from '../i18n';
+const { lang, t, href: lp } = I(Astro);
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/(.)\/$/, '$1');
-const isCurrent = (href: string) => !href.includes('#') && href === path;
+const isCurrent = (item: { href: string }) => !item.href.includes('#') && lp(item.href) === path;
+const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
+const altLang = lang === 'ar' ? 'en' : 'ar';
 ---
 <header class="site-head" id="top">
   <div class="wrap head-row">
-    <a class="brand" href="/" aria-label="ORQO — الصفحة الرئيسية">
+    <a class="brand" href={lp('/')} aria-label={t.header.brandAria}>
       <svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo"/></svg>
     </a>
-    <nav class="nav" aria-label="التنقل الرئيسي">
-      {nav.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
+    <nav class="nav" aria-label={t.header.navAria}>
+      {nav[lang].map((item) => <a href={lp(item.href)} aria-current={isCurrent(item) ? 'page' : undefined}>{item.label}</a>)}
     </nav>
     <div class="head-actions">
-      {site.englishUrl && <a class="lang" href={site.englishUrl} hreflang="en" lang="en">EN</a>}
-      <a class="link-quiet" href={site.loginUrl}>تسجيل الدخول</a>
-      <a class="btn btn-primary btn-sm" href={site.signupUrl}>ابدأ مجانًا</a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة">
+      <a class="lang" href={altHref} hreflang={altLang} lang={altLang} aria-label={t.header.switchAria}>{t.header.switchTo}</a>
+      <a class="link-quiet" href={site.loginUrl}>{t.header.login}</a>
+      <a class="btn btn-primary btn-sm" href={site.signupUrl}>{t.header.start}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label={t.header.menuOpen}>
         <svg aria-hidden="true"><use href="#i-menu"/></svg>
       </button>
     </div>
   </div>
   <div class="mobile-nav" id="mobile-nav" hidden>
-    <nav class="wrap" aria-label="التنقل على الجوال">
-      {nav.map((item) => <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>)}
+    <nav class="wrap" aria-label={t.header.navAriaMobile}>
+      {nav[lang].map((item) => <a href={lp(item.href)} aria-current={isCurrent(item) ? 'page' : undefined}>{item.label}</a>)}
       <div class="mobile-nav-cta">
-        <a class="btn btn-primary" href={site.signupUrl}>ابدأ مجانًا</a>
-        <a class="btn btn-ghost" href={site.loginUrl}>تسجيل الدخول</a>
+        <a class="btn btn-primary" href={site.signupUrl}>{t.header.start}</a>
+        <a class="btn btn-ghost" href={site.loginUrl}>{t.header.login}</a>
       </div>
     </nav>
   </div>

@@ -1,9 +1,11 @@
 ---
-/** "Meta Tech Provider" credential. size="lg" adds the Arabic line underneath. */
+/** "Meta Tech Provider" credential. size="lg" adds a line underneath. */
+import { I } from '../../i18n';
 interface Props { size?: 'sm' | 'lg'; tone?: 'light' | 'dark' }
 const { size = 'sm', tone = 'light' } = Astro.props;
+const { t } = I(Astro);
 ---
 <span class:list={['mbadge', `mbadge-${size}`, `mbadge-${tone}`]}>
   <svg aria-hidden="true"><use href="#i-meta" /></svg>
-  <span><b lang="en">Meta Tech Provider</b>{size === 'lg' && <small>مزوّد تقني مسجّل لدى Meta</small>}</span>
+  <span><b lang="en">Meta Tech Provider</b>{size === 'lg' && <small>{t.metaBadge.lg}</small>}</span>
 </span>

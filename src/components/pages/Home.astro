@@ -1,0 +1,42 @@
+---
+/**
+ * Home page body, shared by / (Arabic) and /en (English) — the locale decides
+ * every string via the dictionaries.
+ */
+import Base from '../../layouts/Base.astro';
+import Hero from '../home/Hero.astro';
+import Problems from '../home/Problems.astro';
+import AiPanel from '../home/AiPanel.astro';
+import Campaigns from '../home/Campaigns.astro';
+import CrmPanel from '../home/CrmPanel.astro';
+import Tools from '../home/Tools.astro';
+import Automation from '../home/Automation.astro';
+import WhyOrqo from '../home/WhyOrqo.astro';
+import PricingPreview from '../home/PricingPreview.astro';
+import Faq from '../ui/Faq.astro';
+import { I } from '../../i18n';
+import { homeFaq } from '../../data/faq';
+
+const { lang, t } = I(Astro);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'ORQO',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  inLanguage: ['ar', 'en'],
+  description: t.homeMeta.jsonLd,
+};
+---
+<Base title={t.homeMeta.title} description={t.homeMeta.description} page="home" jsonLd={jsonLd}>
+  <Hero />
+  <Problems />
+  <AiPanel />
+  <Campaigns />
+  <CrmPanel />
+  <Tools />
+  <Automation />
+  <WhyOrqo />
+  <PricingPreview />
+  <Faq groups={homeFaq[lang]} />
+</Base>

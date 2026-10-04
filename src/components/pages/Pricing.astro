@@ -1,0 +1,246 @@
+---
+/**
+ * Pricing page body, shared by /pricing (Arabic) and /en/pricing (English).
+ */
+import Base from '../../layouts/Base.astro';
+import { I } from '../../i18n';
+import { plans } from '../../data/plans';
+import PlanCard from '../pricing/PlanCard.astro';
+import BillingToggle from '../pricing/BillingToggle.astro';
+import CompareTable from '../pricing/CompareTable.astro';
+import PageHero from '../ui/PageHero.astro';
+import SectionHead from '../ui/SectionHead.astro';
+import Faq from '../ui/Faq.astro';
+import { pricingFaq } from '../../data/faq';
+
+const { lang, t, href: lp } = I(Astro);
+const P = t.pricingPage;
+const S = P.showcase;
+const m = t.mock;
+---
+<Base title={P.title} description={P.description} page="pricing">
+<PageHero chip={P.hero.chip} icon="i-cash" title={P.hero.title} accent={P.hero.accent} lead={P.hero.lead} />
+
+<section class="plans-sec" id="plans" aria-label={P.plansAria}>
+  <div class="wrap">
+    <BillingToggle />
+    <div class="plans plans-full">
+      {plans[lang].map((plan) => <PlanCard plan={plan} full />)}
+    </div>
+    <div class="plans-foot">
+      <p>{P.plansFoot} <a href={lp('/contact')}>{P.salesLink}</a>.</p>
+      <p class="review-tag">{P.plansReview}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE SHOWCASE ============ -->
+<section class="sec showcase" id="features" aria-labelledby="sc-title">
+  <div class="wrap">
+    <SectionHead id="sc-title" layout="split" chip={S.chip} icon="i-layers" title={S.title} accent={S.accent} lead={S.lead} />
+
+    <div class="bento">
+      <!-- COD -->
+      <article class="fcard fc-full tint-sand">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-cash"/></svg>{S.cod.tag}</p>
+          <h3>{S.cod.h}</h3>
+          <p>{S.cod.p}</p>
+        </div>
+        <div class="fv fv-cod" aria-hidden="true">
+          <div class="cod-order">
+            <p class="cod-src"><img src="/img/easyorders.png" width="16" height="16" alt="">{S.cod.src}</p>
+            <p class="cod-no" dir="ltr">#1042</p>
+            <p class="cod-item">{S.cod.item}</p>
+            <p class="cod-pay"><span>{S.cod.payLabel}</span><b>{S.cod.payVal}</b></p>
+          </div>
+          <span class="fv-arrow"></span>
+          <div class="cod-wa">
+            <p class="cod-bubble" set:html={S.cod.bubble} />
+            <span class="cod-btn is-tap">{S.cod.btnOk}</span>
+            <span class="cod-btn">{S.cod.btnCancel}</span>
+            <p class="cod-reply">{S.cod.reply} <i>✓✓</i></p>
+          </div>
+          <span class="fv-arrow"></span>
+          <div class="cod-status">
+            <span class="st-chip st-ok"><svg><use href="#i-check"/></svg>{S.cod.stOk}</span>
+            <span class="st-chip">{S.cod.stTag}</span>
+            <span class="st-chip st-ghost">{S.cod.stShip}</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Campaigns -->
+      <article class="fcard fc-wide tint-mint">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-send"/></svg>{S.camp.tag}</p>
+          <h3>{S.camp.h}</h3>
+          <p>{S.camp.p}</p>
+        </div>
+        <div class="fv fv-camp" aria-hidden="true">
+          <div class="camp-msg">
+            <p class="cm-top"><svg class="c-wa"><use href="#i-wa"/></svg>{m.campTitle} <small>{m.campTo}</small></p>
+            <p>{m.campBody}</p>
+          </div>
+          <div class="camp-bars">
+            <p><span>{m.sent}</span><i style="--w:100%"></i><b>4,231</b></p>
+            <p><span>{m.delivered}</span><i style="--w:96%"></i><b>4,062</b></p>
+            <p><span>{m.read}</span><i style="--w:71%"></i><b>3,004</b></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- CRM -->
+      <article class="fcard fc-wide tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-user"/></svg>{S.crmCard.tag}</p>
+          <h3>{S.crmCard.h}</h3>
+          <p>{S.crmCard.p}</p>
+        </div>
+        <div class="fv fv-crm" aria-hidden="true">
+          <div class="crm-card">
+            <p class="crm-h"><span class="crm-av">{m.ahmedInitial}</span><span><b>{m.ahmedSamy}</b><small dir="ltr">{m.phone}</small></span><svg class="c-wa"><use href="#i-wa"/></svg></p>
+            <dl><div><dt>{m.cityLabel}</dt><dd>{m.city}</dd></div><div><dt>{m.interestLabel}</dt><dd>{m.interest}</dd></div></dl>
+            <p class="crm-tags"><i>{m.tag}</i><i>{m.vip}</i><i class="ghost">{t.crm.crmx.addTag}</i></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI agent -->
+      <article class="fcard tint-mint">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-bot"/></svg>{S.ai.tag}</p>
+          <h3>{S.ai.h}</h3>
+          <p>{S.ai.p}</p>
+        </div>
+        <div class="fv fv-ai" aria-hidden="true">
+          <p class="ai-in">{S.ai.in}</p>
+          <p class="ai-out">{S.ai.out}</p>
+          <p class="ai-acts"><i>{S.ai.acts[0]}</i><i>{S.ai.acts[1]}</i></p>
+        </div>
+      </article>
+
+      <!-- Inbox -->
+      <article class="fcard tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-inbox"/></svg>{S.inbox.tag}</p>
+          <h3>{S.inbox.h}</h3>
+          <p>{S.inbox.p}</p>
+        </div>
+        <div class="fv fv-inbox" aria-hidden="true">
+          <p><svg class="c-wa"><use href="#i-wa"/></svg><b>{m.monaShort}</b><span>{m.consultQ}</span><i class="own-ai">AI</i></p>
+          <p><svg class="c-ig"><use href="#i-ig"/></svg><b>{m.salmaShort}</b><span>{m.availQ}</span><i>Ahmed</i></p>
+          <p><svg class="c-ms"><use href="#i-ms"/></svg><b>{m.karimShort}</b><span>{m.pkgQ}</span><i>{m.sarah}</i></p>
+        </div>
+      </article>
+
+      <!-- Team routing -->
+      <article class="fcard tint-sky">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-users"/></svg>{S.team.tag}</p>
+          <h3>{S.team.h}</h3>
+          <p>{S.team.p}</p>
+        </div>
+        <div class="fv fv-team" aria-hidden="true">
+          <span class="tm-core"><svg><use href="#i-inbox"/></svg></span>
+          <span class="tm tm-1" lang="en">AR</span><span class="tm tm-2">{m.salmaInitial}</span><span class="tm tm-3">{m.karimInitial}</span><span class="tm tm-4 tm-ai"><svg><use href="#i-bot"/></svg></span>
+        </div>
+      </article>
+
+      <!-- Automation -->
+      <article class="fcard tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-bolt"/></svg>{S.auto.tag}</p>
+          <h3>{S.auto.h}</h3>
+          <p>{S.auto.p}</p>
+        </div>
+        <div class="fv fv-auto" aria-hidden="true">
+          <p class="an an-t"><svg><use href="#i-cart"/></svg>{S.auto.cart}</p>
+          <p class="an"><svg><use href="#i-clock"/></svg>{S.auto.wait}</p>
+          <p class="an an-w"><svg><use href="#i-wa"/></svg>{S.auto.send}</p>
+        </div>
+      </article>
+
+      <!-- Pipeline -->
+      <article class="fcard tint-mint">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-list"/></svg>{S.pipe.tag}</p>
+          <h3>{S.pipe.h}</h3>
+          <p>{S.pipe.p}</p>
+        </div>
+        <div class="fv fv-pipe" aria-hidden="true">
+          <div><p>{S.pipe.stages[0]}</p><i></i><i></i></div>
+          <div><p>{S.pipe.stages[1]}</p><i class="hot"></i><i></i></div>
+          <div><p>{S.pipe.stages[2]}</p><i></i></div>
+        </div>
+      </article>
+
+      <!-- Reports -->
+      <article class="fcard tint-paper">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-chart"/></svg>{S.rep.tag}</p>
+          <h3>{S.rep.h}</h3>
+          <p>{S.rep.p}</p>
+        </div>
+        <div class="fv fv-rep" aria-hidden="true">
+          <div class="rp-k"><small>{m.firstReply}</small><b>4:12 <span>{m.minutes}</span></b></div>
+          <div class="rp-k"><small>{m.resolved}</small><b>1,097</b></div>
+          <div class="rp-bars"><i style="--h:45%"></i><i style="--h:58%"></i><i style="--h:50%"></i><i style="--h:70%"></i><i style="--h:64%"></i><i style="--h:82%"></i><i class="last" style="--h:94%"></i></div>
+        </div>
+      </article>
+
+      <!-- Integrations -->
+      <article class="fcard fc-full fc-row tint-sky" id="integrations">
+        <div class="fc-copy">
+          <p class="fc-tag"><svg aria-hidden="true"><use href="#i-code"/></svg>{S.int.tag}</p>
+          <h3>{S.int.h}</h3>
+          <p>{S.int.p}</p>
+        </div>
+        <div class="fv fv-int" aria-hidden="true">
+          <i><svg class="c-wa"><use href="#i-wa"/></svg></i><i><svg class="c-ig"><use href="#i-ig"/></svg></i><i><svg class="c-ms"><use href="#i-ms"/></svg></i><i><svg class="c-shop"><use href="#i-shopify"/></svg></i><i><svg class="c-woo"><use href="#i-woo"/></svg></i><i><img src="/img/easyorders.png" width="22" height="22" alt=""></i><i><svg class="c-sheet"><use href="#i-sheets"/></svg></i><i><svg class="c-meet"><use href="#i-meet"/></svg></i><i class="wide"><svg class="c-n8n"><use href="#i-n8n"/></svg>n8n</i><i class="wide mono">API</i>
+        </div>
+      </article>
+    </div>
+    <p class="review-tag">{S.review}</p>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="sec compare" id="compare" aria-labelledby="cmp-title">
+  <div class="wrap">
+    <SectionHead id="cmp-title" chip={P.compare.chip} icon="i-list" title={P.compare.title} accent={P.compare.accent} />
+
+    <div class="cmp-switch" role="tablist" aria-label={P.compare.switchAria}>
+      <button type="button" role="tab" data-plan="1" aria-selected="false" lang="en">Free</button>
+      <button type="button" role="tab" data-plan="2" aria-selected="true" lang="en">Pro</button>
+      <button type="button" role="tab" data-plan="3" aria-selected="false" lang="en">Business</button>
+    </div>
+
+    <CompareTable />
+    <p class="review-tag">{P.compare.review}</p>
+  </div>
+</section>
+
+<!-- ============ USAGE ============ -->
+<section class="sec usage" aria-labelledby="use-title">
+  <div class="wrap usage-grid">
+    <div class="usage-copy">
+      <SectionHead id="use-title" layout="start" chip={P.usage.chip} icon="i-chart" title={P.usage.title} accent={P.usage.accent} />
+      <ul class="ticks ticks-light">
+        {P.usage.ticks.map((tick) => <li>{tick}</li>)}
+      </ul>
+    </div>
+    <div class="meter-card" aria-label={P.usage.meterAria}>
+      <p class="mc-h"><b>{P.usage.meterH}</b><span lang="en">Free</span></p>
+      <div class="meter"><p><span>{P.usage.meterWa}</span><b>640 / 1,000</b></p><i style="--w:64%"></i></div>
+      <div class="meter"><p><span>{P.usage.meterContacts}</span><b>812 / 1,000</b></p><i class="warn" style="--w:81%"></i></div>
+      <div class="meter"><p><span>{P.usage.meterAi}</span><b>37 / 100</b></p><i style="--w:37%"></i></div>
+      <div class="meter"><p><span>{P.usage.meterCamps}</span><b>2 / 5</b></p><i style="--w:40%"></i></div>
+      <p class="mc-note">{P.usage.meterNote} <a href="#plans">{P.usage.meterLink}</a></p>
+      <span class="demo-flag">{P.usage.demoFlag}</span>
+    </div>
+  </div>
+</section>
+
+<Faq groups={pricingFaq[lang]} title={t.faq.pricingTitle} key="pfaq" />
+</Base>

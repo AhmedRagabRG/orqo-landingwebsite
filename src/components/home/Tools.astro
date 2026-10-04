@@ -1,37 +1,41 @@
 ---
+import { I } from '../../i18n';
 import SectionHead from '../ui/SectionHead.astro';
+const { t } = I(Astro);
+const p = t.tools;
+const m = t.mock;
 ---
 <section class="sec tools" id="tools" aria-labelledby="tools-title">
   <div class="wrap">
-    <SectionHead id="tools-title" layout="split" chip="أدوات ومزايا" icon="i-layers" title="كل الأدوات التي يحتاجها فريقك" accent="لتجربة تواصل منظمة وسلسة." lead="مزايا تجعل كل محادثة أسرع وأدق، ومتابعة كل عميل أسهل." />
+    <SectionHead id="tools-title" layout="split" chip={p.chip} icon="i-layers" title={p.title} accent={p.accent} lead={p.lead} />
     <div class="tgrid">
       <article class="tcard tint-sky t4">
-        <h3>توزيع المحادثات</h3><p>توزيع تلقائي على الفريق، ولكل محادثة مسؤول.</p>
-        <div class="fv fv-team tvis" aria-hidden="true"><span class="tm-core"><svg><use href="#i-inbox" /></svg></span><span class="tm tm-1">AR</span><span class="tm tm-2">س</span><span class="tm tm-3">خ</span><span class="tm tm-4 tm-ai"><svg><use href="#i-bot" /></svg></span></div>
+        <h3>{p.cards[0].h}</h3><p>{p.cards[0].p}</p>
+        <div class="fv fv-team tvis" aria-hidden="true"><span class="tm-core"><svg><use href="#i-inbox" /></svg></span><span class="tm tm-1" lang="en">AR</span><span class="tm tm-2">{m.salmaInitial}</span><span class="tm tm-3">{m.karimInitial}</span><span class="tm tm-4 tm-ai"><svg><use href="#i-bot" /></svg></span></div>
       </article>
       <article class="tcard tint-mint t4">
-        <h3>الوسوم والشرائح</h3><p>صنّف عملاءك (جديد، مهتم، VIP) واستهدفهم لاحقًا.</p>
-        <div class="fv tvis tv-tags" aria-hidden="true"><p><i>عميل جديد</i><b>412</b></p><p><i class="hot">عميل مهتم</i><b>312</b></p><p><i>VIP</i><b>48</b></p></div>
+        <h3>{p.cards[1].h}</h3><p>{p.cards[1].p}</p>
+        <div class="fv tvis tv-tags" aria-hidden="true"><p><i>{p.tagNew}</i><b>412</b></p><p><i class="hot">{m.tag}</i><b>312</b></p><p><i>{m.vip}</i><b>48</b></p></div>
       </article>
       <article class="tcard tint-lav t4">
-        <h3>مراحل العملاء</h3><p>اعرف أين يقف كل عميل، من أول استفسار حتى الحجز.</p>
-        <div class="fv fv-pipe tvis" aria-hidden="true"><div><p>جديد</p><i></i><i></i></div><div><p>مؤهَّل</p><i class="hot"></i><i></i></div><div><p>تم ✓</p><i></i></div></div>
+        <h3>{p.cards[2].h}</h3><p>{p.cards[2].p}</p>
+        <div class="fv fv-pipe tvis" aria-hidden="true"><div><p>{p.pipe[0]}</p><i></i><i></i></div><div><p>{p.pipe[1]}</p><i class="hot"></i><i></i></div><div><p>{p.pipe[2]}</p><i></i></div></div>
       </article>
       <article class="tcard tint-sand t3">
-        <h3>الردود الجاهزة</h3><p>ردود محفوظة للأسئلة المتكررة بضغطة.</p>
-        <div class="fv tvis tv-canned" aria-hidden="true"><p class="tvc-k">/الأسعار</p><p class="tvc-b">أسعار الباقات تبدأ من 500 جنيه. تحب أرسل لك التفاصيل؟</p></div>
+        <h3>{p.cards[3].h}</h3><p>{p.cards[3].p}</p>
+        <div class="fv tvis tv-canned" aria-hidden="true"><p class="tvc-k">{p.cannedK}</p><p class="tvc-b">{p.cannedB}</p></div>
       </article>
       <article class="tcard tint-paper t3">
-        <h3>الملاحظات الداخلية</h3><p>تواصل مع زملائك داخل المحادثة دون أن يراها العميل.</p>
-        <div class="fv tvis tv-note" aria-hidden="true"><p><b>@سارة</b> العميلة طالبة خصم للحجز السنوي</p><span>ملاحظة للفريق</span></div>
+        <h3>{p.cards[4].h}</h3><p>{p.cards[4].p}</p>
+        <div class="fv tvis tv-note" aria-hidden="true"><p><b>{p.noteB}</b></p><span>{p.noteTag}</span></div>
       </article>
       <article class="tcard tint-mint t3">
-        <h3>الأتمتة</h3><p>متابعات وتذكيرات تعمل وحدها في موعدها.</p>
-        <div class="fv fv-auto tvis" aria-hidden="true"><p class="an an-t"><svg><use href="#i-cart" /></svg>سلة متروكة</p><p class="an"><svg><use href="#i-clock" /></svg>انتظار ساعة</p><p class="an an-w"><svg><use href="#i-wa" /></svg>إرسال تذكير</p></div>
+        <h3>{p.cards[5].h}</h3><p>{p.cards[5].p}</p>
+        <div class="fv fv-auto tvis" aria-hidden="true"><p class="an an-t"><svg><use href="#i-cart" /></svg>{p.autoSteps[0]}</p><p class="an"><svg><use href="#i-clock" /></svg>{p.autoSteps[1]}</p><p class="an an-w"><svg><use href="#i-wa" /></svg>{p.autoSteps[2]}</p></div>
       </article>
       <article class="tcard tint-sky t3">
-        <h3>تأكيد طلبات COD</h3><p>كل طلب من متجرك يُؤكَّد على واتساب قبل الشحن.</p>
-        <div class="fv tvis tv-cod" aria-hidden="true"><p><b dir="ltr">#1042</b><i class="ok">مؤكَّد</i></p><p><b dir="ltr">#1043</b><i class="wait">بانتظار الرد</i></p><p><b dir="ltr">#1044</b><i class="no">ملغي</i></p></div>
+        <h3>{p.cards[6].h}</h3><p>{p.cards[6].p}</p>
+        <div class="fv tvis tv-cod" aria-hidden="true"><p><b dir="ltr">#1042</b><i class="ok">{p.cod[0]}</i></p><p><b dir="ltr">#1043</b><i class="wait">{p.cod[1]}</i></p><p><b dir="ltr">#1044</b><i class="no">{p.cod[2]}</i></p></div>
       </article>
     </div>
   </div>

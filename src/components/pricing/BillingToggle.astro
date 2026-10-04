@@ -1,4 +1,9 @@
-<div class="billing-toggle" role="group" aria-label="مدة الاشتراك">
-  <button type="button" data-cycle="monthly" aria-pressed="true">شهري</button>
-  <button type="button" data-cycle="yearly" aria-pressed="false">سنوي <i>شهران مجانًا</i></button>
+---
+import { I } from '../../i18n';
+const { t } = I(Astro);
+const b = t.pricingPage.toggle;
+---
+<div class="billing-toggle" role="group" aria-label={b.aria}>
+  <button type="button" data-cycle="monthly" aria-pressed="true">{b.monthly}</button>
+  <button type="button" data-cycle="yearly" aria-pressed="false">{b.yearly} <i>{b.note}</i></button>
 </div>

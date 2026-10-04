@@ -5,6 +5,7 @@
  */
 import { site } from '../../config/site';
 import type { FaqGroup } from '../../data/faq';
+import { I } from '../../i18n';
 import SectionHead from './SectionHead.astro';
 
 interface Props {
@@ -14,14 +15,15 @@ interface Props {
   /** Prefix for element ids; must be unique on the page. */
   key?: string;
 }
-const { groups, title = 'أسئلة قبل البداية', accent, key = 'faq' } = Astro.props;
+const { groups, title, accent, key = 'faq' } = Astro.props;
+const { t } = I(Astro);
 const tabs = groups.length > 1;
 ---
 <section class="sec faqx" id="faq" aria-labelledby={`${key}-title`}>
   <div class="wrap faqx-inner">
-    <SectionHead id={`${key}-title`} chip="الأسئلة الشائعة" icon="i-note" title={title} accent={accent} />
+    <SectionHead id={`${key}-title`} chip={t.faq.chip} icon="i-note" title={title ?? t.faq.defaultTitle} accent={accent} />
     {tabs && (
-      <div class="faqx-tabs" role="tablist" aria-label="موضوعات الأسئلة" data-tabs>
+      <div class="faqx-tabs" role="tablist" aria-label={t.faq.tabsAria} data-tabs>
         {groups.map((g, i) => (
           <button type="button" role="tab" id={`${key}-t-${g.id}`} aria-controls={`${key}-p-${g.id}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{g.label}</button>
         ))}
@@ -39,8 +41,8 @@ const tabs = groups.length > 1;
       </div>
     ))}
     <div class="faqx-ask">
-      <p><b>عندك سؤال آخر؟</b> يسعدنا نرد عليك على واتساب.</p>
-      <a class="btn btn-wa btn-sm" href={site.whatsappUrl}><svg aria-hidden="true"><use href="#i-wa" /></svg>تواصل معنا على واتساب</a>
+      <p><b>{t.faq.askB}</b> {t.faq.askP}</p>
+      <a class="btn btn-wa btn-sm" href={site.whatsappUrl}><svg aria-hidden="true"><use href="#i-wa" /></svg>{t.faq.askBtn}</a>
     </div>
   </div>
 </section>

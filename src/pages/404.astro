@@ -1,12 +1,5 @@
 ---
-import Base from '../layouts/Base.astro';
-import PageHero from '../components/ui/PageHero.astro';
+import NotFound from '../components/pages/NotFound.astro';
 ---
-<Base title="الصفحة غير موجودة — ORQO" description="الصفحة التي تبحث عنها غير موجودة." page="404" noindex>
-  <PageHero chip="404" icon="i-x" title="هذه الصفحة" accent="غير موجودة." lead="ربما تغيّر الرابط أو حُذفت الصفحة. ارجع للرئيسية أو تواصل معنا.">
-    <div class="phero-cta">
-      <a class="btn btn-primary btn-lg" href="/">الصفحة الرئيسية</a>
-      <a class="btn btn-ghost btn-lg" href="/contact">تواصل معنا</a>
-    </div>
-  </PageHero>
-</Base>
+
+<NotFound />

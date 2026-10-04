@@ -1,29 +1,35 @@
 ---
+import { I } from '../../i18n';
 import { plans } from '../../data/plans';
 import { compare } from '../../data/compare';
 
-const cellClass = (v: string) => (v === '✓' ? 'y' : v === '—' ? 'n' : v === 'بلا حد' ? 'inf' : undefined);
+const { lang, t } = I(Astro);
+const rows = plans[lang];
+const groups = compare[lang];
+const P = t.pricingPage;
+const money = (n: number) => (lang === 'en' ? `$${n}` : `${n}$`);
+const cellClass = (v: string) => (v === '✓' ? 'y' : v === '—' ? 'n' : v === P.unlimited ? 'inf' : undefined);
 const isUnit = (v: string) => /\d\s?(GB|MB)$/.test(v);
 ---
 <div class="cmp-wrap">
   <table class="cmp" data-show="2">
     <thead>
       <tr>
-        <th scope="col"><span class="sr">الميزة</span></th>
-        {plans.map((p) => (
+        <th scope="col"><span class="sr">{P.featureLabel}</span></th>
+        {rows.map((p) => (
           <th scope="col" class:list={{ rec: p.recommended }} lang="en">
             {p.name}
             {p.monthly === 0
-              ? <small>0$</small>
-              : <small data-m={`${p.monthly}$ / شهر`} data-y={`${p.yearly}$ / سنة`}>{p.monthly}$ / شهر</small>}
+              ? <small>{money(0)}</small>
+              : <small data-m={`${money(p.monthly)} ${P.perMoShort}`} data-y={`${money(p.yearly)} ${P.perYrShort}`}>{money(p.monthly)} {P.perMoShort}</small>}
           </th>
         ))}
       </tr>
     </thead>
     <tbody>
-      {compare.map((group) => (
+      {groups.map((group) => (
         <>
-          <tr class="grp"><th colspan={plans.length + 1} scope="colgroup">{group.title}</th></tr>
+          <tr class="grp"><th colspan={rows.length + 1} scope="colgroup">{group.title}</th></tr>
           {group.rows.map((row) => (
             <tr>
               <th scope="row">{row.label}</th>

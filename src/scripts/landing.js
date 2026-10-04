@@ -1,6 +1,21 @@
 /* ORQO landing — interactions. No dependencies. */
 (function () {
   'use strict';
+  var ORQO = window.ORQO || {};
+  /* Localized strings injected by Base.astro; Arabic defaults keep the script standalone. */
+  var I18N = ORQO.i18n || {
+    menuOpen: 'فتح القائمة', menuClose: 'إغلاق القائمة',
+    form: {
+      err: 'أكمل الاسم والبريد الإلكتروني والرسالة.',
+      noEndpoint: 'نموذج التواصل غير متصل بعد. راسلنا مباشرة على hello@orqo.site',
+      sending: 'جارٍ الإرسال…',
+      ok: 'وصلتنا رسالتك. سنرد عليك قريبًا.',
+      fail: 'لم تُرسل الرسالة. حاول مرة أخرى أو راسلنا على hello@orqo.site'
+    },
+    journey: {
+      byAi: 'ليلى · وكيل ذكي', byHuman: 'Ahmed Ragab', noteBy: 'تعليق داخلي · ليلى', sumBy: 'ملخص المحادثة', steps: {}
+    }
+  };
   var doc = document.documentElement;
   doc.classList.add('js');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -30,7 +45,7 @@
     mnav.hidden = !open;
     head.classList.toggle('menu-open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+    menuBtn.setAttribute('aria-label', open ? I18N.menuClose : I18N.menuOpen);
     menuBtn.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
   }
   menuBtn.addEventListener('click', function () { setMenu(mnav.hidden); });
@@ -97,26 +112,26 @@
     var bad = $$('[required]', form).filter(function (f) { return !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value)); });
     $$('[required]', form).forEach(function (f) { f.toggleAttribute('aria-invalid', bad.indexOf(f) > -1); });
     status.hidden = false;
-    if (bad.length) { status.className = 'cf-status is-err'; status.textContent = 'أكمل الاسم والبريد الإلكتروني والرسالة.'; bad[0].focus(); return; }
+    if (bad.length) { status.className = 'cf-status is-err'; status.textContent = I18N.form.err; bad[0].focus(); return; }
     var endpoint = form.dataset.endpoint;
     if (!endpoint) {
       status.className = 'cf-status';
-      status.textContent = 'نموذج التواصل غير متصل بعد. راسلنا مباشرة على hello@orqo.site';
+      status.textContent = I18N.form.noEndpoint;
       return;
     }
     var data = {}; new FormData(form).forEach(function (v, k) { data[k] = v; });
     data.page = location.href;
     btn.disabled = true;
-    status.className = 'cf-status'; status.textContent = 'جارٍ الإرسال…';
+    status.className = 'cf-status'; status.textContent = I18N.form.sending;
     fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
       .then(function (r) {
         if (!r.ok) throw new Error(String(r.status));
-        status.textContent = 'وصلتنا رسالتك. سنرد عليك قريبًا.';
+        status.textContent = I18N.form.ok;
         form.reset();
       })
       .catch(function () {
         status.className = 'cf-status is-err';
-        status.textContent = 'لم تُرسل الرسالة. حاول مرة أخرى أو راسلنا على hello@orqo.site';
+        status.textContent = I18N.form.fail;
       })
       .finally(function () { btn.disabled = false; });
   });
@@ -216,7 +231,8 @@
   (function () {
   if (!$('#js-thread')) return;
   var NOTE = '<svg aria-hidden="true"><use href="#i-note"/></svg>';
-  var STEPS = {
+  var J = I18N.journey;
+  var STEPS_AR = {
     1: [
       { t: 'sys', x: 'بدأت المحادثة · واتساب' },
       { t: 'sys', x: 'تم تعيين المحادثة إلى ليلى · وكيل ذكي' },
@@ -245,6 +261,7 @@
       { t: 'sys', x: 'نُقلت منى عادل إلى مرحلة Booked' }
     ]
   };
+  var STEPS = J.steps && J.steps['1'] ? J.steps : STEPS_AR;
   var thread = $('#js-thread'), jstage = $('.jstage'), assignee = $('.js-assignee'), stageChip = $('.js-stage');
   var cur = 0, runId = 0;
 
@@ -252,10 +269,10 @@
     var d = document.createElement('div');
     if (m.t === 'sys') { d.className = 'msg msg-sys'; d.textContent = m.x; }
     else if (m.t === 'in') { d.className = 'msg msg-in'; d.textContent = m.x; }
-    else if (m.t === 'ai') { d.className = 'msg msg-out'; d.innerHTML = '<span class="msg-by">ليلى · وكيل ذكي</span>'; d.appendChild(document.createTextNode(m.x)); }
-    else if (m.t === 'hu') { d.className = 'msg msg-out'; d.innerHTML = '<span class="msg-by" lang="en">Ahmed Ragab</span>'; d.appendChild(document.createTextNode(m.x)); }
-    else if (m.t === 'note') { d.className = 'msg msg-note'; d.innerHTML = '<b>' + NOTE + 'تعليق داخلي · ليلى</b>'; d.appendChild(document.createTextNode(m.x)); }
-    else if (m.t === 'sum') { d.className = 'msg msg-sum'; d.innerHTML = '<b>' + NOTE + 'ملخص المحادثة</b>'; d.appendChild(document.createTextNode(m.x)); }
+    else if (m.t === 'ai') { d.className = 'msg msg-out'; d.innerHTML = '<span class="msg-by"></span>'; d.querySelector('.msg-by').textContent = J.byAi; d.appendChild(document.createTextNode(m.x)); }
+    else if (m.t === 'hu') { d.className = 'msg msg-out'; d.innerHTML = '<span class="msg-by" lang="en"></span>'; d.querySelector('.msg-by').textContent = J.byHuman; d.appendChild(document.createTextNode(m.x)); }
+    else if (m.t === 'note') { d.className = 'msg msg-note'; d.innerHTML = '<b>' + NOTE + '</b>'; d.querySelector('b').appendChild(document.createTextNode(J.noteBy)); d.appendChild(document.createTextNode(m.x)); }
+    else if (m.t === 'sum') { d.className = 'msg msg-sum'; d.innerHTML = '<b>' + NOTE + '</b>'; d.querySelector('b').appendChild(document.createTextNode(J.sumBy)); d.appendChild(document.createTextNode(m.x)); }
     return d;
   }
   function flash(node) { node.classList.remove('flash'); void node.offsetWidth; node.classList.add('flash'); setTimeout(function () { node.classList.remove('flash'); }, 1400); }

@@ -1,23 +1,21 @@
 ---
 import { site } from '../../config/site';
+import { I } from '../../i18n';
 import SectionHead from '../ui/SectionHead.astro';
-
-const steps = [
-  { t: 'اختر جمهورك', d: 'شريحة حسب الوسوم والحقول وآخر تواصل.' },
-  { t: 'اختر قالبًا معتمدًا', d: 'قوالب واتساب الرسمية بمتغيرات وأزرار.' },
-  { t: 'أرسل أو جدول', d: 'من رقم واتساب الأعمال المربوط.' },
-  { t: 'تابع النتائج', d: 'الوصول والقراءة والنقرات والردود.' },
-];
+const { t } = I(Astro);
+const p = t.campaigns;
+const w = p.win;
+const pv = p.preview;
 ---
 <section class="sec camps" id="campaigns" aria-labelledby="cb-title">
   <div class="wrap">
-    <SectionHead id="cb-title" layout="split" chip="حملات واتساب" icon="i-wa" title="رسالة واحدة،" accent="تصل لكل عملائك على واتساب." lead="عروض وتذكيرات وإعلانات من رقم واتساب أعمالك، بقوالب معتمدة من Meta وبدون حلول غير رسمية.">
-      <a class="btn btn-primary" href={site.signupUrl}>ابدأ حملتك الأولى <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+    <SectionHead id="cb-title" layout="split" chip={p.chip} icon="i-wa" title={p.title} accent={p.accent} lead={p.lead}>
+      <a class="btn btn-primary" href={site.signupUrl}>{p.cta} <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
     </SectionHead>
 
     <div class="cb-grid cx" data-step="1">
-      <ol class="cx-steps" aria-label="خطوات الحملة">
-        {steps.map((s, i) => (
+      <ol class="cx-steps" aria-label={p.stepsAria}>
+        {p.steps.map((s, i) => (
           <li>
             <button type="button" class="cb-step" data-go={i + 1} aria-pressed={i === 0 ? 'true' : 'false'}>
               <i>{i + 1}</i><b>{s.t}</b><span>{s.d}</span>
@@ -29,59 +27,59 @@ const steps = [
       <div class="cx-win" aria-hidden="true">
         <div class="cx-bar">
           <span class="cx-dots"><i></i><i></i><i></i></span>
-          <b>حملة: عرض نهاية الأسبوع</b>
-          <span class="cx-state">مسودة</span>
+          <b>{w.title}</b>
+          <span class="cx-state">{w.draft}</span>
         </div>
         <div class="cx-body">
           <div class="cx-pane">
             <div class="cx-scr" data-scr="1">
-              <p class="cx-k">الجمهور</p>
+              <p class="cx-k">{w.audienceK}</p>
               <div class="cx-card">
-                <p class="cx-seg"><svg><use href="#i-users" /></svg>عملاء مهتمون</p>
-                <p class="cx-rules"><i>الوسم = عميل مهتم</i><i>آخر تواصل منذ +30 يومًا</i><i>القناة = واتساب</i></p>
+                <p class="cx-seg"><svg><use href="#i-users" /></svg>{w.seg}</p>
+                <p class="cx-rules"><i>{w.rules[0]}</i><i>{w.rules[1]}</i><i>{w.rules[2]}</i></p>
               </div>
-              <p class="cx-big"><b>312</b><span>جهة اتصال ستستلم الحملة</span></p>
-              <p class="cx-mute">استُبعد تلقائيًا 6 ألغوا الاشتراك</p>
+              <p class="cx-big"><b>312</b><span>{w.big}</span></p>
+              <p class="cx-mute">{w.excl}</p>
             </div>
             <div class="cx-scr" data-scr="2">
-              <p class="cx-k">القالب</p>
-              <p class="cx-opt on"><i></i><span dir="ltr">weekend_offer</span><em>✓ معتمد</em></p>
-              <p class="cx-opt"><i></i><span dir="ltr">appointment_reminder</span><em>✓ معتمد</em></p>
-              <p class="cx-opt"><i></i><span dir="ltr">new_arrivals</span><em class="wait">قيد المراجعة</em></p>
-              <p class="cx-var"><span>المتغير</span><b dir="ltr">&#123;&#123;1&#125;&#125;</b><span>= اسم العميل</span></p>
+              <p class="cx-k">{w.templateK}</p>
+              <p class="cx-opt on"><i></i><span dir="ltr">weekend_offer</span><em>{w.approved}</em></p>
+              <p class="cx-opt"><i></i><span dir="ltr">appointment_reminder</span><em>{w.approved}</em></p>
+              <p class="cx-opt"><i></i><span dir="ltr">new_arrivals</span><em class="wait">{w.inReview}</em></p>
+              <p class="cx-var"><span>{w.varLabel}</span><b dir="ltr">&#123;&#123;1&#125;&#125;</b><span>{w.varEquals}</span></p>
             </div>
             <div class="cx-scr" data-scr="3">
-              <p class="cx-k">موعد الإرسال</p>
-              <p class="cx-opt"><i></i>إرسال الآن</p>
-              <p class="cx-opt on"><i></i>جدولة</p>
-              <div class="cx-date"><b>الخميس 2 أكتوبر</b><span dir="ltr">6:00 PM</span></div>
-              <p class="cx-mute">من رقم الأعمال <span dir="ltr">+20 10 ··· 0000</span></p>
+              <p class="cx-k">{w.scheduleK}</p>
+              <p class="cx-opt"><i></i>{w.now}</p>
+              <p class="cx-opt on"><i></i>{w.schedule}</p>
+              <div class="cx-date"><b>{w.date}</b><span dir="ltr">6:00 PM</span></div>
+              <p class="cx-mute">{w.fromNum} <span dir="ltr">+20 10 ··· 0000</span></p>
             </div>
             <div class="cx-scr" data-scr="4">
-              <p class="cx-k">النتائج <span class="cx-ok">✓ تم الإرسال</span></p>
+              <p class="cx-k">{w.resultsK} <span class="cx-ok">{w.sentDone}</span></p>
               <div class="cx-stats">
-                <p><b>312</b><span>أُرسلت</span></p>
-                <p><b>305</b><span>وصلت</span></p>
-                <p><b>241</b><span>قُرئت</span></p>
-                <p><b>64</b><span>نقرات</span></p>
+                <p><b>312</b><span>{w.statSent}</span></p>
+                <p><b>305</b><span>{w.statDelivered}</span></p>
+                <p><b>241</b><span>{w.statRead}</span></p>
+                <p><b>64</b><span>{w.statClicks}</span></p>
               </div>
               <p class="cx-bars"><i style="--w:98%"></i><i style="--w:77%"></i><i style="--w:21%"></i></p>
-              <p class="cx-mute">ألغى الاشتراك: 2 · الأرقام مثال</p>
+              <p class="cx-mute">{w.unsub}</p>
             </div>
           </div>
 
           <div class="cx-prev">
-            <p class="cx-ph"><svg class="c-wa"><use href="#i-wa" /></svg>معاينة على واتساب</p>
+            <p class="cx-ph"><svg class="c-wa"><use href="#i-wa" /></svg>{pv.header}</p>
             <div class="cx-wall">
               <div class="cx-bub">
-                <span class="cx-img"><svg><use href="#i-spark" /></svg>عرض نهاية الأسبوع</span>
-                <p>أهلًا <em>منى</em> 🎁 خصم 20% على الاستشارات حتى الأحد. احجزي موعدك الآن.</p>
+                <span class="cx-img"><svg><use href="#i-spark" /></svg>{pv.imgCap}</span>
+                <p set:html={pv.body} />
                 <small><span dir="ltr">6:00 PM</span><span class="cx-ticks">✓✓</span></small>
-                <span class="cx-btn">احجز الآن</span>
-                <span class="cx-btn">إلغاء الاشتراك</span>
+                <span class="cx-btn">{pv.btnBook}</span>
+                <span class="cx-btn">{pv.btnUnsub}</span>
               </div>
-              <p class="cx-reply">عايزة أحجز يوم السبت</p>
-              <p class="cx-inbox"><svg><use href="#i-inbox" /></svg>الرد وصل إلى صندوق الوارد</p>
+              <p class="cx-reply">{pv.reply}</p>
+              <p class="cx-inbox"><svg><use href="#i-inbox" /></svg>{pv.inboxNote}</p>
             </div>
           </div>
         </div>
@@ -90,9 +88,9 @@ const steps = [
     </div>
 
     <ul class="cx-more">
-      <li><svg aria-hidden="true"><use href="#i-shield" /></svg><span><b>ربط رسمي عبر Meta</b>ORQO مسجّل كـ Meta Tech Provider.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-inbox" /></svg><span><b>الردود في صندوق الوارد</b>يكملها فريقك أو الوكيل الذكي.</span></li>
-      <li><svg aria-hidden="true"><use href="#i-users" /></svg><span><b>شرائح بشروط</b>الرسالة المناسبة للعميل المناسب.</span></li>
+      {p.more.map((item) => (
+        <li><svg aria-hidden="true"><use href="#i-shield" /></svg><span><b>{item.b}</b>{item.s}</span></li>
+      ))}
     </ul>
   </div>
 </section>

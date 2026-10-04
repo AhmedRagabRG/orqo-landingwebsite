@@ -1,14 +1,16 @@
 ---
 /** Short closing call to action at the top of the footer. */
 import { site } from '../config/site';
+import { I } from '../i18n';
+const { t, href: lp } = I(Astro);
 ---
 <div class="fcta">
   <div class="fcta-copy">
-    <h2 class="fcta-t">جاهز تبدأ مع <span lang="en">ORQO</span>؟</h2>
-    <p>الخطة المجانية دائمة، وبدون بطاقة دفع.</p>
+    <h2 class="fcta-t">{t.fcta.title}</h2>
+    <p>{t.fcta.sub}</p>
   </div>
   <div class="fcta-btns">
-    <a class="btn btn-mint" href={site.signupUrl}>ابدأ مجانًا <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
-    <a class="btn btn-ghost-deep" href="/contact">احجز عرضًا توضيحيًا</a>
+    <a class="btn btn-mint" href={site.signupUrl}>{t.ctapair.start} <svg aria-hidden="true"><use href="#i-arrow" /></svg></a>
+    <a class="btn btn-ghost-deep" href={lp('/contact')}>{t.ctapair.demo}</a>
   </div>
 </div>

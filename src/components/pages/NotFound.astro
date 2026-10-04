@@ -1,0 +1,21 @@
+---
+/**
+ * 404 body. Static hosting serves this single page for unknown URLs in both
+ * locales, so it speaks Arabic first and gives an English fallback below.
+ */
+import Base from '../../layouts/Base.astro';
+import PageHero from '../ui/PageHero.astro';
+import { I } from '../../i18n';
+
+const { t, href: lp } = I(Astro);
+const N = t.notFound;
+---
+<Base title={N.title} description={N.description} page="404" noindex>
+  <PageHero chip={N.chip} icon="i-x" title={N.titleA} accent={N.accent} lead={N.lead}>
+    <div class="phero-cta">
+      <a class="btn btn-primary btn-lg" href={lp('/')}>{N.home}</a>
+      <a class="btn btn-ghost btn-lg" href={lp('/contact')}>{N.contact}</a>
+    </div>
+  </PageHero>
+  <p class="nf-en" lang="en" dir="ltr">This page doesn’t exist. Go to the <a href="/en">home page</a> or <a href="/en/contact">contact us</a>.</p>
+</Base>

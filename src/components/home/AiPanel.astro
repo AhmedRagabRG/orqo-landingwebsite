@@ -1,130 +1,115 @@
 ---
+import { I } from '../../i18n';
 import SectionHead from '../ui/SectionHead.astro';
 import CtaPair from '../ui/CtaPair.astro';
+const { t } = I(Astro);
+const p = t.aiPanel;
+const s = p.stage;
+const tl = p.tiles;
 ---
 <section class="panel-dark ai-panel" id="journey" aria-labelledby="ai-title">
   <div class="wrap">
-    <SectionHead id="ai-title" tone="dark" chip="الوكيل الذكي يعمل عنك" title="لا ترد على كل رسالة بنفسك." accent="وكيل ذكي يدير المحادثة مع فريقك." lead="تابع محادثة حقيقية من بيئة العرض: عميلة تسأل عن سعر استشارة على واتساب، وتنتهي بموعد محجوز." />
+    <SectionHead id="ai-title" tone="dark" chip={p.chip} title={p.title} accent={p.accent} lead={p.lead} />
 
     <div class="ai-stage">
         <div class="jstage" aria-live="polite" data-step="1">
           <div class="js-head">
-            <span class="js-av">م<i class="js-ch"><svg aria-hidden="true"><use href="#i-wa"/></svg></i></span>
-            <div class="js-who"><b>منى عادل</b><small>تُغلق نافذة المراسلة خلال <span dir="ltr">23h 56m</span></small></div>
+            <span class="js-av">{t.mock.monaInitial}<i class="js-ch"><svg aria-hidden="true"><use href="#i-wa"/></svg></i></span>
+            <div class="js-who"><b>{t.mock.mona}</b><small>{s.windowNote} <span dir="ltr">23h 56m</span></small></div>
             <div class="js-chips">
-              <span class="js-chip js-status"><i></i>مفتوح</span>
-              <span class="js-chip js-assignee" data-who="ai"><span class="mini-av av-ai"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span class="who-ai">ليلى · وكيل ذكي</span><span class="who-human" lang="en">Ahmed Ragab</span></span>
-              <span class="js-chip js-stage" data-stage="new"><span class="st-new">جديد</span><span class="st-q">Qualified</span><span class="st-b">Booked ✅</span></span>
+              <span class="js-chip js-status"><i></i>{s.open}</span>
+              <span class="js-chip js-assignee" data-who="ai"><span class="mini-av av-ai"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span class="who-ai">{t.mock.laylaAi}</span><span class="who-human" lang="en">Ahmed Ragab</span></span>
+              <span class="js-chip js-stage" data-stage="new"><span class="st-new">{s.newStage}</span><span class="st-q" lang="en">Qualified</span><span class="st-b" lang="en">Booked ✅</span></span>
             </div>
           </div>
           <div class="js-body">
             <div class="js-thread" id="js-thread"></div>
-            <aside class="js-profile" aria-label="ملف العميل">
-              <p class="jp-title">ملف العميل</p>
+            <aside class="js-profile" aria-label={s.profileAria}>
+              <p class="jp-title">{s.profile}</p>
               <dl>
-                <div data-f="name"><dt>الاسم</dt><dd><span class="jp-empty">—</span><span class="jp-val">منى عادل</span></dd></div>
-                <div data-f="phone"><dt>الهاتف</dt><dd><span class="jp-empty">—</span><span class="jp-val" dir="ltr">+20 000 000 0000</span></dd></div>
-                <div data-f="tag"><dt>الوسوم</dt><dd><span class="jp-empty">—</span><span class="jp-val chip-tag">عميل مهتم</span></dd></div>
-                <div data-f="note"><dt>ملاحظة</dt><dd><span class="jp-empty">—</span><span class="jp-val">الخميس بعد 6 م · استشارة</span></dd></div>
+                <div data-f="name"><dt>{s.fields.name}</dt><dd><span class="jp-empty">—</span><span class="jp-val">{t.mock.mona}</span></dd></div>
+                <div data-f="phone"><dt>{s.fields.phone}</dt><dd><span class="jp-empty">—</span><span class="jp-val" dir="ltr">+20 000 000 0000</span></dd></div>
+                <div data-f="tag"><dt>{s.fields.tags}</dt><dd><span class="jp-empty">—</span><span class="jp-val chip-tag">{s.tagVal}</span></dd></div>
+                <div data-f="note"><dt>{s.fields.note}</dt><dd><span class="jp-empty">—</span><span class="jp-val">{s.noteVal}</span></dd></div>
               </dl>
             </aside>
           </div>
         </div>
-        <div class="jnav" aria-label="خطوات الرحلة">
-          <button type="button" class="jnav-btn jprev" aria-label="الخطوة السابقة"><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
+        <div class="jnav" aria-label={p.nav.aria}>
+          <button type="button" class="jnav-btn jprev" aria-label={p.nav.prev}><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
           <div class="jdots" role="tablist">
-            <button type="button" role="tab" data-go="1" aria-selected="true" aria-label="الخطوة 1">1</button>
-            <button type="button" role="tab" data-go="2" aria-selected="false" aria-label="الخطوة 2">2</button>
-            <button type="button" role="tab" data-go="3" aria-selected="false" aria-label="الخطوة 3">3</button>
-            <button type="button" role="tab" data-go="4" aria-selected="false" aria-label="الخطوة 4">4</button>
-            <button type="button" role="tab" data-go="5" aria-selected="false" aria-label="الخطوة 5">5</button>
+            {[1, 2, 3, 4, 5].map((n) => (
+              <button type="button" role="tab" data-go={n} aria-selected={n === 1 ? 'true' : 'false'} aria-label={p.nav.step(n)}>{n}</button>
+            ))}
           </div>
-          <button type="button" class="jnav-btn jnext" aria-label="الخطوة التالية"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button type="button" class="jnav-btn jnext" aria-label={p.nav.next}><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
         </div>
         <div class="ai-steps">
         <ol class="jsteps">
-        <li class="jstep is-active" data-step="1">
-          <span class="jnum">1</span>
-          <h3>العميلة تسأل، والوكيل يرد فورًا</h3>
-          <p>الرد مبني على المعرفة التي أضفتها للوكيل: أسعارك، وأسئلتك الشائعة، وملفاتك، وصفحات موقعك. وبالنبرة وأسلوب الرد الذي تحدده أنت.</p>
-        </li>
-        <li class="jstep" data-step="2">
-          <span class="jnum">2</span>
-          <h3>يفهم ويسجّل، فلا يسأل الموظف مرة أخرى</h3>
-          <p>عندما تكتب العميلة اسمها ورقمها، يحدّثهما الوكيل في ملفها، ويضيف وسم «عميل مهتم»، ويكتب ملاحظة داخلية للفريق بالموعد المفضّل، وينقلها إلى مرحلة Qualified.</p>
-        </li>
-        <li class="jstep" data-step="3">
-          <span class="jnum">3</span>
-          <h3>يعرف متى يحتاج الأمر إلى إنسان</h3>
-          <p>طلبت العميلة التحدث مع أحد من الفريق. يرد الوكيل عليها، ثم يسلّم المحادثة لموظف حسب قواعد التحويل التي وضعتها. والتسليم مسجّل في المحادثة.</p>
-        </li>
-        <li class="jstep" data-step="4">
-          <span class="jnum">4</span>
-          <h3>الموظف يستلم وهو فاهم</h3>
-          <p>بضغطة واحدة، ملخص للمحادثة: ماذا تريد العميلة، وماذا قيل لها، وما المطلوب بعد ذلك. لا حاجة لقراءة المحادثة من أولها.</p>
-        </li>
-        <li class="jstep" data-step="5">
-          <span class="jnum">5</span>
-          <h3>والمحادثة تصل إلى نتيجة</h3>
-          <p>يؤكد الموظف الموعد، وتنتقل العميلة إلى مرحلة Booked. من أول رسالة حتى الحجز في نفس المساحة، والفريق كله يرى ما حدث.</p>
-        </li>
+        {p.steps.map((step, i) => (
+          <li class:list={['jstep', { 'is-active': i === 0 }]} data-step={i + 1}>
+            <span class="jnum">{i + 1}</span>
+            <h3>{step.h}</h3>
+            <p>{step.p}</p>
+          </li>
+        ))}
       </ol>
         </div>
       </div>
 
-    <p class="ai-caption">ليس مجرد بوت يرد على الأسئلة. الوكيل يفهم ما يريده العميل، ويسجّل بياناته، وينقله للخطوة التالية داخل ORQO.</p>
+    <p class="ai-caption">{p.caption}</p>
 
     <div class="aitiles">
       <article class="aitile">
         <div class="ait-art g-mint" aria-hidden="true">
-          <div class="ait-ui"><p class="mt-in">بكام الاستشارة؟</p><p class="mt-out">500 جنيه ومدتها 30 دقيقة 👌</p><p class="mt-in">متاح الخميس؟</p></div>
-          <span class="ait-pill"><svg><use href="#i-spark" /></svg>رد فوري</span>
+          <div class="ait-ui"><p class="mt-in">{tl.reply.in}</p><p class="mt-out">{tl.reply.out}</p><p class="mt-in">{tl.reply.in2}</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>{tl.reply.pill}</span>
         </div>
-        <h3>يفهم العميل ويرد فورًا</h3>
-        <p>يرد من معلومات شغلك بالنبرة التي تحددها، ليلًا ونهارًا.</p>
+        <h3>{tl.reply.h}</h3>
+        <p>{tl.reply.p}</p>
       </article>
       <article class="aitile">
         <div class="ait-art g-sky" aria-hidden="true">
-          <div class="ait-ui"><p class="mt-field"><span>الاسم</span><b>منى عادل</b><i>✓</i></p><p class="mt-field"><span>الهاتف</span><b dir="ltr">+20 10 ··· 0000</b><i>✓</i></p><p class="mt-field"><span>البريد</span><b>—</b></p></div>
-          <span class="ait-pill"><svg><use href="#i-spark" /></svg>تم تحديث ملف العميل</span>
+          <div class="ait-ui"><p class="mt-field"><span>{tl.save.name}</span><b>{t.mock.mona}</b><i>✓</i></p><p class="mt-field"><span>{tl.save.phone}</span><b dir="ltr">+20 10 ··· 0000</b><i>✓</i></p><p class="mt-field"><span>{tl.save.email}</span><b>—</b></p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>{tl.save.pill}</span>
         </div>
-        <h3>يسجّل بيانات العميل</h3>
-        <p>الاسم والهاتف والبريد تُحفظ في ملف العميل أثناء المحادثة.</p>
+        <h3>{tl.save.h}</h3>
+        <p>{tl.save.p}</p>
       </article>
       <article class="aitile">
         <div class="ait-art g-teal" aria-hidden="true">
-          <div class="ait-ui"><p class="mt-stages"><i>جديد</i><span>←</span><i class="on">Qualified</i><span>←</span><i>Booked</i></p><p class="mt-tag">وسم: عميل مهتم</p></div>
-          <span class="ait-pill"><svg><use href="#i-spark" /></svg>نقل إلى Qualified</span>
+          <div class="ait-ui"><p class="mt-stages"><i>{s.newStage}</i><span>←</span><i class="on" lang="en">Qualified</i><span>←</span><i lang="en">Booked</i></p><p class="mt-tag">{tl.stage.tag}</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>{tl.stage.pill}</span>
         </div>
-        <h3>ينقل العميل للمرحلة التالية</h3>
-        <p>يضيف الوسوم وينقل العميل بين المراحل حين تتحقق الشروط.</p>
+        <h3>{tl.stage.h}</h3>
+        <p>{tl.stage.p}</p>
       </article>
       <article class="aitile">
         <div class="ait-art g-sand" aria-hidden="true">
-          <div class="ait-ui"><p class="mt-hand"><span class="mt-av mt-ai">AI</span><span class="mt-line"></span><span class="mt-av" lang="en">AR</span></p><p class="mt-sys">النظام عيّن المحادثة إلى Ahmed Ragab</p></div>
-          <span class="ait-pill"><svg><use href="#i-spark" /></svg>تم تحويل المحادثة</span>
+          <div class="ait-ui"><p class="mt-hand"><span class="mt-av mt-ai" lang="en">AI</span><span class="mt-line"></span><span class="mt-av" lang="en">AR</span></p><p class="mt-sys">{tl.handover.sys}</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>{tl.handover.pill}</span>
         </div>
-        <h3>يعرف متى يسلّم لموظف</h3>
-        <p>يحوّل المحادثة لفريقك حسب قواعدك، ومعها كل السياق.</p>
+        <h3>{tl.handover.h}</h3>
+        <p>{tl.handover.p}</p>
       </article>
       <article class="aitile">
         <div class="ait-art g-green" aria-hidden="true">
-          <div class="ait-ui"><p class="mt-sum"><b>ملخص المحادثة</b>مهتمة بحجز استشارة بـ500 جنيه، وتفضّل الخميس بعد 6 مساءً، وطلبت التحدث مع الفريق.</p></div>
-          <span class="ait-pill"><svg><use href="#i-spark" /></svg>ملخص جاهز للفريق</span>
+          <div class="ait-ui"><p class="mt-sum"><b>{tl.summary.sumTitle}</b>{tl.summary.sumBody}</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>{tl.summary.pill}</span>
         </div>
-        <h3>يكتب ملخصًا للمحادثة</h3>
-        <p>الموظف يفهم المطلوب في سطرين بدل قراءة المحادثة كاملة.</p>
+        <h3>{tl.summary.h}</h3>
+        <p>{tl.summary.p}</p>
       </article>
       <article class="aitile">
         <div class="ait-art g-info" aria-hidden="true">
-          <div class="ait-ui"><p class="mt-docs"><i>PDF</i><i>أسئلة شائعة</i><i>DOCX</i><i>رابط</i><i>CSV</i><i>خريطة الموقع</i></p><p class="mt-out">حسب قائمة الأسعار: الباقة السنوية 2,400 جنيه.</p></div>
-          <span class="ait-pill"><svg><use href="#i-spark" /></svg>مصادر معرفة الوكيل</span>
+          <div class="ait-ui"><p class="mt-docs">{tl.knowledge.docs.map((d) => <i>{d}</i>)}</p><p class="mt-out">{tl.knowledge.out}</p></div>
+          <span class="ait-pill"><svg><use href="#i-spark" /></svg>{tl.knowledge.pill}</span>
         </div>
-        <h3>يرد من مصادر معرفتك</h3>
-        <p>أضف أسعارك وأسئلتك الشائعة وملفاتك وصفحات موقعك.</p>
+        <h3>{tl.knowledge.h}</h3>
+        <p>{tl.knowledge.p}</p>
       </article>
     </div>
 
-    <CtaPair tone="dark" note="الوكيل الذكي متاح في كل الخطط، ومعه رصيد AI شهري." />
+    <CtaPair tone="dark" note={p.ctaNote} />
   </div>
 </section>

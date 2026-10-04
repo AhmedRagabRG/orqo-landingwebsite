@@ -3,6 +3,7 @@ import '../styles/landing.css';
 import '../styles/site.css';
 import '../styles/sections.css';
 import { site } from '../config/site';
+import { getLang, getT, href, switchPath } from '../i18n';
 import Icons from '../components/Icons.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -20,25 +21,36 @@ interface Props {
   noindex?: boolean;
 }
 const { title, description, page, jsonLd, noindex = false } = Astro.props;
+const lang = getLang(Astro.currentLocale);
+const t = getT(Astro.currentLocale);
+const otherLang: 'ar' | 'en' = lang === 'ar' ? 'en' : 'ar';
 const cleanPath = Astro.url.pathname.replace(/(\.html|\/index\.html)$/, '').replace(/(.)\/$/, '$1') || '/';
 const canonical = new URL(cleanPath, site.url);
+const altPath = new URL(switchPath(Astro.url.pathname, otherLang), site.url);
 const ogImage = new URL('/og.png', site.url);
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+/** Strings needed by scripts/landing.js at runtime. */
+const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.form, journey: t.js.journey };
 ---
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang={lang} dir={dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    <link rel="alternate" hreflang={otherLang} href={altPath} />
+    {lang === 'ar' && <link rel="alternate" hreflang="x-default" href={canonical} />}
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#054F56" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ar_AR" />
+    <meta property="og:locale" content={t.meta.ogLocale} />
+    <meta property="og:locale:alternate" content={t.meta.ogLocaleAlt} />
     <meta property="og:site_name" content="ORQO" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -54,13 +66,16 @@ const ogImage = new URL('/og.png', site.url);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" />
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <script define:vars={{ jsDict, homePath: href(lang, '/') }} is:inline>
+      window.ORQO = { i18n: jsDict, homePath: homePath };
+    </script>
     <GoogleAnalytics />
     <Clarity />
     <PostHog />
   </head>
   <body class:list={{ 'review-on': site.showReview }} data-page={page}>
     <Icons />
-    <a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+    <a class="skip" href="#main">{t.meta.skip}</a>
     <Header />
     <main id="main">
       <slot />

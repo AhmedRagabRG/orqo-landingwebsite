@@ -176,8 +176,8 @@ export const en: typeof ar = {
       { h: 'And the conversation reaches an outcome', p: 'The teammate confirms the appointment, and the customer moves to the Booked stage. From first message to booking in the same workspace, with the whole team seeing what happened.' },
     ],
     caption: 'Not just a question-answering bot. The agent understands what the customer wants, saves their details, and moves them to the next step inside ORQO.',
-    tiles: [
-      {
+    tiles: {
+      reply: {
         pill: 'Instant reply',
         h: 'Understands the customer and replies instantly',
         p: 'Answers from your business info, in the tone you define, day and night.',
@@ -185,7 +185,7 @@ export const en: typeof ar = {
         out: 'EGP 500 and it runs 30 minutes 👌',
         in2: 'Is Thursday available?',
       },
-      {
+      save: {
         pill: 'Customer profile updated',
         h: 'Saves the customer’s details',
         p: 'Name, phone and email are saved to the customer profile during the chat.',
@@ -193,33 +193,33 @@ export const en: typeof ar = {
         phone: 'Phone',
         email: 'Email',
       },
-      {
+      stage: {
         pill: 'Moved to Qualified',
         h: 'Moves the customer to the next stage',
         p: 'Adds tags and moves customers between stages when conditions are met.',
         tag: 'Tag: interested lead',
       },
-      {
+      handover: {
         pill: 'Conversation handed over',
         h: 'Knows when to hand over to a teammate',
         p: 'Routes the conversation to your team based on your rules, with all the context.',
         sys: 'System assigned the conversation to Ahmed Ragab',
       },
-      {
+      summary: {
         pill: 'Summary ready for the team',
         h: 'Writes a conversation summary',
         p: 'Your teammate gets the point in two lines instead of reading the whole chat.',
         sumTitle: 'Conversation summary',
         sumBody: 'Wants to book an EGP 500 consultation, prefers Thursday after 6 PM, and asked to speak with the team.',
       },
-      {
+      knowledge: {
         pill: 'The agent’s knowledge sources',
         h: 'Answers from your knowledge sources',
         p: 'Add your prices, FAQs, files, and website pages.',
         docs: ['PDF', 'FAQs', 'DOCX', 'Link', 'CSV', 'Sitemap'],
         out: 'Per the price list: the annual package is EGP 2,400.',
       },
-    ],
+    },
     ctaNote: 'The AI agent is available on every plan, with a monthly AI credit allowance.',
   },
 
@@ -295,6 +295,7 @@ export const en: typeof ar = {
     ],
     crmx: {
       aria: 'Example of the contacts list, segments, and a customer profile',
+      segTitle: 'Segments',
       segs: ['All contacts', 'Interested customers', 'VIP', 'No contact in 30 days', 'Store customers'],
       segNew: 'New segment',
       segImport: 'Import from CSV or Excel',
@@ -313,6 +314,7 @@ export const en: typeof ar = {
         { dt: 'Preferred time', dd: 'Thursday after 6 PM', src: 'Custom field' },
       ],
       addTag: '+ Tag',
+      consultTag: 'Consultations',
       noteLabel: 'Internal note',
       noteText: 'Prefers to be contacted on WhatsApp after 6 PM.',
       demoFlag: 'Example numbers',
@@ -335,7 +337,7 @@ export const en: typeof ar = {
     ],
     cannedK: '/pricing',
     cannedB: 'Package prices start from EGP 500. Want me to send you the details?',
-    noteB: '@Salma The customer is asking for a discount on the annual booking',
+    noteB: '@Sarah The customer is asking for a discount on the annual booking',
     noteTag: 'Note for the team',
     cod: ['Confirmed', 'Awaiting reply', 'Cancelled'],
     tagNew: 'New customer',
@@ -367,6 +369,7 @@ export const en: typeof ar = {
       wait: { s: 'Wait / delay', b: '2 days' },
       send: { s: 'Send template', b: 'Follow-up message' },
     },
+    review: 'Illustration using real node names · an automation-builder screenshot is optional (A3)',
   },
 
   why: {
@@ -402,6 +405,7 @@ export const en: typeof ar = {
     accent: 'and pay as your business grows.',
     lead: 'Every ORQO feature is available on every plan. The difference is usage size: messages, contacts, team members, and AI credits.',
     compareLink: 'Compare all plans, limits, and features',
+    review: 'Prices and limits come from the sample plan catalogue in the code (PlanSeeder) · confirm the actual values (P1)',
   },
 
   pricingPage: {
@@ -416,6 +420,18 @@ export const en: typeof ar = {
     plansAria: 'Plans',
     plansFoot: 'Need different limits or more than 10 workspaces?',
     salesLink: 'Talk to our sales team',
+    plansReview: 'Prices and limits come from the sample plan catalogue in the code (PlanSeeder) · confirm the actual values and the free trial (P1)',
+    toggle: { aria: 'Billing cycle', monthly: 'Monthly', yearly: 'Yearly', note: '2 months free' },
+    forever: 'forever',
+    noCard: 'No credit card required',
+    perMonth: 'monthly',
+    perYear: 'yearly',
+    or: 'or',
+    equals: '≈',
+    perMoShort: '/ mo',
+    perYrShort: '/ yr',
+    unlimited: 'Unlimited',
+    featureLabel: 'Feature',
     showcase: {
       chip: 'What you get on every plan',
       title: 'One platform',
@@ -591,6 +607,7 @@ export const en: typeof ar = {
     salmaShort: 'Salma',
     salmaInitial: 'S',
     karim: 'Karim Mansour',
+    karimShort: 'Karim',
     karimInitial: 'K',
     doaa: 'Doaa Sherif',
     doaaInitial: 'D',
@@ -598,6 +615,7 @@ export const en: typeof ar = {
     omarInitial: 'O',
     layla: 'Layla',
     laylaAi: 'Layla · AI agent',
+    sarah: 'Sarah',
     consultQ: 'How much is the consultation?',
     availQ: 'Still available?',
     pkgQ: 'How much is the package?',

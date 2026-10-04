@@ -1,19 +1,22 @@
 ---
+import { I } from '../../i18n';
 import { plans } from '../../data/plans';
 import PlanCard from '../pricing/PlanCard.astro';
 import BillingToggle from '../pricing/BillingToggle.astro';
 import SectionHead from '../ui/SectionHead.astro';
+const { lang, t, href: lp } = I(Astro);
+const p = t.pricingPreview;
 ---
 <section class="sec pricing-preview" id="pricing" aria-labelledby="price-title">
   <div class="wrap">
-    <SectionHead id="price-title" chip="الأسعار" icon="i-cash" title="ابدأ مجانًا،" accent="وادفع حين يكبر عملك." lead="كل مزايا ORQO متاحة في كل الخطط. الفرق في حجم الاستخدام: الرسائل وجهات الاتصال وأعضاء الفريق ورصيد الذكاء الاصطناعي." />
+    <SectionHead id="price-title" chip={p.chip} icon="i-cash" title={p.title} accent={p.accent} lead={p.lead} />
     <BillingToggle />
     <div class="plans">
-      {plans.map((plan) => <PlanCard plan={plan} />)}
+      {plans[lang].map((plan) => <PlanCard plan={plan} />)}
     </div>
     <div class="pricing-more">
-      <a class="link-arrow" href="/pricing">قارن كل الخطط والحدود والمزايا <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <p class="review-tag">الأسعار والحدود من كتالوج الخطط التجريبي في الكود (PlanSeeder) · أكّد القيم الفعلية (P1)</p>
+      <a class="link-arrow" href={lp('/pricing')}>{p.compareLink} <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <p class="review-tag">{p.review}</p>
     </div>
   </div>
 </section>

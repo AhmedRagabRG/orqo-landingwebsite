@@ -2,35 +2,39 @@
 import Base from './Base.astro';
 import PageHero from '../components/ui/PageHero.astro';
 import { getEntry, render } from 'astro:content';
+import { getLang, getT } from '../i18n';
 
 interface Props {
   slug: 'privacy' | 'terms';
 }
-const entry = await getEntry('legal', Astro.props.slug);
-if (!entry) throw new Error(`Missing legal page: ${Astro.props.slug}`);
+const lang = getLang(Astro.currentLocale);
+const t = getT(Astro.currentLocale);
+/** Entries live in src/content/legal/{ar,en}/<slug>.md */
+const entry = await getEntry('legal', `${lang}/${Astro.props.slug}`);
+if (!entry) throw new Error(`Missing legal page: ${lang}/${Astro.props.slug}`);
 const { Content, headings } = await render(entry);
 const toc = headings.filter((h) => h.depth === 2);
 const { title, description, scope, updated, draft, summary } = entry.data;
-const updatedText = new Intl.DateTimeFormat('ar-EG-u-nu-latn', { day: 'numeric', month: 'long', year: 'numeric' }).format(updated);
+const updatedText = new Intl.DateTimeFormat(lang === 'ar' ? 'ar-EG-u-nu-latn' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(updated);
 ---
 <Base title={`${title} — ORQO`} description={description} page={Astro.props.slug}>
-  <PageHero id="lg-title" chip="قانوني" icon="i-shield" title={title}>
-    <p class="legal-meta">آخر تحديث: {updatedText} · {scope}</p>
-    {draft && <p class="review-tag legal-draft">مسودة للمراجعة القانونية · لا تُنشر قبل مراجعة محامٍ واستكمال البيانات المظللة (L1)</p>}
+  <PageHero id="lg-title" chip={t.legal.chip} icon="i-shield" title={title}>
+    <p class="legal-meta">{t.legal.updated}: {updatedText} · {scope}</p>
+    {draft && <p class="review-tag legal-draft">{t.legal.draft}</p>}
   </PageHero>
 
   <section class="legal-sec">
     <div class="wrap legal-grid">
-      <nav class="legal-toc" aria-label="محتويات الصفحة">
-        <p>المحتويات</p>
+      <nav class="legal-toc" aria-label={t.legal.tocAria}>
+        <p>{t.legal.tocTitle}</p>
         <ol>
           {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
         </ol>
       </nav>
       <article class="legal-body">
         {summary.length > 0 && (
-          <aside class="legal-sum" aria-label="باختصار">
-            <p class="ls-h">باختصار</p>
+          <aside class="legal-sum" aria-label={t.legal.sumAria}>
+            <p class="ls-h">{t.legal.sumTitle}</p>
             <ul>{summary.map((s) => <li>{s}</li>)}</ul>
           </aside>
         )}

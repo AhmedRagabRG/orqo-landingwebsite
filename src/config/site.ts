@@ -15,9 +15,6 @@ export const site = {
   loginUrl: 'https://app.orqo.site/login',
   docsUrl: '/contact', // SAMPLE: replace with the API docs URL
 
-  // English site URL (e.g. '/en'). Empty hides the EN / English links until the English pages exist.
-  englishUrl: '',
-
   // Contact details
   whatsappUrl: 'https://wa.me/201557730414',
   whatsappDisplay: '+20 15 57730414',
