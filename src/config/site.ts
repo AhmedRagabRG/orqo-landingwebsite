@@ -35,6 +35,10 @@ export const site = {
   posthogKey: env.PUBLIC_POSTHOG_KEY ?? '',
   posthogHost: env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
 
+  // Google Analytics 4. Defaults to the production measurement ID; set PUBLIC_GA_ID to a
+  // different ID to override, or to an empty string to disable gtag entirely.
+  gaId: env.PUBLIC_GA_ID ?? 'G-E85HF1Y9NY',
+
   // Show the orange review tags and placeholder highlights (design review mode).
   showReview: env.PUBLIC_SHOW_REVIEW === 'true',
 };

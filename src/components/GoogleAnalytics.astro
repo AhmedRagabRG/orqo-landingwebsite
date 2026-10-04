@@ -1,0 +1,18 @@
+---
+import { site } from '../config/site';
+
+// Renders nothing until PUBLIC_GA_ID is set (GA4 measurement ID, e.g. G-XXXXXXXXXX).
+const { gaId = site.gaId } = Astro.props;
+---
+{gaId && (
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+)}
+{gaId && (
+  <script is:inline define:vars={{ gaId }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', gaId);
+  </script>
+)}
