@@ -1,15 +1,19 @@
 ---
 import { site } from '../config/site';
 
-// Renders nothing until a Clarity project ID is configured.
+// Renders nothing until a Clarity project ID is configured. Loading is deferred
+// to the window load event to keep it off the critical rendering path.
 const { clarityId = site.clarityId } = Astro.props;
 ---
 {clarityId && (
   <script is:inline define:vars={{ clarityId }}>
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", clarityId);
+    var loadClarity = function () {
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", clarityId);
+    };
+    if (document.readyState === 'complete') { loadClarity(); } else { window.addEventListener('load', loadClarity); }
   </script>
 )}
