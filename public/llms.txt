@@ -1,0 +1,31 @@
+# ORQO
+
+> ORQO (orqo.site) is a WhatsApp-first customer platform for small and medium businesses. It brings WhatsApp, Instagram and Messenger messages into one shared inbox, gives every customer a single profile, and adds WhatsApp campaigns, automation for repetitive work, and an AI agent that replies to customers and hands conversations over to the team when needed.
+
+The site is bilingual: the default pages under `/` are in Arabic (Egyptian market), and complete English versions live under `/en`. The product itself runs on `app.orqo.site`.
+
+## Pages
+
+- [Home (Arabic)](https://www.orqo.site/): Product overview — shared inbox for WhatsApp, Instagram and Messenger, AI agent, campaigns, contacts and automation.
+- [Home (English)](https://www.orqo.site/en): Same overview in English.
+- [AI agent](https://www.orqo.site/en/#journey): How the AI agent answers customers, books, and hands over to the team.
+- [WhatsApp campaigns](https://www.orqo.site/en/#campaigns): Campaigns with Meta-approved templates and a report for every campaign.
+- [Contacts & CRM](https://www.orqo.site/en/#contacts): Customer profiles, tags and segments that every conversation builds automatically.
+- [Automation](https://www.orqo.site/en/#automation): No-code automation flows (out-of-hours replies, assignment, follow-ups).
+- [Pricing](https://www.orqo.site/en/pricing): Every feature is available on every plan; plans differ only in usage size. Includes the integrations list.
+- [Contact](https://www.orqo.site/en/contact): Talk to the ORQO team — plan questions, demos, channel setup.
+- [Privacy policy](https://www.orqo.site/privacy): How ORQO handles personal data.
+- [Terms & conditions](https://www.orqo.site/terms): Service terms.
+
+## App (product) links
+
+- [Sign up](https://app.orqo.site/register): Create an ORQO account (free to start).
+- [Log in](https://app.orqo.site/login): Existing accounts.
+
+## Contact
+
+- WhatsApp: +20 15 57730414
+- Email: hello@orqo.site
+- Facebook: https://www.facebook.com/orqo.site/
+- Instagram: https://www.instagram.com/orqo.ai/
+- LinkedIn: https://www.linkedin.com/company/103601046/
