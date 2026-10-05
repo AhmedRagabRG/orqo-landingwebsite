@@ -9,6 +9,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ReviewToggle from '../components/ReviewToggle.astro';
 import PostHog from '../components/PostHog.astro';
+import HeronSignal from '../components/HeronSignal.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import Clarity from '../components/Clarity.astro';
 
@@ -73,6 +74,7 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
     <GoogleAnalytics />
     <Clarity />
     <PostHog />
+    <HeronSignal />
   </head>
   <body class:list={{ 'review-on': site.showReview }} data-page={page}>
     <Icons />

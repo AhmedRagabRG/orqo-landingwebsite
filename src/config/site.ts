@@ -32,6 +32,10 @@ export const site = {
   posthogKey: env.PUBLIC_POSTHOG_KEY ?? '',
   posthogHost: env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
 
+  // HeronSignal real-user monitoring. Paste the public key from the HeronSignal
+  // dashboard. Empty key = no monitoring script is rendered at all.
+  heronsignalKey: env.PUBLIC_HERONSIGNAL_KEY ?? '',
+
   // Google Analytics 4. Defaults to the production measurement ID; set PUBLIC_GA_ID to a
   // different ID to override, or to an empty string to disable gtag entirely.
   gaId: env.PUBLIC_GA_ID ?? 'G-E85HF1Y9NY',

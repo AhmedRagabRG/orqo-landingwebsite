@@ -1,0 +1,29 @@
+---
+import { site } from '../config/site';
+
+// HeronSignal real-user monitoring — sessions, frontend errors, failed requests,
+// funnels (install doc: heronsignal.com/llms.txt, direct-script path for static HTML).
+// Renders nothing until PUBLIC_HERONSIGNAL_KEY is set. The inline config must exist
+// before tracker.js runs, which the window-load injection below guarantees (same
+// off-critical-path deferral as PostHog.astro).
+const { heronsignalKey = site.heronsignalKey } = Astro.props;
+---
+{heronsignalKey && (
+  <>
+    <link rel="preconnect" href="https://api.heronsignal.com" crossorigin />
+    <script is:inline define:vars={{ heronsignalKey }}>
+      window.heronsignalConfig = {
+        publicKey: heronsignalKey,
+        service: 'orqo-landing',
+        environment: 'production',
+      };
+      var loadHeronSignal = function () {
+        var s = document.createElement('script');
+        s.src = 'https://api.heronsignal.com/tracker.js';
+        s.async = true;
+        document.head.appendChild(s);
+      };
+      if (document.readyState === 'complete') { loadHeronSignal(); } else { window.addEventListener('load', loadHeronSignal); }
+    </script>
+  </>
+)}
