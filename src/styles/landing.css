@@ -122,7 +122,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .lg-ink { fill: var(--logo-ink); }
 .lg-knock { fill: var(--logo-knock); }
 .lg-arc { fill: var(--mint); }
-.mk-ring { fill: none; stroke: var(--logo-ink); stroke-width: 68; }
+.mk-ring { fill: var(--logo-ink); }
 .mk-tail { fill: var(--mint); }
 
 /* ---------- type ---------- */
