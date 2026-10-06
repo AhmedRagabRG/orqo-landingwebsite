@@ -1,20 +1,6 @@
----
-import { site } from '../config/site';
-
-// Loader for the embeddable ORQO widget served from the app subdomain. Renders
-// nothing until a widget key is configured, and loading is deferred to the window
-// load event to keep it off the critical rendering path (same as Clarity/PostHog).
-const { widgetKey = site.widgetKey } = Astro.props;
----
-{widgetKey && (
-  <script is:inline define:vars={{ widgetKey }}>
-    var loadOrqoWidget = function () {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://app.orqo.site/widget/v1/loader.js';
-      s.setAttribute('data-widget-key', widgetKey);
-      document.head.appendChild(s);
-    };
-    if (document.readyState === 'complete') { loadOrqoWidget(); } else { window.addEventListener('load', loadOrqoWidget); }
-  </script>
-)}
+<script
+  is:inline
+  async
+  src="https://app.orqo.site/widget/v1/loader.js"
+  data-widget-key="q6bf-atMgiYyKEmp5A0mQUQBlDx6KRikCPlv8eFIrr0"
+></script>
