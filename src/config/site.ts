@@ -40,6 +40,10 @@ export const site = {
   // set PUBLIC_CLARITY_ID to override, or to an empty string to disable Clarity entirely.
   clarityId: env.PUBLIC_CLARITY_ID ?? 'ysmjkyk3yw',
 
+  // The embeddable ORQO widget, loaded from the app subdomain. Defaults to the production
+  // widget key; set PUBLIC_WIDGET_KEY to override, or to an empty string to disable it.
+  widgetKey: env.PUBLIC_WIDGET_KEY ?? '2hKex0fbQf1q2_uJfLRFhYuOSIh5WUhwTu-DZOnhG8Y',
+
   // Show the orange review tags and placeholder highlights (design review mode).
   showReview: env.PUBLIC_SHOW_REVIEW === 'true',
 };
