@@ -22,6 +22,7 @@ const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
         <div class="fx-brand">
           <a href={href(lang, '/')} aria-label={t.footer.brandAria}><svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo" /></svg></a>
           <p>{t.footer.tagline}</p>
+          <p>{t.footer.founded}</p>
         </div>
         <nav class="fx-links" aria-label={t.footer.navAria}>
           <div><p>{t.footer.platform.title}</p>{t.footer.platform.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>

@@ -25,6 +25,7 @@ export const ar = {
   footer: {
     brandAria: 'ORQO — الصفحة الرئيسية',
     tagline: 'مساحة عمل واحدة لمحادثات عملائك وفريقك والذكاء الاصطناعي.',
+    founded: 'تأسست في يونيو 2026.',
     navAria: 'روابط التذييل',
     platform: {
       title: 'المنصة',

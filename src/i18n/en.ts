@@ -25,6 +25,7 @@ export const en: typeof ar = {
   footer: {
     brandAria: 'ORQO — Home',
     tagline: 'One workspace for your customer conversations, your team, and AI.',
+    founded: 'Founded in June 2026.',
     navAria: 'Footer links',
     platform: {
       title: 'Platform',
