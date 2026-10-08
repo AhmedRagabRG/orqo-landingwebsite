@@ -12,11 +12,11 @@ export type Dict = typeof ar;
 
 const dicts: Record<Lang, Dict> = { ar, en };
 
-export const getLang = (locale: string | undefined): Lang => (locale === 'en' ? 'en' : 'ar');
+export const getLang = (locale: string | undefined): Lang => (locale === 'ar' ? 'ar' : 'en');
 export const getT = (locale: string | undefined): Dict => dicts[getLang(locale)];
 
-/** Prefix an internal href with the locale segment (English only). */
-export const href = (lang: Lang, path: string) => (lang === 'en' ? (path === '/' ? '/en' : `/en${path}`) : path);
+/** Prefix an internal href with the locale segment (Arabic only). */
+export const href = (lang: Lang, path: string) => (lang === 'ar' ? (path === '/' ? '/ar' : `/ar${path}`) : path);
 
 /** Per-component helper: const { lang, t, href } = I(Astro); */
 export const I = (astro: AstroGlobal) => {
@@ -27,6 +27,6 @@ export const I = (astro: AstroGlobal) => {
 /** Given the current pathname, the same page in the other locale. */
 export const switchPath = (pathname: string, to: Lang) => {
   const clean = pathname.replace(/\/index\.html$/, '').replace(/\.html$/, '').replace(/\/$/, '') || '/';
-  const stripped = (clean === '/' ? '/' : clean.replace(/^\/en(?=\/|$)/, '')) || '/';
+  const stripped = (clean === '/' ? '/' : clean.replace(/^\/ar(?=\/|$)/, '')) || '/';
   return href(to, stripped);
 };

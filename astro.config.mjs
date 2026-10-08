@@ -6,15 +6,17 @@ export default defineConfig({
   site: 'https://www.orqo.site',
   trailingSlash: 'ignore',
   build: { format: 'directory' },
+  // English became the default locale; keep old /en links alive.
+  redirects: { '/en': '/', '/en/pricing': '/pricing', '/en/contact': '/contact', '/en/privacy': '/privacy', '/en/terms': '/terms' },
   i18n: {
-    defaultLocale: 'ar',
+    defaultLocale: 'en',
     locales: ['ar', 'en'],
     routing: { prefixDefaultLocale: false },
   },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),
-      i18n: { defaultLocale: 'ar', locales: { ar: 'ar', en: 'en' } },
+      i18n: { defaultLocale: 'en', locales: { ar: 'ar', en: 'en' } },
     }),
   ],
 });
