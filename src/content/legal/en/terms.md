@@ -2,8 +2,8 @@
 title: "Terms & Conditions"
 description: "Terms for using the ORQO platform: accounts, plans and billing, the use of Meta channels, campaigns and AI, and responsibilities."
 scope: "Applies to the use of the ORQO platform, website, and API"
-updated: 2026-10-01
-draft: true
+updated: 2026-10-10
+draft: false
 summary:
   - "The free plan is forever; paid plans renew automatically and can be cancelled at any time."
   - "You are responsible for obtaining your customers' consent before messaging them, and for complying with WhatsApp policies."
@@ -12,7 +12,7 @@ summary:
 ---
 ## Acceptance of terms
 
-These terms are an agreement between you and <mark class="ph">[legal company name]</mark> (“ORQO”). By using the platform or creating an account, you agree to them. If you use ORQO on behalf of a company, you confirm that you have the authority to bind it to these terms.
+These terms are an agreement between you and Ahmed Ragab, trading as ORQO, with a principal place of business in Giza, Egypt (“ORQO”, “we”, or “us”). By using the platform or creating an account, you agree to them. If you use ORQO on behalf of a company, you confirm that you have the authority to bind it to these terms.
 
 ## Account and workspaces
 
@@ -27,7 +27,7 @@ These terms are an agreement between you and <mark class="ph">[legal company nam
 - Some plans may include a free trial period as shown at sign-up.
 - On cancellation the subscription continues until the end of the paid period, then your account returns to the free plan.
 - Prices exclude taxes unless stated otherwise. We may change prices with advance notice before the next renewal.
-- Refund policy: <mark class="ph">[define the refund policy]</mark>
+- Except where the law requires otherwise, paid subscription fees are non-refundable once a billing period starts. If we charge you in error, contact us within 14 days of the charge. If ORQO terminates a paid subscription for reasons other than your breach, we will refund the prepaid fees for the unused portion of that billing period. Cancelling a subscription stops future renewals but does not create a refund for the current period.
 
 ## Usage limits
 
@@ -38,7 +38,7 @@ Every plan has limits, such as the number of members, monthly WhatsApp messages,
 - ORQO is registered as a Meta Tech Provider, and connects your accounts through Meta's official APIs.
 - Your use of WhatsApp, Instagram and Messenger is also governed by Meta's terms, including the WhatsApp Business Policy and the Commerce Policy.
 - Message templates are subject to Meta's approval, and Meta may reject a template or restrict a number or account according to its policies. ORQO is not responsible for Meta's decisions.
-- Meta's conversation fees are separate from the ORQO subscription. <mark class="ph">[Confirm how they are calculated and paid]</mark>
+- Meta's messaging and conversation fees are separate from the ORQO subscription unless the checkout page or an order form expressly says they are included. Meta calculates those fees under its then-current rate card. You pay them through your linked Meta billing account or, where ORQO has agreed to invoice them, as a separate pass-through charge based on recorded usage. Meta may change its rates and billing categories.
 
 ## Campaigns and marketing messages
 
@@ -79,7 +79,7 @@ The platform, its design, logo, and software belong to ORQO. These terms grant y
 
 ## Availability and support
 
-We aim for the platform to run continuously, but outages or maintenance may occur. The support level varies by plan, and the service level agreement (SLA) of the Business plan defines its commitments. <mark class="ph">[Attach the SLA terms]</mark>
+We aim for the platform to run continuously, but outages or maintenance may occur. The support level varies by plan. No uptime guarantee, service credit, or other SLA applies unless it is set out in an order form or separate written SLA signed by ORQO. If a Business plan includes an SLA at purchase, that SLA controls if it conflicts with this section.
 
 ## Suspension and termination
 
@@ -89,11 +89,11 @@ We aim for the platform to run continuously, but outages or maintenance may occu
 
 ## Limitation of liability
 
-The service is provided “as is”. To the extent permitted by law, ORQO is not liable for indirect damages or loss of profits or data, and its total liability does not exceed <mark class="ph">[the amount paid in the last 12 months]</mark>. You agree to indemnify ORQO against any claim arising from your message content or your breach of these terms.
+The service is provided “as is”. To the extent permitted by law, ORQO is not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of profits, revenue, goodwill, or data. ORQO's total liability arising from the service or these terms will not exceed the greater of (a) the fees you paid to ORQO during the 12 months immediately before the event giving rise to the claim or (b) US$100. These limits do not apply where liability cannot lawfully be limited. You agree to indemnify ORQO against third-party claims arising from your message content, your unlawful use of the service, or your breach of these terms.
 
 ## Governing law
 
-These terms are governed by the laws of <mark class="ph">[country]</mark>, and the courts of <mark class="ph">[city]</mark> have jurisdiction over any dispute arising from them.
+These terms are governed by the laws of the Arab Republic of Egypt, without regard to conflict-of-law rules. The courts of Cairo, Egypt have exclusive jurisdiction over any dispute arising from these terms or the service, unless applicable law requires another forum.
 
 ## Changes and contact
 

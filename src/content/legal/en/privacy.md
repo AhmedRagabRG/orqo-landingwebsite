@@ -2,8 +2,8 @@
 title: "Privacy Policy"
 description: "How ORQO collects, uses and protects data, who we share it with, and how to request access to or deletion of your data."
 scope: "Applies to the ORQO website, the ORQO platform, and its apps"
-updated: 2026-10-01
-draft: true
+updated: 2026-10-10
+draft: false
 summary:
   - "We never sell your data or your customers' data."
   - "Your customers' data that you manage in ORQO belongs to you; we process it only to provide the service to you."
@@ -12,7 +12,7 @@ summary:
 ---
 ## Who we are
 
-ORQO is a customer conversations platform operated by <mark class="ph">[legal company name]</mark>, headquartered at <mark class="ph">[registered address]</mark> (“ORQO” or “we”). This policy explains how we handle personal data when you use our website and platform.
+ORQO is a customer conversations platform operated by Ahmed Ragab, trading as ORQO, with a principal place of business in Giza, Egypt (“ORQO”, “we”, or “us”). This policy explains how we handle personal data when you use our website and platform.
 
 ## Our role in processing data
 
@@ -50,7 +50,7 @@ When you enable an AI agent, we send the relevant conversation text, the custome
 
 The platform logs what the agent does in the conversation history and the run log, and you can stop the agent or take over the conversation manually at any time.
 
-<mark class="ph">[Confirm: whether customer data is used to train any models, and the model providers' terms in this regard]</mark>
+We do not use your data or your customers' data to train ORQO models or third-party general-purpose AI models. We use providers' business or API services under terms that do not permit model training on submitted data by default. A provider may retain inputs and outputs for a limited period for security and abuse monitoring under its terms. If we ever offer an optional feature that uses data for model improvement, it will be off by default and we will ask for your express consent before enabling it.
 
 ## Service providers
 
@@ -58,6 +58,8 @@ We rely on trusted providers to run the platform, and share only what is necessa
 
 | Provider | Purpose |
 | --- | --- |
+| Cloudflare | Traffic delivery, security, and abuse prevention |
+| Vercel | Hosting the public ORQO website |
 | Meta | WhatsApp, Instagram and Messenger channels |
 | Clerk | Login and identity management |
 | Creem | Payment and subscription processing |
@@ -66,32 +68,28 @@ We rely on trusted providers to run the platform, and share only what is necessa
 | Qdrant | Indexing knowledge sources for search |
 | Pusher | Real-time updates inside the platform |
 | OneSignal | Browser and mobile notifications |
-| PostHog | Product usage analytics |
+| Google Analytics · Microsoft Clarity · PostHog | Website and product analytics, including session replay where enabled |
 | Sentry | Technical error tracking |
 | Email provider | Account messages and notifications |
 | The integrations you connect | Google Sheets and Meet, Shopify, WooCommerce, EasyOrders, and n8n — only when enabled from your account |
-
-<p class="review-tag">The list comes from the code settings · confirm the providers actually used in production and the email provider (L2)</p>
 
 We may disclose data if a competent authority lawfully requests it.
 
 ## Transferring data outside your country
 
-Some providers may process data in countries outside Egypt or Saudi Arabia. We choose providers that apply appropriate safeguards to protect data, and we comply with the transfer requirements of the applicable laws. <mark class="ph">[Location of the main servers]</mark>
+ORQO uses distributed cloud infrastructure rather than a single main server location. The application is delivered through Cloudflare, and our providers may store or process data in the European Economic Area, the United States, and other countries where they operate. Some providers may therefore process data outside Egypt or Saudi Arabia. We choose providers that apply appropriate safeguards, use contractual and technical protections for international transfers, and comply with transfer requirements under applicable law. You may contact us for current information about the location used for a particular category of data.
 
 ## Retention period
 
-We keep data for as long as your account is active or as needed to provide the service. When a workspace or account is deleted, we delete its data within <mark class="ph">[number of days]</mark> days, and it is removed from backups within <mark class="ph">[period]</mark>, except what must be kept by law, such as billing records.
+We keep account and workspace data while your account is active and as needed to provide the service. When a workspace or account is deleted, its active data is deleted or anonymized within 30 days and ages out of encrypted backups within 90 days. Security logs are normally kept for up to 12 months. Billing, tax, dispute, and fraud-prevention records may be kept for up to 7 years, or longer where the law requires it. We may keep anonymized data that can no longer identify you.
 
 ## Data deletion
 
 You can delete contacts and conversations from inside the platform, and disconnect any channel from the channel settings, which deletes its access tokens.
 
-To request deletion of your account or all of your data, email us at [hello@orqo.site](mailto:hello@orqo.site) with the subject “Data deletion request” from the email registered on the account, and we will confirm deletion within <mark class="ph">[number of days]</mark> days.
+To request deletion of your account or all of your data, email us at [hello@orqo.site](mailto:hello@orqo.site) with the subject “Data deletion request” from the email registered on the account. We will acknowledge the request and complete or explain our response within 30 days, subject to identity verification, legal retention duties, and any extension allowed by applicable law.
 
 If you contacted a company that uses ORQO via WhatsApp, Instagram or Messenger and want your data deleted, ask the company itself, or email us and we will forward your request to them.
-
-<p class="review-tag">Meta requires a data-deletion instructions link or a callback URL · confirm the approved mechanism (L3)</p>
 
 ## Data protection
 
@@ -129,4 +127,4 @@ We may update this policy. We show the last-updated date at the top of the page,
 
 ## Contact us
 
-For any privacy question: [hello@orqo.site](mailto:hello@orqo.site) · <mark class="ph">[legal company name and address]</mark>
+For any privacy question, request, or complaint, contact Ahmed Ragab, trading as ORQO, Giza, Egypt, at [hello@orqo.site](mailto:hello@orqo.site).
