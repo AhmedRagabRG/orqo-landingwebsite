@@ -2,7 +2,6 @@
 import { I } from '../../i18n';
 import { plans } from '../../data/plans';
 import PlanCard from '../pricing/PlanCard.astro';
-import BillingToggle from '../pricing/BillingToggle.astro';
 import SectionHead from '../ui/SectionHead.astro';
 const { lang, t, href: lp } = I(Astro);
 const p = t.pricingPreview;
@@ -10,13 +9,11 @@ const p = t.pricingPreview;
 <section class="sec pricing-preview" id="pricing" aria-labelledby="price-title">
   <div class="wrap">
     <SectionHead id="price-title" chip={p.chip} icon="i-cash" title={p.title} accent={p.accent} lead={p.lead} />
-    <BillingToggle />
     <div class="plans">
       {plans[lang].map((plan) => <PlanCard plan={plan} />)}
     </div>
     <div class="pricing-more">
       <a class="link-arrow" href={lp('/pricing')}>{p.compareLink} <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <p class="review-tag">{p.review}</p>
     </div>
   </div>
 </section>

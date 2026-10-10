@@ -690,10 +690,6 @@ body:not(.review-on) .review-tag { display: none; }
 .foot-base a { color: inherit; }
 
 /* pricing: shared */
-.billing-toggle { display: inline-flex; gap: 4px; padding: 4px; background: var(--paper-3); border-radius: 999px; margin-bottom: 28px; }
-.billing-toggle button { border: 0; background: none; min-height: 40px; padding: 0 20px; border-radius: 999px; font-size: var(--t-sm); color: var(--ink-3); display: inline-flex; align-items: center; gap: 8px; }
-.billing-toggle button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow-1); font-weight: 500; }
-.billing-toggle i { font-style: normal; font-size: var(--t-xs); color: var(--mint-ink); background: var(--mint-soft); border-radius: 999px; padding: 0 8px; }
 .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
 .plan { position: relative; display: flex; flex-direction: column; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; }
 .plan-rec { border: 1.5px solid var(--ink); box-shadow: var(--shadow-2); }

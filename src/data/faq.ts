@@ -24,10 +24,10 @@ export const homeFaq: Record<Lang, FaqGroup[]> = {
       id: 'pricing',
       label: 'الأسعار',
       items: [
-        { q: 'هل يمكن استخدام ORQO مجانًا؟', a: 'نعم. الخطة المجانية دائمة ولا تحتاج بطاقة دفع، وفيها كل المزايا بحدود استخدام أصغر. وتستطيع الترقية في أي وقت.' },
+        { q: 'هل يمكن استخدام ORQO مجانًا؟', a: 'نعم. خطة Starter مجانية دائمًا ولا تحتاج بطاقة دفع، وتستطيع الترقية في أي وقت.' },
         { q: 'ماذا يحدث عندما أصل إلى حد الاستخدام؟', a: 'يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو ترقّي خطتك.' },
         { q: 'هل تشمل الأسعار رسوم Meta على رسائل واتساب؟', a: 'رسوم Meta على محادثات واتساب منفصلة عن اشتراك ORQO، وتُحتسب حسب تسعير Meta لكل دولة ونوع رسالة.' },
-        { q: 'هل أستطيع الإلغاء في أي وقت؟', a: 'نعم. عند الإلغاء أو انتهاء الاشتراك يعود حسابك تلقائيًا إلى الخطة المجانية، وتبقى بياناتك كما هي.' },
+        { q: 'هل أستطيع الإلغاء في أي وقت؟', a: 'نعم. عند الإلغاء أو انتهاء الاشتراك يعود حسابك تلقائيًا إلى خطة Starter، وتبقى بياناتك كما هي.' },
       ],
     },
     {
@@ -64,10 +64,10 @@ export const homeFaq: Record<Lang, FaqGroup[]> = {
       id: 'pricing',
       label: 'Pricing',
       items: [
-        { q: 'Can I use ORQO for free?', a: 'Yes. The free plan is forever and needs no credit card, with every feature included at smaller usage limits. You can upgrade at any time.' },
+        { q: 'Can I use ORQO for free?', a: 'Yes. Starter is free forever and needs no credit card. You can upgrade at any time.' },
         { q: 'What happens when I reach a usage limit?', a: 'An alert appears in your dashboard, and you can’t create more of the item that hit its limit until the new month starts or you upgrade your plan.' },
         { q: 'Do the prices include Meta’s WhatsApp fees?', a: 'Meta’s fees for WhatsApp conversations are separate from the ORQO subscription, and are charged according to Meta’s pricing per country and message type.' },
-        { q: 'Can I cancel at any time?', a: 'Yes. On cancellation or subscription end, your account automatically returns to the free plan, and your data stays as it is.' },
+        { q: 'Can I cancel at any time?', a: 'Yes. On cancellation or subscription end, your account automatically returns to Starter, and your data stays as it is.' },
       ],
     },
     {
@@ -94,11 +94,11 @@ export const homeFaq: Record<Lang, FaqGroup[]> = {
 export const pricingFaq: Record<Lang, FaqGroup[]> = {
   ar: [
     {
-      id: 'free',
-      label: 'الخطة المجانية',
+      id: 'starter',
+      label: 'خطة Starter',
       items: [
-        { q: 'هل الخطة المجانية مجانية فعلًا؟', a: 'نعم. الخطة المجانية دائمة ولا تحتاج بطاقة دفع، وفيها كل مزايا ORQO بحدود استخدام أصغر.' },
-        { q: 'هل أحتاج بطاقة دفع للتسجيل؟', a: 'لا. تسجّل وتبدأ بالخطة المجانية مباشرة، وتضيف وسيلة دفع فقط عندما ترقّي خطتك.' },
+        { q: 'هل خطة Starter مجانية فعلًا؟', a: 'نعم. خطة Starter مجانية دائمًا ولا تحتاج بطاقة دفع.' },
+        { q: 'هل أحتاج بطاقة دفع للتسجيل؟', a: 'لا. تسجّل وتبدأ بخطة Starter مباشرة، وتضيف وسيلة دفع فقط عندما ترقّي خطتك.' },
       ],
     },
     {
@@ -115,17 +115,17 @@ export const pricingFaq: Record<Lang, FaqGroup[]> = {
       label: 'الدفع والإلغاء',
       items: [
         { q: 'بأي عملة أدفع؟', a: 'الأسعار بالدولار الأمريكي، ويظهر لزوار مصر سعر تقريبي بالجنيه المصري. يتم الدفع بالبطاقة عبر بوابة دفع آمنة.' },
-        { q: 'هل أستطيع الإلغاء في أي وقت؟', a: 'نعم. عند الإلغاء أو انتهاء الاشتراك يعود حسابك تلقائيًا إلى الخطة المجانية، وتبقى بياناتك كما هي.' },
+        { q: 'هل أستطيع الإلغاء في أي وقت؟', a: 'نعم. عند الإلغاء أو انتهاء الاشتراك يعود حسابك تلقائيًا إلى خطة Starter، وتبقى بياناتك كما هي.' },
       ],
     },
   ],
   en: [
     {
-      id: 'free',
-      label: 'The free plan',
+      id: 'starter',
+      label: 'Starter',
       items: [
-        { q: 'Is the free plan actually free?', a: 'Yes. The free plan is forever and needs no credit card, with every ORQO feature included at smaller usage limits.' },
-        { q: 'Do I need a credit card to sign up?', a: 'No. You sign up and start on the free plan right away, and add a payment method only when you upgrade.' },
+        { q: 'Is Starter actually free?', a: 'Yes. Starter is free forever and needs no credit card.' },
+        { q: 'Do I need a credit card to sign up?', a: 'No. You sign up and start on Starter right away, and add a payment method only when you upgrade.' },
       ],
     },
     {
@@ -142,7 +142,7 @@ export const pricingFaq: Record<Lang, FaqGroup[]> = {
       label: 'Billing & cancellation',
       items: [
         { q: 'What currency do I pay in?', a: 'Prices are in US dollars, and visitors from Egypt see an approximate price in Egyptian pounds. Payment is by card through a secure payment gateway.' },
-        { q: 'Can I cancel at any time?', a: 'Yes. On cancellation or subscription end, your account automatically returns to the free plan, and your data stays as it is.' },
+        { q: 'Can I cancel at any time?', a: 'Yes. On cancellation or subscription end, your account automatically returns to Starter, and your data stays as it is.' },
       ],
     },
   ],

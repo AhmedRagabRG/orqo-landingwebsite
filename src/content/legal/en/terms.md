@@ -22,10 +22,10 @@ These terms are an agreement between you and Ahmed Ragab, trading as ORQO, with 
 
 ## Plans and billing
 
-- **The free plan** is available without a credit card, with lower usage limits.
+- **Starter** is free and available without a credit card, with lower usage limits.
 - **Paid plans** are monthly or yearly, paid in advance through an external payment gateway, and renew automatically until you cancel.
 - Some plans may include a free trial period as shown at sign-up.
-- On cancellation the subscription continues until the end of the paid period, then your account returns to the free plan.
+- On cancellation the subscription continues until the end of the paid period, then your account returns to Starter.
 - Prices exclude taxes unless stated otherwise. We may change prices with advance notice before the next renewal.
 - Except where the law requires otherwise, paid subscription fees are non-refundable once a billing period starts. If we charge you in error, contact us within 14 days of the charge. If ORQO terminates a paid subscription for reasons other than your breach, we will refund the prepaid fees for the unused portion of that billing period. Cancelling a subscription stops future renewals but does not create a refund for the current period.
 
@@ -79,7 +79,7 @@ The platform, its design, logo, and software belong to ORQO. These terms grant y
 
 ## Availability and support
 
-We aim for the platform to run continuously, but outages or maintenance may occur. The support level varies by plan. No uptime guarantee, service credit, or other SLA applies unless it is set out in an order form or separate written SLA signed by ORQO. If a Business plan includes an SLA at purchase, that SLA controls if it conflicts with this section.
+We aim for the platform to run continuously, but outages or maintenance may occur. The support level varies by plan. No uptime guarantee, service credit, or other SLA applies unless it is set out in an order form or separate written SLA signed by ORQO. If a Growth plan includes an SLA at purchase, that SLA controls if it conflicts with this section.
 
 ## Suspension and termination
 

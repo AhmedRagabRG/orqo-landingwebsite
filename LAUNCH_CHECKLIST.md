@@ -44,10 +44,11 @@ The homepage is now illustrated, and only the hero uses a real screenshot. A1–
 
 ## Pricing page
 
+Plan names, monthly prices, and limits were finalized on 2026-10-10 and are published from `src/data/plans.ts` and `src/data/compare.ts`. The public site does not advertise annual billing or a free trial because neither was included in the finalized catalogue.
+
 | ID | What to confirm |
 |---|---|
-| P1 | Real plan names, prices, yearly prices and limits. Current values come from `database/seeders/PlanSeeder.php` (the sample catalogue): Free $0, Pro $29/$290, Business $99/$990. Also confirm the 14-day trial is configured on the Creem products. |
-| P2 | That every feature (AI agents, campaigns, automations, COD confirmation, API, integrations) really is available on the Free plan, limited only by usage. The code gates only limits and `ai_advanced_tier`. |
+| P2 | Confirm which non-catalogue features (COD confirmation, API, integrations, and advanced AI) are available on Starter, Pro, and Growth. Public pricing currently states only the finalized limits supplied for each plan. |
 | P3 | How Meta's WhatsApp conversation fees are charged (paid by the customer directly to Meta, or through ORQO). The FAQ answer is drafted assuming they are separate. |
 | P4 | How COD order confirmation works in the product (which stores, buttons, what happens to the order after the customer confirms or cancels). No dedicated COD module was found in the code, so the card describes it as an order trigger + WhatsApp confirmation + recorded reply. |
 

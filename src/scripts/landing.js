@@ -68,18 +68,6 @@
   var page = document.body.dataset.page;
   if (page) $$('[data-page="' + page + '"]').forEach(function (a) { a.setAttribute('aria-current', 'page'); });
 
-  /* ---------- billing cycle ---------- */
-  $$('.billing-toggle').forEach(function (group) {
-    $$('button', group).forEach(function (b) {
-      b.addEventListener('click', function () {
-        var cyc = b.dataset.cycle, key = cyc === 'yearly' ? 'y' : 'm';
-        $$('.billing-toggle button').forEach(function (x) { x.setAttribute('aria-pressed', String(x.dataset.cycle === cyc)); });
-        $$('[data-m][data-y]').forEach(function (el) { el.textContent = el.dataset[key]; });
-        document.body.dataset.cycle = cyc;
-      });
-    });
-  });
-
   /* ---------- comparison: one plan at a time on phones ---------- */
   var cmp = $('.cmp');
   if (cmp) $$('.cmp-switch button').forEach(function (b) {

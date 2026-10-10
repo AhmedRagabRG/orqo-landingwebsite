@@ -21,7 +21,7 @@ const isUnit = (v: string) => /\d\s?(GB|MB)$/.test(v);
             {p.name}
             {p.monthly === 0
               ? <small>{money(0)}</small>
-              : <small data-m={`${money(p.monthly)} ${P.perMoShort}`} data-y={`${money(p.yearly)} ${P.perYrShort}`}>{money(p.monthly)} {P.perMoShort}</small>}
+              : <small>{money(p.monthly)} {P.perMoShort}</small>}
           </th>
         ))}
       </tr>

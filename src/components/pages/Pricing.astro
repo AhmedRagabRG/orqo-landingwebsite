@@ -6,7 +6,6 @@ import Base from '../../layouts/Base.astro';
 import { I } from '../../i18n';
 import { plans } from '../../data/plans';
 import PlanCard from '../pricing/PlanCard.astro';
-import BillingToggle from '../pricing/BillingToggle.astro';
 import CompareTable from '../pricing/CompareTable.astro';
 import PageHero from '../ui/PageHero.astro';
 import SectionHead from '../ui/SectionHead.astro';
@@ -23,13 +22,11 @@ const m = t.mock;
 
 <section class="plans-sec" id="plans" aria-label={P.plansAria}>
   <div class="wrap">
-    <BillingToggle />
     <div class="plans plans-full">
       {plans[lang].map((plan) => <PlanCard plan={plan} full />)}
     </div>
     <div class="plans-foot">
       <p>{P.plansFoot} <a href={lp('/contact')}>{P.salesLink}</a>.</p>
-      <p class="review-tag">{P.plansReview}</p>
     </div>
   </div>
 </section>
@@ -201,7 +198,6 @@ const m = t.mock;
         </div>
       </article>
     </div>
-    <p class="review-tag">{S.review}</p>
   </div>
 </section>
 
@@ -211,13 +207,12 @@ const m = t.mock;
     <SectionHead id="cmp-title" chip={P.compare.chip} icon="i-list" title={P.compare.title} accent={P.compare.accent} />
 
     <div class="cmp-switch" role="tablist" aria-label={P.compare.switchAria}>
-      <button type="button" role="tab" data-plan="1" aria-selected="false" lang="en">Free</button>
+      <button type="button" role="tab" data-plan="1" aria-selected="false" lang="en">Starter</button>
       <button type="button" role="tab" data-plan="2" aria-selected="true" lang="en">Pro</button>
-      <button type="button" role="tab" data-plan="3" aria-selected="false" lang="en">Business</button>
+      <button type="button" role="tab" data-plan="3" aria-selected="false" lang="en">Growth</button>
     </div>
 
     <CompareTable />
-    <p class="review-tag">{P.compare.review}</p>
   </div>
 </section>
 
@@ -231,11 +226,11 @@ const m = t.mock;
       </ul>
     </div>
     <div class="meter-card" aria-label={P.usage.meterAria}>
-      <p class="mc-h"><b>{P.usage.meterH}</b><span lang="en">Free</span></p>
-      <div class="meter"><p><span>{P.usage.meterWa}</span><b>640 / 1,000</b></p><i style="--w:64%"></i></div>
-      <div class="meter"><p><span>{P.usage.meterContacts}</span><b>812 / 1,000</b></p><i class="warn" style="--w:81%"></i></div>
-      <div class="meter"><p><span>{P.usage.meterAi}</span><b>37 / 100</b></p><i style="--w:37%"></i></div>
-      <div class="meter"><p><span>{P.usage.meterCamps}</span><b>2 / 5</b></p><i style="--w:40%"></i></div>
+      <p class="mc-h"><b>{P.usage.meterH}</b><span lang="en">Starter</span></p>
+      <div class="meter"><p><span>{P.usage.meterWa}</span><b>64 / 100</b></p><i style="--w:64%"></i></div>
+      <div class="meter"><p><span>{P.usage.meterContacts}</span><b>42 / 50</b></p><i class="warn" style="--w:84%"></i></div>
+      <div class="meter"><p><span>{P.usage.meterAi}</span><b>18 / 50</b></p><i style="--w:36%"></i></div>
+      <div class="meter"><p><span>{P.usage.meterCamps}</span><b>1 / 2</b></p><i style="--w:50%"></i></div>
       <p class="mc-note">{P.usage.meterNote} <a href="#plans">{P.usage.meterLink}</a></p>
       <span class="demo-flag">{P.usage.demoFlag}</span>
     </div>

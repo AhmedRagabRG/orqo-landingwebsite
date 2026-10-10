@@ -11,8 +11,6 @@ interface Props {
 const { plan, full = false } = Astro.props;
 const { lang, t } = I(Astro);
 const money = (n: number) => (lang === 'en' ? `$${n}` : `${n}$`);
-/** "$24" style monthly equivalent of a yearly price. */
-const perMonth = (yearly: number) => money(Math.round((yearly / 12) * 10) / 10);
 const free = plan.monthly === 0;
 const Heading = full ? 'h2' : 'h3';
 const P = t.pricingPage;
@@ -24,13 +22,11 @@ const P = t.pricingPage;
     <p class="price"><b>{money(0)}</b><span>{P.forever}</span></p>
   ) : (
     <p class="price">
-      <b data-m={money(plan.monthly)} data-y={money(plan.yearly)}>{money(plan.monthly)}</b>
-      <span data-m={P.perMonth} data-y={P.perYear}>{P.perMonth}</span>
+      <b>{money(plan.monthly)}</b>
+      <span>{P.perMonth}</span>
     </p>
   )}
-  {full && (free
-    ? <p class="price-sub">{P.noCard}</p>
-    : <p class="price-sub" data-m={`${P.or} ${money(plan.yearly)} ${P.perYear}`} data-y={`${P.equals} ${perMonth(plan.yearly)} ${P.perMonth}`}>{P.or} {money(plan.yearly)} {P.perYear}</p>)}
+  {full && free && <p class="price-sub">{P.noCard}</p>}
   <a class={`btn btn-${plan.cta.style}`} href={site.signupUrl}>{plan.cta.label}</a>
   {full && <p class="plan-inc">{plan.includesLabel}</p>}
   <ul class="plan-list">
