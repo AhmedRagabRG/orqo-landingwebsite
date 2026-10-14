@@ -388,9 +388,6 @@
   .cb-step span { display: none; }
 }
 
-/* ---------- hero tweaks for the new rhythm ---------- */
-.hero-c + .probs { padding-top: calc(var(--sec) * .8); }
-
 /* ---------- responsive ---------- */
 @media (max-width: 1120px) {
   .pgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

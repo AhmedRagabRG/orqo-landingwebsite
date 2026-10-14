@@ -1,43 +1,60 @@
 ---
+/** Home hero — light, typographic: big headline with channel icons inline, product peeking from below. */
 import { site } from '../../config/site';
 import { I } from '../../i18n';
 import { getImage } from 'astro:assets';
 import inboxBooked from '../../assets/inbox-booked.webp';
-import inboxList from '../../assets/inbox-list.webp';
 const { t, href: lp } = I(Astro);
-const desktop = await getImage({ src: inboxBooked, widths: [800, 1200, 1656], format: 'webp' });
-const mobile = await getImage({ src: inboxList, width: 354, format: 'webp' });
+const [post0, ...postRest] = t.hero.l2post.split(' ');
+const shot = await getImage({ src: inboxBooked, widths: [800, 1200, 1656], format: 'webp' });
 ---
-<section class="hero hero-c" aria-labelledby="hero-title">
-  <div class="wrap hc-copy">
-    <span class="hc-badge"><svg class="mb-logo" aria-hidden="true"><use href="#i-meta"/></svg><b lang="en">Meta Tech Provider</b></span>
-    <h1 id="hero-title" class="hc-title">
-      <span class="hc-l1">{t.hero.l1}</span>
-      <span class="hc-l2">{t.hero.l2pre} <span class="arc-word">{t.hero.arc}<svg class="arc-under" aria-hidden="true"><use href="#arc"/></svg></span>{t.hero.l2post}</span>
+<section class="hx" aria-labelledby="hero-title">
+  <div class="wrap hx-copy">
+    <h1 id="hero-title" class="hx-title">
+      {t.hero.l1}
+      <span class="hx-icons" aria-hidden="true">
+        <span class="ch-ico" style="background:#25D366"><svg><use href="#i-wa"/></svg></span>
+        <span class="ch-ico" style="background:#E4405F"><svg><use href="#i-ig"/></svg></span>
+        <span class="ch-ico" style="background:#0A7CFF"><svg><use href="#i-ms"/></svg></span>
+      </span>
     </h1>
-    <p class="hc-lead">{t.hero.lead}</p>
-    <div class="hc-ctas">
-      <a class="btn btn-mint btn-lg" href={site.signupUrl}>{t.ctapair.start} <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
-      <a class="btn btn-ghost-deep btn-lg" href={lp('/contact')}><svg aria-hidden="true"><use href="#i-meet"/></svg> {t.ctapair.demo}</a>
+    <p class="hx-sub">{t.hero.l2pre} <span class="nw"><span class="arc-word">{t.hero.arc}<svg class="arc-under" aria-hidden="true"><use href="#arc"/></svg></span>{post0}</span> {postRest.join(' ')}</p>
+    <p class="hx-lead">{t.hero.lead}</p>
+    <div class="hx-ctas">
+      <a class="btn btn-primary btn-lg" href={site.signupUrl}>{t.ctapair.start} <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost btn-lg" href={lp('/contact')}>{t.ctapair.demo}</a>
     </div>
+    <p class="hx-meta"><svg aria-hidden="true"><use href="#i-meta"/></svg><span lang="en">Official Meta Tech Provider</span></p>
   </div>
-
   <div class="wrap">
-    <figure class="hc-shot">
-      <div class="hc-frame">
-        <picture>
-          <source media="(max-width: 720px)" srcset={mobile.src} width={mobile.attributes.width} height={mobile.attributes.height}>
-          <img src={desktop.src} srcset={desktop.srcSet.attribute} sizes="(max-width: 1180px) 92vw, 1100px" width="1656" height="1017" alt={t.hero.alt} fetchpriority="high" decoding="async">
-        </picture>
-      </div>
-
-      <div class="hc-float hf-wa"><span class="ch-ico"><svg aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>{t.hero.wa.name}</b><small>{t.hero.wa.msg}</small></span></div>
-      <div class="hc-float hf-ig"><span class="ch-ico"><svg aria-hidden="true"><use href="#i-ig"/></svg></span><span><b>{t.hero.ig.name}</b><small>{t.hero.ig.msg}</small></span></div>
-      <div class="hc-float hf-ms hf-camp"><span class="ch-ico"><svg aria-hidden="true"><use href="#i-send"/></svg></span><span><b>{t.hero.camp.name}</b><small>{t.hero.camp.msg}</small></span></div>
-      <div class="hc-float hf-ai"><span class="mini-av av-ai"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span><b>{t.hero.ai.name}</b><small>{t.hero.ai.msg}</small></span></div>
-      <div class="hc-float hf-hand"><span class="f-assign-txt"><s>{t.hero.hand.from}</s><span class="arrow-l">←</span><b lang="en">Ahmed Ragab</b></span></div>
-      <div class="hc-float hf-sum"><p class="f-title"><svg aria-hidden="true"><use href="#i-note"/></svg>{t.hero.sum.title}</p><p>{t.hero.sum.body}</p></div>
-      <figcaption class="review-tag">{t.hero.review}</figcaption>
+    <figure class="hx-shot">
+      <img src={shot.src} srcset={shot.srcSet.attribute} sizes="(max-width: 1180px) 92vw, 1100px" width="1656" height="1017" alt={t.hero.alt} fetchpriority="high" decoding="async">
     </figure>
   </div>
 </section>
+
+<style>
+  .nw { white-space: nowrap; }
+  .hx-sub .arc-word { color: inherit; }
+  .hx { position: relative; overflow: hidden; padding-top: clamp(56px, 8vw, 120px); background: linear-gradient(180deg, var(--paper) 0%, var(--mint-wash) 100%); }
+  .hx-copy { display: grid; justify-items: center; text-align: center; gap: 20px; }
+  .hx-title { font-size: clamp(2.5rem, 1.2rem + 5.4vw, 5.6rem); line-height: 1.08; font-weight: 500; color: var(--ink); letter-spacing: -.03em; text-wrap: balance; max-width: 13em; }
+  .hx-icons { display: inline-flex; vertical-align: middle; margin-inline-start: .15em; }
+  .hx-icons .ch-ico { width: .78em; height: .78em; border: .06em solid var(--paper); margin-inline-start: -.18em; box-shadow: var(--shadow-1); }
+  .hx-sub { font-size: clamp(1.3rem, 1rem + 1.4vw, 2.1rem); color: var(--mint-ink); font-weight: 500; line-height: 1.4; }
+  .hx-sub .arc-under { color: var(--mint); }
+  .hx-lead { font-size: var(--t-md); line-height: 1.85; color: var(--ink-2); max-width: 38em; text-wrap: pretty; }
+  .hx-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px; }
+  .hx-meta { display: inline-flex; align-items: center; gap: 8px; font-size: var(--t-sm); color: var(--ink-3); }
+  .hx-meta svg { width: 18px; height: 18px; color: var(--meta); }
+  /* only the top of the product shows; the rest is cut off by the section edge */
+  .hx-shot { margin: clamp(40px, 6vw, 72px) auto 0; max-width: 1100px; max-height: clamp(260px, 34vw, 480px); overflow: hidden; border-radius: 22px 22px 0 0; border: 1px solid var(--line); border-bottom: 0; box-shadow: var(--shadow-2); background: #fff;
+    -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent); mask-image: linear-gradient(180deg, #000 70%, transparent); }
+  .hx-shot img { width: 100%; display: block; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hx-shot { animation: rise .9s .15s cubic-bezier(.2,.8,.2,1) both; }
+  }
+  @media (max-width: 720px) {
+    .hx-ctas, .hx-ctas .btn { width: 100%; }
+  }
+</style>
