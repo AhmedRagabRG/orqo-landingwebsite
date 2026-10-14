@@ -90,6 +90,8 @@ export const en: typeof ar = {
   },
 
   hero: {
+    watch: 'See how ORQO works',
+    watchSub: 'Watch on YouTube',
     l1: 'Your customer conversations, in one place.',
     l2pre: 'AI that',
     arc: 'answers',

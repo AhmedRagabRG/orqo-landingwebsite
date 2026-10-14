@@ -10,6 +10,11 @@ const shot = await getImage({ src: inboxBooked, widths: [800, 1200, 1656], forma
 ---
 <section class="hx" aria-labelledby="hero-title">
   <div class="wrap hx-copy">
+    <a class="hx-watch" href={site.social.youtube} target="_blank" rel="noopener">
+      <span class="hx-play"><svg aria-hidden="true"><use href="#i-play"/></svg></span>
+      <b>{t.hero.watch}</b>
+      <span class="hx-yt"><svg aria-hidden="true"><use href="#i-yt"/></svg>{t.hero.watchSub}</span>
+    </a>
     <h1 id="hero-title" class="hx-title">
       {t.hero.l1}
       <span class="hx-icons" aria-hidden="true">
@@ -37,6 +42,18 @@ const shot = await getImage({ src: inboxBooked, widths: [800, 1200, 1656], forma
   .nw { white-space: nowrap; }
   .hx-sub .arc-word { color: inherit; }
   .hx { position: relative; overflow: hidden; padding-top: clamp(56px, 8vw, 120px); background: linear-gradient(180deg, var(--paper) 0%, var(--mint-wash) 100%); }
+  .hx-watch { display: inline-flex; align-items: center; gap: 12px; padding: 6px 8px 6px 6px; padding-inline-end: 16px; border-radius: 999px; background: var(--card); border: 1.5px solid var(--mint); box-shadow: 0 0 0 5px color-mix(in srgb, var(--mint) 18%, transparent), var(--shadow-1); text-decoration: none; color: var(--ink); font-size: var(--t-base); transition: transform .2s, box-shadow .2s; }
+  .hx-watch:hover { transform: translateY(-2px); box-shadow: 0 0 0 7px color-mix(in srgb, var(--mint) 24%, transparent), var(--shadow-2); }
+  .hx-watch b { font-weight: 500; }
+  .hx-play { position: relative; width: 38px; height: 38px; flex: none; border-radius: 50%; display: grid; place-items: center; background: #FF0033; color: #fff; }
+  .hx-play svg { width: 16px; height: 16px; margin-inline-start: 2px; }
+  .hx-yt { display: inline-flex; align-items: center; gap: 6px; padding-inline-start: 12px; border-inline-start: 1px solid var(--line); color: var(--ink-3); font-size: var(--t-sm); }
+  .hx-yt svg { width: 18px; height: 18px; color: #FF0033; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hx-play::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #FF0033; animation: hx-ping 1.8s ease-out infinite; }
+  }
+  @keyframes hx-ping { to { transform: scale(1.7); opacity: 0; } }
+  @media (max-width: 480px) { .hx-yt { display: none; } }
   .hx-copy { display: grid; justify-items: center; text-align: center; gap: 20px; }
   .hx-title { font-size: clamp(2.5rem, 1.2rem + 5.4vw, 5.6rem); line-height: 1.08; font-weight: 500; color: var(--ink); letter-spacing: -.03em; text-wrap: balance; max-width: 13em; }
   .hx-icons { display: inline-flex; vertical-align: middle; margin-inline-start: .15em; }
