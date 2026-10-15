@@ -2,7 +2,10 @@
 // Env (Vercel → Settings → Environment Variables): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 // The Docker/Coolify build does the same thing in nginx.conf.
 export async function POST(request) {
-  const { TELEGRAM_BOT_TOKEN: token, TELEGRAM_CHAT_ID: chatId } = process.env;
+  // Tolerate pasted whitespace/quotes and a leading "bot" in the dashboard values.
+  const clean = (v) => (v || '').trim().replace(/^["']|["']$/g, '');
+  const token = clean(process.env.TELEGRAM_BOT_TOKEN).replace(/^bot/, '');
+  const chatId = clean(process.env.TELEGRAM_CHAT_ID);
   if (!token || !chatId) return new Response('Telegram not configured', { status: 503 });
 
   let text;
