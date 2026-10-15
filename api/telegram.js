@@ -20,6 +20,7 @@ export async function POST(request) {
   });
   if (r.ok) return new Response('ok');
   const { description } = await r.json().catch(() => ({}));
-  const hint = r.status === 404 ? ` — token ${token.split(':')[0]}:… was rejected (revoked or mistyped; copy it again from @BotFather)` : '';
+  const hint = r.status === 404 ? ` — token ${token.split(':')[0]}:… was rejected (revoked or mistyped; copy it again from @BotFather)`
+    : /chat not found/.test(description) ? ` — TELEGRAM_CHAT_ID is "${chatId.slice(0, 5)}…" (${chatId.length} chars); channels/groups need -100… or @name, and the bot must be a member/admin` : '';
   return new Response(`Telegram error: ${description || r.status}${hint}`, { status: 502 });
 }
