@@ -2,11 +2,12 @@
 // Env (Vercel → Settings → Environment Variables): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 // The Docker/Coolify build does the same thing in nginx.conf.
 export async function POST(request) {
-  // Tolerate pasted whitespace/quotes and a leading "bot" in the dashboard values.
-  const clean = (v) => (v || '').trim().replace(/^["']|["']$/g, '');
-  const token = clean(process.env.TELEGRAM_BOT_TOKEN).replace(/^bot/, '');
-  const chatId = clean(process.env.TELEGRAM_CHAT_ID);
-  if (!token || !chatId) return new Response('Telegram not configured', { status: 503 });
+  // Pull the token out of whatever was pasted (quotes, "bot" prefix, even a full api.telegram.org URL).
+  const raw = process.env.TELEGRAM_BOT_TOKEN || '';
+  const token = (raw.match(/\d{5,}:[\w-]{30,}/) || [])[0];
+  const chatId = (process.env.TELEGRAM_CHAT_ID || '').trim().replace(/^["']|["']$/g, '');
+  if (!token) return new Response(`TELEGRAM_BOT_TOKEN is not a bot token (got ${raw.length} chars; expected 123456789:AA…)`, { status: 503 });
+  if (!chatId) return new Response('TELEGRAM_CHAT_ID is empty', { status: 503 });
 
   let text;
   try { ({ text } = await request.json()); } catch { /* falls through to 400 */ }
@@ -19,5 +20,6 @@ export async function POST(request) {
   });
   if (r.ok) return new Response('ok');
   const { description } = await r.json().catch(() => ({}));
-  return new Response(`Telegram error: ${description || r.status}`, { status: 502 });
+  const hint = r.status === 404 ? ` — token ${token.split(':')[0]}:… was rejected (revoked or mistyped; copy it again from @BotFather)` : '';
+  return new Response(`Telegram error: ${description || r.status}${hint}`, { status: 502 });
 }
