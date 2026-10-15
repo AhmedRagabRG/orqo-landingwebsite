@@ -11,6 +11,8 @@ RUN npm run build
 
 # Serve it with nginx
 FROM nginx:1.27-alpine
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Runtime secrets for the form → Telegram relay (set them in Coolify). Empty = forms show a send error.
+ENV TELEGRAM_BOT_TOKEN="" TELEGRAM_CHAT_ID=""
+COPY nginx.conf /etc/nginx/templates/default.conf.template
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80

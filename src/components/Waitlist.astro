@@ -1,0 +1,24 @@
+---
+/** Pre-launch waitlist popup. Opened by any link to #waitlist, and automatically on the home page. */
+import { I } from '../i18n';
+import { site } from '../config/site';
+const { t } = I(Astro);
+const W = t.waitlist;
+---
+<dialog class="wl" id="waitlist" aria-labelledby="wl-title">
+  <form class="cform" id="waitlist-form" novalidate data-endpoint={site.contactEndpoint}>
+    <button type="button" class="wl-x" data-close aria-label={W.close}>×</button>
+    <span class="wl-badge">{W.badge}</span>
+    <h2 id="wl-title" class="h3">{W.title}</h2>
+    <p class="wl-lead">{W.lead}</p>
+    <label for="wl-name">{W.name}<input id="wl-name" name="name" type="text" autocomplete="name" required></label>
+    <div class="cf-row">
+      <label for="wl-email">{W.email}<input id="wl-email" name="email" type="email" autocomplete="email" dir="ltr" required></label>
+      <label for="wl-phone">{W.phone}<input id="wl-phone" name="phone" type="tel" autocomplete="tel" dir="ltr" placeholder="+20" required></label>
+    </div>
+    <label for="wl-business">{W.business}<input id="wl-business" name="business" type="text" autocomplete="organization"></label>
+    <label for="wl-link">{W.link}<input id="wl-link" name="link" type="url" inputmode="url" dir="ltr" placeholder="https://"></label>
+    <button type="submit" class="btn btn-primary btn-lg">{W.submit}</button>
+    <p class="cf-status" role="status" hidden></p>
+  </form>
+</dialog>

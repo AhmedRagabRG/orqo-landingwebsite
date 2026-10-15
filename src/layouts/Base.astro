@@ -12,6 +12,7 @@ import PostHog from '../components/PostHog.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import Clarity from '../components/Clarity.astro';
 import OrqoWidget from '../components/OrqoWidget.astro';
+import Waitlist from '../components/Waitlist.astro';
 
 interface Props {
   title: string;
@@ -31,7 +32,7 @@ const altPath = new URL(switchPath(Astro.url.pathname, otherLang), site.url);
 const ogImage = new URL('/og.png', site.url);
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 /** Strings needed by scripts/landing.js at runtime. */
-const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.form, journey: t.js.journey };
+const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.form, journey: t.js.journey, waitlist: { err: t.waitlist.err, ok: t.waitlist.ok } };
 ---
 <!doctype html>
 <html lang={lang} dir={dir}>
@@ -84,6 +85,7 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
       <slot />
     </main>
     <Footer cta={page !== 'contact' && page !== '404'} />
+    <Waitlist />
     {site.showReview && <ReviewToggle />}
     <script>
       import '../scripts/landing.js';

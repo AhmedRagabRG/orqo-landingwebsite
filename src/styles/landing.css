@@ -1607,3 +1607,14 @@ body:not(.review-on) mark.ph { background: none; border: 0; color: inherit; padd
 /* English fallback line on the shared 404 page. */
 .nf-en { max-width: var(--wrap, 1180px); margin: -18px auto 0; padding: 0 24px; text-align: center; color: var(--ink-3); font-size: var(--t-sm); }
 .nf-en a { color: var(--ink-2); }
+
+/* ---------- waitlist popup ---------- */
+.wl { border: 0; padding: 0; background: transparent; max-width: min(520px, calc(100vw - 32px)); width: 100%; }
+.wl::backdrop { background: rgba(3, 26, 29, .55); backdrop-filter: blur(3px); }
+.wl .cform { position: relative; top: auto; }
+.wl-x { position: absolute; top: 14px; inset-inline-end: 14px; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line-2); background: var(--paper); color: var(--ink); font-size: 20px; line-height: 1; cursor: pointer; }
+.wl-badge { justify-self: start; background: var(--mint-soft); color: var(--mint-ink); border-radius: 999px; padding: 4px 12px; font-size: var(--t-sm); font-weight: 500; }
+.wl-lead { color: var(--ink-2); line-height: 1.8; margin: 0; }
+.wl .cform input[type="url"] { font: inherit; font-weight: 400; color: var(--ink); background: var(--paper); border: 1px solid var(--line-2); border-radius: 12px; padding: 10px 14px; min-height: 46px; width: 100%; }
+.wl .cform .btn { justify-self: stretch; }
+@media (max-width: 560px) { .wl .cf-row { grid-template-columns: 1fr; } }

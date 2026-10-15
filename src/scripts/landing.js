@@ -92,37 +92,53 @@
     var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
   }
 
-  /* ---------- contact form (not connected yet) ---------- */
-  var form = $('#contact-form');
-  if (form) form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var status = $('.cf-status', form), btn = $('button[type="submit"]', form);
-    var bad = $$('[required]', form).filter(function (f) { return !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value)); });
-    $$('[required]', form).forEach(function (f) { f.toggleAttribute('aria-invalid', bad.indexOf(f) > -1); });
-    status.hidden = false;
-    if (bad.length) { status.className = 'cf-status is-err'; status.textContent = I18N.form.err; bad[0].focus(); return; }
-    var endpoint = form.dataset.endpoint;
-    if (!endpoint) {
-      status.className = 'cf-status';
-      status.textContent = I18N.form.noEndpoint;
-      return;
-    }
-    var data = {}; new FormData(form).forEach(function (v, k) { data[k] = v; });
-    data.page = location.href;
-    btn.disabled = true;
-    status.className = 'cf-status'; status.textContent = I18N.form.sending;
-    fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-      .then(function (r) {
-        if (!r.ok) throw new Error(String(r.status));
-        status.textContent = I18N.form.ok;
-        form.reset();
-      })
-      .catch(function () {
-        status.className = 'cf-status is-err';
-        status.textContent = I18N.form.fail;
-      })
-      .finally(function () { btn.disabled = false; });
-  });
+  /* ---------- contact + waitlist forms: POST {text} to the Telegram relay (nginx.conf) ---------- */
+  var wireForm = function (form, title, msgs, onOk) {
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var status = $('.cf-status', form), btn = $('button[type="submit"]', form);
+      var bad = $$('[required]', form).filter(function (f) { return !f.value.trim() || (f.type === 'email' && !/^\S+@\S+\.\S+$/.test(f.value)); });
+      $$('[required]', form).forEach(function (f) { f.toggleAttribute('aria-invalid', bad.indexOf(f) > -1); });
+      status.hidden = false;
+      if (bad.length) { status.className = 'cf-status is-err'; status.textContent = msgs.err; bad[0].focus(); return; }
+      var endpoint = form.dataset.endpoint;
+      if (!endpoint) { status.className = 'cf-status'; status.textContent = I18N.form.noEndpoint; return; }
+      var lines = [title];
+      new FormData(form).forEach(function (v, k) { if (String(v).trim()) lines.push(k + ': ' + String(v).trim()); });
+      lines.push('page: ' + location.href);
+      btn.disabled = true;
+      status.className = 'cf-status'; status.textContent = I18N.form.sending;
+      fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text: lines.join('\n') }) })
+        .then(function (r) {
+          if (!r.ok) throw new Error(String(r.status));
+          status.textContent = msgs.ok;
+          form.reset();
+          if (onOk) onOk();
+        })
+        .catch(function () {
+          status.className = 'cf-status is-err';
+          status.textContent = I18N.form.fail;
+        })
+        .finally(function () { btn.disabled = false; });
+    });
+  };
+  wireForm($('#contact-form'), '📩 New contact message', I18N.form);
+
+  /* ---------- waitlist popup ---------- */
+  var wl = $('#waitlist');
+  if (wl) {
+    wireForm($('#waitlist-form'), '🚀 New waitlist signup', I18N.waitlist || I18N.form, function () { store.set('orqo-waitlist', '1'); });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href$="#waitlist"]');
+      if (a) { e.preventDefault(); wl.showModal(); }
+    });
+    $('[data-close]', wl).addEventListener('click', function () { wl.close(); });
+    wl.addEventListener('click', function (e) { if (e.target === wl) wl.close(); });
+    /* Home page: open once per visit unless they already joined. */
+    var seen = false; try { seen = sessionStorage.getItem('orqo-wl-seen'); sessionStorage.setItem('orqo-wl-seen', '1'); } catch (_) {}
+    if ((document.body.dataset.page === 'home' && !seen && !store.get('orqo-waitlist')) || location.hash === '#waitlist') wl.showModal();
+  }
 
   /* ---------- sections that animate once in view ---------- */
   if (!reduce) ['.handoff', '.profile', '.cod-sec'].forEach(function (sel) {
