@@ -14,5 +14,7 @@ export async function POST(request) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ chat_id: chatId, text: text.slice(0, 4000) }),
   });
-  return new Response(r.ok ? 'ok' : 'Telegram error', { status: r.ok ? 200 : 502 });
+  if (r.ok) return new Response('ok');
+  const { description } = await r.json().catch(() => ({}));
+  return new Response(`Telegram error: ${description || r.status}`, { status: 502 });
 }
