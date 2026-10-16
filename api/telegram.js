@@ -1,4 +1,4 @@
-// Vercel function: contact + waitlist forms POST {"text": "..."} here and it's relayed to Telegram.
+// Vercel function: the contact form POSTs {"text": "..."} here and it's relayed to Telegram.
 // Env (Vercel → Settings → Environment Variables): TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
 // The Docker/Coolify build does the same thing in nginx.conf.
 export async function POST(request) {

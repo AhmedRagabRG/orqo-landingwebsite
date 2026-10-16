@@ -11,8 +11,7 @@ export const site = {
 
   // The ORQO app (Laravel) lives on its own subdomain.
   appUrl: 'https://app.orqo.site',
-  // Pre-launch: every sign-up CTA opens the waitlist popup (Waitlist.astro). Restore '/register' at launch.
-  signupUrl: '#waitlist',
+  signupUrl: 'https://app.orqo.site/register',
   loginUrl: 'https://app.orqo.site/login',
   docsUrl: '/contact', // SAMPLE: replace with the API docs URL
 
@@ -27,7 +26,7 @@ export const site = {
     youtube: 'https://www.youtube.com/@orqo.ai',
   },
 
-  // Where the contact + waitlist forms POST {text}. Default: nginx proxies it to Telegram (nginx.conf).
+  // Where the contact form POSTs {text}. Default: nginx proxies it to Telegram (nginx.conf).
   contactEndpoint: env.PUBLIC_CONTACT_ENDPOINT || '/api/telegram',
 
   // PostHog web analytics. Empty key = no tracking script is rendered at all.

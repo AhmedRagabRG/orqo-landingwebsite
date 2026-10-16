@@ -15,7 +15,7 @@ export const en: typeof ar = {
     navAria: 'Main navigation',
     navAriaMobile: 'Mobile navigation',
     login: 'Log in',
-    start: 'Join the waitlist',
+    start: 'Start for free',
     menuOpen: 'Open menu',
     menuClose: 'Close menu',
     switchTo: 'عربي',
@@ -61,7 +61,7 @@ export const en: typeof ar = {
   },
 
   ctapair: {
-    start: 'Join the waitlist',
+    start: 'Start for free',
     demo: 'Book a demo',
   },
 
@@ -639,21 +639,6 @@ export const en: typeof ar = {
     stageDone: 'Done ✓',
     phone: '+20 10 ···· 4567',
     phones: ['+20 10 ··· 0000', '+20 10 ··· 4567', '+20 11 ··· 2104', '+966 5 ··· 8841', '+20 12 ··· 3390', '+20 10 ··· 7712'],
-  },
-
-  waitlist: {
-    title: 'Join the waitlist',
-    lead: 'ORQO launches soon. Join now and get 10% off for a full year when we go live.',
-    badge: '10% off for 1 year',
-    name: 'Name',
-    email: 'Email',
-    phone: 'Phone / WhatsApp',
-    business: 'Business name (optional)',
-    link: 'Website or page link (optional)',
-    submit: 'Join now',
-    close: 'Close',
-    err: 'Fill in your name, email, and phone number.',
-    ok: "You're on the list! We'll reach out at launch — your 10% discount is reserved.",
   },
 
   js: {

@@ -92,8 +92,8 @@
     var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
   }
 
-  /* ---------- contact + waitlist forms: POST {text} to the Telegram relay (nginx.conf) ---------- */
-  var wireForm = function (form, title, msgs, onOk) {
+  /* ---------- contact form: POST {text} to the Telegram relay (api/telegram.js, nginx.conf) ---------- */
+  var wireForm = function (form, title, msgs) {
     if (!form) return;
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -114,7 +114,6 @@
           if (!r.ok) throw new Error(String(r.status));
           status.textContent = msgs.ok;
           form.reset();
-          if (onOk) onOk();
         })
         .catch(function () {
           status.className = 'cf-status is-err';
@@ -124,21 +123,6 @@
     });
   };
   wireForm($('#contact-form'), '📩 New contact message', I18N.form);
-
-  /* ---------- waitlist popup ---------- */
-  var wl = $('#waitlist');
-  if (wl) {
-    wireForm($('#waitlist-form'), '🚀 New waitlist signup', I18N.waitlist || I18N.form, function () { store.set('orqo-waitlist', '1'); });
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href$="#waitlist"]');
-      if (a) { e.preventDefault(); wl.showModal(); }
-    });
-    $('[data-close]', wl).addEventListener('click', function () { wl.close(); });
-    wl.addEventListener('click', function (e) { if (e.target === wl) wl.close(); });
-    /* Home page: open once per visit unless they already joined. */
-    var seen = false; try { seen = sessionStorage.getItem('orqo-wl-seen'); sessionStorage.setItem('orqo-wl-seen', '1'); } catch (_) {}
-    if ((document.body.dataset.page === 'home' && !seen && !store.get('orqo-waitlist')) || location.hash === '#waitlist') wl.showModal();
-  }
 
   /* ---------- sections that animate once in view ---------- */
   if (!reduce) ['.handoff', '.profile', '.cod-sec'].forEach(function (sel) {
