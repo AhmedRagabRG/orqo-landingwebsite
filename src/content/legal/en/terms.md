@@ -5,7 +5,7 @@ scope: "Applies to the use of the ORQO platform, website, and API"
 updated: 2026-10-10
 draft: false
 summary:
-  - "The free plan is forever; paid plans renew automatically and can be cancelled at any time."
+  - "Plans start with a 7-day free trial, renew automatically, and can be cancelled at any time."
   - "You are responsible for obtaining your customers' consent before messaging them, and for complying with WhatsApp policies."
   - "AI agent replies can be wrong; you can review them and take over the conversation at any time."
   - "Your data belongs to you, and you can export or delete it."
@@ -22,10 +22,9 @@ These terms are an agreement between you and Ahmed Ragab, trading as ORQO, with 
 
 ## Plans and billing
 
-- **Starter** is free and available without a credit card, with lower usage limits.
+- New accounts start with a 7-day free trial.
 - **Paid plans** are monthly or yearly, paid in advance through an external payment gateway, and renew automatically until you cancel.
-- Some plans may include a free trial period as shown at sign-up.
-- On cancellation the subscription continues until the end of the paid period, then your account returns to Starter.
+- On cancellation the subscription continues until the end of the paid period, then your account access to paid features stops; your data stays as it is.
 - Prices exclude taxes unless stated otherwise. We may change prices with advance notice before the next renewal.
 - Except where the law requires otherwise, paid subscription fees are non-refundable once a billing period starts. If we charge you in error, contact us within 14 days of the charge. If ORQO terminates a paid subscription for reasons other than your breach, we will refund the prepaid fees for the unused portion of that billing period. Cancelling a subscription stops future renewals but does not create a refund for the current period.
 

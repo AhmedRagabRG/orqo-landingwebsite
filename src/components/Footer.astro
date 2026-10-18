@@ -28,7 +28,7 @@ const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
           <div><p>{t.footer.platform.title}</p>{t.footer.platform.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>
           <div><p>{t.footer.company.title}</p>{t.footer.company.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>
           <div><p>{t.footer.contactTitle}</p>
-            <a href={`mailto:${site.email}`} dir="ltr" class="fx-mail">{site.email}</a>
+            <a href={`mailto:${site.email}`}><bdi dir="ltr">{site.email}</bdi></a>
             <a href={site.whatsappUrl}>{t.footer.whatsapp}</a>
             <ul class="socials fx-socials" aria-label={t.footer.socialsAria}>
               <li><a href={site.social.facebook} aria-label={t.footer.socials.facebook}><svg aria-hidden="true"><use href="#i-fb" /></svg></a></li>

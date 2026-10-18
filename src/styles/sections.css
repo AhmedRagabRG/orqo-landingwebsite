@@ -189,7 +189,6 @@
 .fx-links p { color: #FEFDFD; font-weight: 500; margin-bottom: 10px; }
 .fx-links a { display: block; color: var(--on-deep-2); text-decoration: none; padding-block: 4px; }
 .fx-links a:hover { color: #FEFDFD; }
-.fx-mail { direction: ltr; text-align: end; unicode-bidi: plaintext; }
 .fx-socials { margin-top: 10px; gap: 6px; }
 .fx-links .fx-socials a { display: grid; place-items: center; width: 36px; height: 36px; border-color: var(--night-line); color: var(--on-deep-2); padding: 0; }
 .fx-socials a:hover { color: #FEFDFD; border-color: var(--on-deep-2); }

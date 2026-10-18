@@ -11,22 +11,17 @@ interface Props {
 const { plan, full = false } = Astro.props;
 const { lang, t } = I(Astro);
 const money = (n: number) => (lang === 'en' ? `$${n}` : `${n}$`);
-const free = plan.monthly === 0;
 const Heading = full ? 'h2' : 'h3';
 const P = t.pricingPage;
 ---
 <article class:list={['plan', { 'plan-rec': plan.recommended }]}>
   {plan.recommended && <span class="plan-flag">{plan.recommended}</span>}
   <header class="plan-h"><Heading lang="en">{plan.name}</Heading><p>{plan.tagline}</p></header>
-  {free ? (
-    <p class="price"><b>{money(0)}</b><span>{P.forever}</span></p>
-  ) : (
-    <p class="price">
-      <b>{money(plan.monthly)}</b>
-      <span>{P.perMonth}</span>
-    </p>
-  )}
-  {full && free && <p class="price-sub">{P.noCard}</p>}
+  <p class="price">
+    <b>{money(plan.monthly)}</b>
+    <span>{P.perMonth}</span>
+  </p>
+  {full && <p class="price-sub">{P.trial}</p>}
   <a class={`btn btn-${plan.cta.style}`} href={site.signupUrl}>{plan.cta.label}</a>
   {full && <p class="plan-inc">{plan.includesLabel}</p>}
   <ul class="plan-list">

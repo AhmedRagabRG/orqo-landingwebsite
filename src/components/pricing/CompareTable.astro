@@ -12,16 +12,14 @@ const cellClass = (v: string) => (v === '✓' ? 'y' : v === '—' ? 'n' : v === 
 const isUnit = (v: string) => /\d\s?(GB|MB)$/.test(v);
 ---
 <div class="cmp-wrap">
-  <table class="cmp" data-show="2">
+  <table class="cmp" data-show="1">
     <thead>
       <tr>
         <th scope="col"><span class="sr">{P.featureLabel}</span></th>
         {rows.map((p) => (
           <th scope="col" class:list={{ rec: p.recommended }} lang="en">
             {p.name}
-            {p.monthly === 0
-              ? <small>{money(0)}</small>
-              : <small>{money(p.monthly)} {P.perMoShort}</small>}
+            <small>{money(p.monthly)} {P.perMoShort}</small>
           </th>
         ))}
       </tr>
