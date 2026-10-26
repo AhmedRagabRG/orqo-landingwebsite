@@ -2,7 +2,7 @@
 title: "Terms & Conditions"
 description: "Terms for using the ORQO platform: accounts, plans and billing, the use of Meta channels, campaigns and AI, and responsibilities."
 scope: "Applies to the use of the ORQO platform, website, and API"
-updated: 2026-10-10
+updated: 2026-10-27
 draft: false
 summary:
   - "Plans start with a 7-day free trial, renew automatically, and can be cancelled at any time."
@@ -12,7 +12,7 @@ summary:
 ---
 ## Acceptance of terms
 
-These terms are an agreement between you and Ahmed Ragab, trading as ORQO, with a principal place of business in Giza, Egypt (“ORQO”, “we”, or “us”). By using the platform or creating an account, you agree to them. If you use ORQO on behalf of a company, you confirm that you have the authority to bind it to these terms.
+These terms are an agreement between you and Orqo Technologies LLC, with a principal place of business in Giza, Egypt (“ORQO”, “we”, or “us”). By using the platform or creating an account, you agree to them. If you use ORQO on behalf of a company, you confirm that you have the authority to bind it to these terms.
 
 ## Account and workspaces
 
