@@ -24,8 +24,8 @@ export const homeFaq: Record<Lang, FaqGroup[]> = {
       id: 'pricing',
       label: 'الأسعار',
       items: [
-        { q: 'هل يمكن تجربة ORQO مجانًا؟', a: 'نعم. تبدأ خطة Pro بتجربة مجانية لمدة 7 أيام.' },
-        { q: 'ماذا يحدث عندما أصل إلى حد الاستخدام؟', a: 'يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو تتواصل معنا لتعديل الحدود.' },
+        { q: 'هل يمكن تجربة ORQO مجانًا؟', a: 'نعم. كل الخطط تبدأ بتجربة مجانية لمدة 7 أيام.' },
+        { q: 'ماذا يحدث عندما أصل إلى حد الاستخدام؟', a: 'يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو ترقّي خطتك.' },
         { q: 'هل تشمل الأسعار رسوم Meta على رسائل واتساب؟', a: 'رسوم Meta على محادثات واتساب منفصلة عن اشتراك ORQO، وتُحتسب حسب تسعير Meta لكل دولة ونوع رسالة.' },
         { q: 'هل أستطيع الإلغاء في أي وقت؟', a: 'نعم. عند الإلغاء أو انتهاء الاشتراك تبقى بياناتك كما هي.' },
       ],
@@ -64,8 +64,8 @@ export const homeFaq: Record<Lang, FaqGroup[]> = {
       id: 'pricing',
       label: 'Pricing',
       items: [
-        { q: 'Can I try ORQO for free?', a: 'Yes. Pro starts with a 7-day free trial.' },
-        { q: 'What happens when I reach a usage limit?', a: 'An alert appears in your dashboard, and you can’t create more of the item that hit its limit until the new month starts or you contact us to adjust the limits.' },
+        { q: 'Can I try ORQO for free?', a: 'Yes. Every plan starts with a 7-day free trial.' },
+        { q: 'What happens when I reach a usage limit?', a: 'An alert appears in your dashboard, and you can’t create more of the item that hit its limit until the new month starts or you upgrade your plan.' },
         { q: 'Do the prices include Meta’s WhatsApp fees?', a: 'Meta’s fees for WhatsApp conversations are separate from the ORQO subscription, and are charged according to Meta’s pricing per country and message type.' },
         { q: 'Can I cancel at any time?', a: 'Yes. On cancellation or subscription end, your data stays as it is.' },
       ],
@@ -104,7 +104,7 @@ export const pricingFaq: Record<Lang, FaqGroup[]> = {
       id: 'limits',
       label: 'الحدود والاستهلاك',
       items: [
-        { q: 'ماذا يحدث عندما أصل إلى حد الاستخدام؟', a: 'يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو تتواصل معنا لتعديل الحدود.' },
+        { q: 'ماذا يحدث عندما أصل إلى حد الاستخدام؟', a: 'يظهر لك تنبيه في لوحة التحكم، ولا يمكنك إنشاء المزيد من العنصر الذي وصل لحده حتى يبدأ الشهر الجديد أو ترقّي خطتك.' },
         { q: 'هل الحدود لكل مساحة عمل؟', a: 'الحدود على مستوى المؤسسة. استهلاك كل مساحات العمل التابعة لها يُجمع معًا.' },
         { q: 'هل تشمل الأسعار رسوم Meta على رسائل واتساب؟', a: 'رسوم Meta على محادثات واتساب منفصلة عن اشتراك ORQO، وتُحتسب حسب تسعير Meta لكل دولة ونوع رسالة.', review: 'أكّد طريقة احتساب رسوم Meta ومن يدفعها (P3)' },
       ],
@@ -130,7 +130,7 @@ export const pricingFaq: Record<Lang, FaqGroup[]> = {
       id: 'limits',
       label: 'Limits & usage',
       items: [
-        { q: 'What happens when I reach a usage limit?', a: 'An alert appears in your dashboard, and you can’t create more of the item that hit its limit until the new month starts or you contact us to adjust the limits.' },
+        { q: 'What happens when I reach a usage limit?', a: 'An alert appears in your dashboard, and you can’t create more of the item that hit its limit until the new month starts or you upgrade your plan.' },
         { q: 'Are the limits per workspace?', a: 'Limits are per organization. Usage across all of its workspaces is summed together.' },
         { q: 'Do the prices include Meta’s WhatsApp fees?', a: 'Meta’s fees for WhatsApp conversations are separate from the ORQO subscription, and are charged according to Meta’s pricing per country and message type.', review: 'Confirm how Meta fees are calculated and who pays them (P3)' },
       ],
