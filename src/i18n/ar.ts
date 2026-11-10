@@ -31,7 +31,6 @@ export const ar = {
       title: 'المنصة',
       links: [
         { label: 'الوكيل الذكي', href: '/#journey' },
-        { label: 'جهات الاتصال', href: '/#contacts' },
       ],
     },
     company: {

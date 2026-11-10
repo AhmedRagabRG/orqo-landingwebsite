@@ -31,7 +31,6 @@ export const en: typeof ar = {
       title: 'Platform',
       links: [
         { label: 'AI agent', href: '/#journey' },
-        { label: 'Contacts', href: '/#contacts' },
       ],
     },
     company: {
