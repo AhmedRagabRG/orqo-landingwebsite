@@ -23,7 +23,7 @@ export const site = {
     facebook: 'https://www.facebook.com/orqo.site/',
     instagram: 'https://www.instagram.com/orqo.ai/',
     linkedin: 'https://www.linkedin.com/company/103601046/',
-    youtube: 'https://www.youtube.com/@orqo.ai',
+    youtube: 'https://www.youtube.com/@orqo-ai',
   },
 
   // Where the contact form POSTs {text}. Default: nginx proxies it to Telegram (nginx.conf).

@@ -1,13 +1,6 @@
 ---
 import { site } from '../config/site';
 import { getLang, getT, href, switchPath } from '../i18n';
-import FooterCta from './FooterCta.astro';
-
-interface Props {
-  /** Show the closing chat CTA above the links (off on pages that are already a contact point). */
-  cta?: boolean;
-}
-const { cta = true } = Astro.props;
 const lang = getLang(Astro.currentLocale);
 const t = getT(Astro.currentLocale);
 const year = new Date().getFullYear();
@@ -16,8 +9,6 @@ const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
 <footer class="fx">
   <div class="fx-panel">
     <div class="wrap">
-      {cta && <FooterCta />}
-
       <div class="fx-cols">
         <div class="fx-brand">
           <a href={href(lang, '/')} aria-label={t.footer.brandAria}><svg class="logo" viewBox="0 0 2172 724" aria-hidden="true"><use href="#logo" /></svg></a>

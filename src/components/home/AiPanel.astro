@@ -1,7 +1,6 @@
 ---
 import { I } from '../../i18n';
 import SectionHead from '../ui/SectionHead.astro';
-import CtaPair from '../ui/CtaPair.astro';
 const { t } = I(Astro);
 const p = t.aiPanel;
 const s = p.stage;
@@ -10,54 +9,6 @@ const tl = p.tiles;
 <section class="panel-dark ai-panel" id="journey" aria-labelledby="ai-title">
   <div class="wrap">
     <SectionHead id="ai-title" tone="dark" chip={p.chip} title={p.title} accent={p.accent} lead={p.lead} />
-
-    <div class="ai-stage">
-        <div class="jstage" aria-live="polite" data-step="1">
-          <div class="js-head">
-            <span class="js-av">{t.mock.monaInitial}<i class="js-ch"><svg aria-hidden="true"><use href="#i-wa"/></svg></i></span>
-            <div class="js-who"><b>{t.mock.mona}</b><small>{s.windowNote} <span dir="ltr">23h 56m</span></small></div>
-            <div class="js-chips">
-              <span class="js-chip js-status"><i></i>{s.open}</span>
-              <span class="js-chip js-assignee" data-who="ai"><span class="mini-av av-ai"><svg aria-hidden="true"><use href="#i-bot"/></svg></span><span class="who-ai">{t.mock.laylaAi}</span><span class="who-human" lang="en">Ahmed Ragab</span></span>
-              <span class="js-chip js-stage" data-stage="new"><span class="st-new">{s.newStage}</span><span class="st-q" lang="en">Qualified</span><span class="st-b" lang="en">Booked ✅</span></span>
-            </div>
-          </div>
-          <div class="js-body">
-            <div class="js-thread" id="js-thread"></div>
-            <aside class="js-profile" aria-label={s.profileAria}>
-              <p class="jp-title">{s.profile}</p>
-              <dl>
-                <div data-f="name"><dt>{s.fields.name}</dt><dd><span class="jp-empty">—</span><span class="jp-val">{t.mock.mona}</span></dd></div>
-                <div data-f="phone"><dt>{s.fields.phone}</dt><dd><span class="jp-empty">—</span><span class="jp-val" dir="ltr">+20 000 000 0000</span></dd></div>
-                <div data-f="tag"><dt>{s.fields.tags}</dt><dd><span class="jp-empty">—</span><span class="jp-val chip-tag">{s.tagVal}</span></dd></div>
-                <div data-f="note"><dt>{s.fields.note}</dt><dd><span class="jp-empty">—</span><span class="jp-val">{s.noteVal}</span></dd></div>
-              </dl>
-            </aside>
-          </div>
-        </div>
-        <div class="jnav" aria-label={p.nav.aria}>
-          <button type="button" class="jnav-btn jprev" aria-label={p.nav.prev}><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#i-arrow"/></svg></button>
-          <div class="jdots" role="tablist">
-            {[1, 2, 3, 4, 5].map((n) => (
-              <button type="button" role="tab" data-go={n} aria-selected={n === 1 ? 'true' : 'false'} aria-label={p.nav.step(n)}>{n}</button>
-            ))}
-          </div>
-          <button type="button" class="jnav-btn jnext" aria-label={p.nav.next}><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
-        </div>
-        <div class="ai-steps">
-        <ol class="jsteps">
-        {p.steps.map((step, i) => (
-          <li class:list={['jstep', { 'is-active': i === 0 }]} data-step={i + 1}>
-            <span class="jnum">{i + 1}</span>
-            <h3>{step.h}</h3>
-            <p>{step.p}</p>
-          </li>
-        ))}
-      </ol>
-        </div>
-      </div>
-
-    <p class="ai-caption">{p.caption}</p>
 
     <div class="aitiles">
       <article class="aitile">
@@ -109,7 +60,5 @@ const tl = p.tiles;
         <p>{tl.knowledge.p}</p>
       </article>
     </div>
-
-    <CtaPair tone="dark" note={p.ctaNote} />
   </div>
 </section>

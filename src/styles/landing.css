@@ -690,7 +690,7 @@ body:not(.review-on) .review-tag { display: none; }
 .foot-base a { color: inherit; }
 
 /* pricing: shared */
-.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; gap: 18px; align-items: stretch; }
+.plans { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 520px; margin-inline: auto; gap: 18px; align-items: stretch; }
 .plan { position: relative; display: flex; flex-direction: column; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 26px; }
 .plan-rec { border: 1.5px solid var(--ink); box-shadow: var(--shadow-2); }
 .plan-flag { position: absolute; top: -13px; inset-inline-start: 24px; background: var(--ink); color: var(--paper); font-size: var(--t-xs); padding: 2px 12px; border-radius: 999px; }

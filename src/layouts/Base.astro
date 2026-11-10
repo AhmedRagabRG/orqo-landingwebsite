@@ -31,7 +31,7 @@ const altPath = new URL(switchPath(Astro.url.pathname, otherLang), site.url);
 const ogImage = new URL('/og.png', site.url);
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 /** Strings needed by scripts/landing.js at runtime. */
-const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.form, journey: t.js.journey };
+const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.form };
 ---
 <!doctype html>
 <html lang={lang} dir={dir}>
@@ -83,7 +83,7 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
     <main id="main">
       <slot />
     </main>
-    <Footer cta={page !== 'contact' && page !== '404'} />
+    <Footer />
     {site.showReview && <ReviewToggle />}
     <script>
       import '../scripts/landing.js';

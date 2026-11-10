@@ -78,19 +78,6 @@
 @keyframes bob { 50% { transform: translateY(5px); } }
 
 /* ---------- AI panel ---------- */
-.ai-stage { max-width: 900px; margin-inline: auto; }
-.ai-stage .jstage { box-shadow: 0 40px 120px -40px rgba(0, 0, 0, .8), 0 0 0 1px rgba(96, 207, 195, .25); }
-.ai-stage .jnav-btn, .ai-stage .jdots button { background: rgba(254, 253, 253, .06); border-color: var(--night-line); color: #FEFDFD; }
-.ai-stage .jnav-btn svg { color: #FEFDFD; }
-.ai-stage .jdots button[aria-selected="true"] { background: var(--mint); color: #043C41; border-color: var(--mint); }
-.ai-steps .jsteps { display: block; }
-.ai-steps .jstep { display: none; min-height: 0; padding: 18px 0 0; opacity: 1; text-align: center; justify-items: center; }
-.ai-steps .jstep.is-active { display: grid; gap: 6px; }
-.ai-steps .jstep .jnum { display: none; }
-.ai-steps .jstep h3 { color: #FEFDFD; }
-.ai-steps .jstep p { color: var(--on-deep-2); margin-inline: auto; }
-.ai-stage .review-tag { display: none; }
-.ai-caption { max-width: 44em; margin: clamp(40px, 5vw, 64px) auto clamp(28px, 3vw, 40px); text-align: center; color: #FEFDFD; font-size: var(--t-md); line-height: 1.85; }
 .aitiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
 .aitile { display: grid; gap: 8px; align-content: start; }
 .aitile h3 { color: #FEFDFD; font-size: var(--t-md); font-weight: 500; margin-top: 8px; }

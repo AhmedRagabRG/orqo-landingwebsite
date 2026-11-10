@@ -6,7 +6,6 @@ import Base from '../../layouts/Base.astro';
 import { I } from '../../i18n';
 import { plans } from '../../data/plans';
 import PlanCard from '../pricing/PlanCard.astro';
-import CompareTable from '../pricing/CompareTable.astro';
 import PageHero from '../ui/PageHero.astro';
 import SectionHead from '../ui/SectionHead.astro';
 import Faq from '../ui/Faq.astro';
@@ -26,20 +25,6 @@ const P = t.pricingPage;
     <div class="plans-foot">
       <p>{P.plansFoot} <a href={lp('/contact')}>{P.salesLink}</a>.</p>
     </div>
-  </div>
-</section>
-
-<!-- ============ COMPARISON ============ -->
-<section class="sec compare" id="compare" aria-labelledby="cmp-title">
-  <div class="wrap">
-    <SectionHead id="cmp-title" chip={P.compare.chip} icon="i-list" title={P.compare.title} accent={P.compare.accent} />
-
-    <div class="cmp-switch" role="tablist" aria-label={P.compare.switchAria}>
-      <button type="button" role="tab" data-plan="1" aria-selected="true" lang="en">Pro</button>
-      <button type="button" role="tab" data-plan="2" aria-selected="false" lang="en">Growth</button>
-    </div>
-
-    <CompareTable />
   </div>
 </section>
 
