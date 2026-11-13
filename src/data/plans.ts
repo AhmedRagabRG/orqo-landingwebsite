@@ -1,10 +1,13 @@
 import type { Lang } from '../i18n';
 
+export type Currency = 'USD' | 'EGP' | 'SAR';
+export type PlanPrices = Record<Currency, number>;
+
 export interface Plan {
   id: string;
   name: string;
   tagline: string;
-  monthly: number; // USD per month
+  monthly: PlanPrices;
   recommended?: string;
   cta: { label: string; style: 'primary' | 'ghost' };
   includesLabel: string;
@@ -12,13 +15,18 @@ export interface Plan {
   features: string[];
 }
 
+const monthlyPrices: Record<'pro' | 'growth', PlanPrices> = {
+  pro: { USD: 25, EGP: 1300, SAR: 99 },
+  growth: { USD: 55, EGP: 2800, SAR: 199 },
+};
+
 export const plans: Record<Lang, Plan[]> = {
   ar: [
     {
       id: 'pro',
       name: 'Pro',
       tagline: 'للفرق التي تنمو',
-      monthly: 25,
+      monthly: monthlyPrices.pro,
       recommended: 'الأكثر شيوعًا',
       cta: { label: 'ابدأ التجربة المجانية', style: 'primary' },
       includesLabel: 'تشمل الخطة:',
@@ -50,7 +58,7 @@ export const plans: Record<Lang, Plan[]> = {
       id: 'growth',
       name: 'Growth',
       tagline: 'للشركات وفرق المبيعات الكبيرة',
-      monthly: 99,
+      monthly: monthlyPrices.growth,
       cta: { label: 'ابدأ التجربة المجانية', style: 'ghost' },
       includesLabel: 'تشمل الخطة:',
       highlights: [
@@ -83,7 +91,7 @@ export const plans: Record<Lang, Plan[]> = {
       id: 'pro',
       name: 'Pro',
       tagline: 'For growing teams',
-      monthly: 25,
+      monthly: monthlyPrices.pro,
       recommended: 'Most popular',
       cta: { label: 'Start free trial', style: 'primary' },
       includesLabel: 'Plan includes:',
@@ -115,7 +123,7 @@ export const plans: Record<Lang, Plan[]> = {
       id: 'growth',
       name: 'Growth',
       tagline: 'For businesses and large sales teams',
-      monthly: 99,
+      monthly: monthlyPrices.growth,
       cta: { label: 'Start free trial', style: 'ghost' },
       includesLabel: 'Plan includes:',
       highlights: [

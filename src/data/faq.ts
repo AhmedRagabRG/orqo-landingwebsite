@@ -113,7 +113,7 @@ export const pricingFaq: Record<Lang, FaqGroup[]> = {
       id: 'billing',
       label: 'الدفع والإلغاء',
       items: [
-        { q: 'بأي عملة أدفع؟', a: 'الأسعار بالدولار الأمريكي، ويظهر لزوار مصر سعر تقريبي بالجنيه المصري. يتم الدفع بالبطاقة عبر بوابة دفع آمنة.' },
+        { q: 'بأي عملة أدفع؟', a: 'نعرض السعر بالجنيه المصري لزوار مصر، وبالريال السعودي لزوار السعودية، وبالدولار الأمريكي لبقية الدول. يتم الدفع بالبطاقة عبر بوابة دفع آمنة.' },
         { q: 'هل أستطيع الإلغاء في أي وقت؟', a: 'نعم. عند الإلغاء أو انتهاء الاشتراك تبقى بياناتك كما هي.' },
       ],
     },
@@ -139,7 +139,7 @@ export const pricingFaq: Record<Lang, FaqGroup[]> = {
       id: 'billing',
       label: 'Billing & cancellation',
       items: [
-        { q: 'What currency do I pay in?', a: 'Prices are in US dollars, and visitors from Egypt see an approximate price in Egyptian pounds. Payment is by card through a secure payment gateway.' },
+        { q: 'What currency do I pay in?', a: 'Visitors from Egypt see Egyptian pounds, visitors from Saudi Arabia see Saudi riyals, and visitors from every other country see US dollars. Payment is by card through a secure payment gateway.' },
         { q: 'Can I cancel at any time?', a: 'Yes. On cancellation or subscription end, your data stays as it is.' },
       ],
     },

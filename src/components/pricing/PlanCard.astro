@@ -9,8 +9,8 @@ interface Props {
   full?: boolean;
 }
 const { plan, full = false } = Astro.props;
-const { lang, t } = I(Astro);
-const money = (n: number) => (lang === 'en' ? `$${n}` : `${n}$`);
+const { t } = I(Astro);
+const money = (n: number, currency = 'USD') => `${currency} ${n.toLocaleString('en-US')}`;
 const Heading = full ? 'h2' : 'h3';
 const P = t.pricingPage;
 ---
@@ -18,7 +18,7 @@ const P = t.pricingPage;
   {plan.recommended && <span class="plan-flag">{plan.recommended}</span>}
   <header class="plan-h"><Heading lang="en">{plan.name}</Heading><p>{plan.tagline}</p></header>
   <p class="price">
-    <b>{money(plan.monthly)}</b>
+    <b data-prices={JSON.stringify(plan.monthly)} aria-live="polite">{money(plan.monthly.USD)}</b>
     <span>{P.perMonth}</span>
   </p>
   {full && <p class="price-sub">{P.trial}</p>}

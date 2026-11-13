@@ -7,7 +7,7 @@ const { lang, t } = I(Astro);
 const rows = plans[lang];
 const groups = compare[lang];
 const P = t.pricingPage;
-const money = (n: number) => (lang === 'en' ? `$${n}` : `${n}$`);
+const money = (n: number, currency = 'USD') => `${currency} ${n.toLocaleString('en-US')}`;
 const cellClass = (v: string) => (v === '✓' ? 'y' : v === '—' ? 'n' : v === P.unlimited ? 'inf' : undefined);
 const isUnit = (v: string) => /\d\s?(GB|MB)$/.test(v);
 ---
@@ -19,7 +19,7 @@ const isUnit = (v: string) => /\d\s?(GB|MB)$/.test(v);
         {rows.map((p) => (
           <th scope="col" class:list={{ rec: p.recommended }} lang="en">
             {p.name}
-            <small>{money(p.monthly)} {P.perMoShort}</small>
+            <small><span data-prices={JSON.stringify(p.monthly)} aria-live="polite">{money(p.monthly.USD)}</span> {P.perMoShort}</small>
           </th>
         ))}
       </tr>

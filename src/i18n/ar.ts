@@ -381,7 +381,7 @@ export const ar = {
 
   pricingPage: {
     title: 'أسعار ORQO — تجربة مجانية 7 أيام',
-    description: 'أسعار ORQO: خطة Pro بسعر 25$ شهريًا أو Growth بسعر 99$ شهريًا، مع تجربة مجانية 7 أيام.',
+    description: 'أسعار ORQO: خطة Pro تبدأ من 25 USD شهريًا أو Growth من 55 USD شهريًا، مع تجربة مجانية 7 أيام.',
     hero: {
       chip: 'الأسعار',
       title: 'جرّبه مجانًا 7 أيام.',

@@ -381,7 +381,7 @@ export const en: typeof ar = {
 
   pricingPage: {
     title: 'ORQO pricing — 7-day free trial',
-    description: 'ORQO pricing: Pro for $25/month or Growth for $99/month, with a 7-day free trial.',
+    description: 'ORQO pricing: Pro from USD 25/month or Growth from USD 55/month, with a 7-day free trial.',
     hero: {
       chip: 'Pricing',
       title: 'Try it free for 7 days.',

@@ -25,6 +25,26 @@
     get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
   };
+
+  /* ---------- localized pricing (Vercel country detection) ---------- */
+  var priceNodes = $$('[data-prices]');
+  if (priceNodes.length) {
+    fetch('/api/currency', { headers: { Accept: 'application/json' } })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function (result) {
+        var currency = /^(USD|EGP|SAR)$/.test(result.currency) ? result.currency : 'USD';
+        priceNodes.forEach(function (node) {
+          var prices;
+          try { prices = JSON.parse(node.getAttribute('data-prices')); } catch (e) { return; }
+          var amount = prices[currency];
+          if (typeof amount !== 'number') return;
+          node.textContent = currency + ' ' + amount.toLocaleString('en-US');
+        });
+        doc.dataset.currency = currency;
+      })
+      .catch(function () { /* Keep the server-rendered USD price when geolocation is unavailable. */ });
+  }
+
   function inView(el, cb, opts) {
     if (!('IntersectionObserver' in window)) { cb(true); return; }
     new IntersectionObserver(function (entries) {

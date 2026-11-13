@@ -80,6 +80,13 @@ Copy `.env.example` to `.env`.
 
 ## Deploy
 
+### Vercel
+
+Use `npm run build` with `dist` as the output directory. The `/api/currency`
+function reads Vercel's `x-vercel-ip-country` request header so visitors from
+Egypt see EGP, visitors from Saudi Arabia see SAR, and all other visitors see
+USD. If geolocation is unavailable, the static site keeps its USD prices.
+
 ### Coolify (Dockerfile)
 
 1. New resource → this repository → build pack **Dockerfile**.
