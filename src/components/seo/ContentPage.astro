@@ -1,0 +1,48 @@
+---
+import { render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import PageHero from '../ui/PageHero.astro';
+import CtaPair from '../ui/CtaPair.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { entryPath, entriesFor, labels, type MarketingEntry } from '../../lib/marketing';
+import { absolute, breadcrumbData } from '../../lib/seo';
+import { site } from '../../config/site';
+import { href } from '../../i18n';
+import inbox from '../../assets/inbox-booked.webp';
+import '../../styles/seo.css';
+interface Props { entry: MarketingEntry }
+const { entry } = Astro.props;
+const d = entry.data;
+const ar = d.lang === 'ar';
+const { Content, headings } = await render(entry);
+const all = await entriesFor(d.lang);
+const related = d.related.map(path => all.find(e => entryPath(e) === href(d.lang, path))).filter((e): e is MarketingEntry => !!e);
+const crumbs = [{ label: ar ? 'الرئيسية' : 'Home', path: href(d.lang, '/') }, { label: labels[d.lang][d.kind], path: href(d.lang, `/${d.kind}`) }, { label: d.heading, path: entryPath(entry) }];
+const article = d.kind === 'blog' ? { published: d.published!, modified: d.updated!, author: d.author } : undefined;
+const nodes: Record<string, unknown>[] = [breadcrumbData(crumbs)];
+if (article) nodes.push({ '@type': 'BlogPosting', headline: d.heading, description: d.description,
+  mainEntityOfPage: absolute(entryPath(entry)), url: absolute(entryPath(entry)),
+  datePublished: article.published, dateModified: article.modified, inLanguage: d.lang,
+  author: { '@type': 'Organization', name: d.author, url: site.url }, publisher: { '@id': `${site.url}/#organization` }, image: `${site.url}/og.png` });
+const date = (value: string) => new Intl.DateTimeFormat(ar ? 'ar-EG' : 'en-GB', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(value));
+---
+<Base title={d.title} description={d.description} page={d.kind} jsonLd={nodes} article={article}>
+  <div class="wrap"><Breadcrumbs items={crumbs} /></div>
+  <PageHero chip={labels[d.lang][d.kind]} title={d.heading} lead={d.intro}>
+    <div class="phero-cta"><CtaPair /></div>
+  </PageHero>
+  <div class="wrap seo-layout">
+    <aside class="seo-toc"><nav aria-label={ar ? 'محتويات الصفحة' : 'On this page'}><p>{ar ? 'في هذه الصفحة' : 'On this page'}</p><ol>{headings.filter(h => h.depth === 2).map(h => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}<li><a href="#questions">{ar ? 'أسئلة شائعة' : 'Questions'}</a></li></ol></nav></aside>
+    <article class="seo-article">
+      {article && <p class="seo-byline">{ar ? 'بقلم' : 'By'} {d.author} · {ar ? 'نُشر في' : 'Published'} <time datetime={article.published}>{date(article.published)}</time> · {ar ? 'آخر تحديث' : 'Updated'} <time datetime={article.modified}>{date(article.modified)}</time></p>}
+      {d.reviewed && <p class="seo-byline">{ar ? 'آخر مراجعة للمصادر:' : 'Sources last reviewed:'} <time datetime={d.reviewed}>{date(d.reviewed)}</time></p>}
+      {d.screenshot && <figure><Image src={inbox} widths={[640, 1000, 1656]} sizes="(max-width: 800px) 92vw, 800px" alt={d.screenshotAlt!} loading="lazy" decoding="async" /><figcaption>{d.screenshotAlt}</figcaption></figure>}
+      <div class="seo-prose"><Content /></div>
+      <section class="seo-faq" id="questions"><h2>{ar ? 'أسئلة شائعة' : 'Frequently asked questions'}</h2>{d.faq.map(item => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}</section>
+      {d.sources.length > 0 && <section class="seo-sources"><h2>{ar ? 'المصادر' : 'Sources'}</h2><ul>{d.sources.map(s => <li><a href={s.url} rel="external">{s.label}</a></li>)}</ul>{['compare', 'alternatives'].includes(d.kind) && <p>{ar ? 'تُذكر العلامات التجارية للتعريف بالمنتجات فقط. لا توجد علاقة شراكة أو اعتماد ضمني. قد تختلف المزايا والتكاليف حسب الخطة والمنطقة وتاريخ الاشتراك.' : 'Product names identify their respective brands. No affiliation or endorsement is implied. Features and costs can vary by plan, region, and account date.'}</p>}</section>}
+      <section class="seo-related"><h2>{ar ? 'اقرأ أيضًا' : 'Related reading'}</h2><ul>{related.map(e => <li><a href={entryPath(e)}>{e.data.heading}</a></li>)}</ul><p><a href={href(d.lang, '/pricing')}>{ar ? 'راجع خطط ORQO وحدود الاستخدام' : 'Review ORQO plans and usage allowances'}</a></p></section>
+      <div class="seo-end-cta"><h2>{ar ? 'جرّب مسار عمل يناسب فريقك' : 'Try a workflow with your team'}</h2><CtaPair /></div>
+    </article>
+  </div>
+</Base>

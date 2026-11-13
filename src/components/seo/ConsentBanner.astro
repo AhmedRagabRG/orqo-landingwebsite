@@ -1,0 +1,26 @@
+---
+import { I } from '../../i18n';
+const { lang, href } = I(Astro);
+const ar = lang === 'ar';
+---
+<div class="consent-bar" id="analytics-choice" hidden role="region" aria-label={ar ? 'إعدادات الخصوصية' : 'Privacy preferences'}>
+  <p>{ar ? 'بموافقتك، نستخدم أدوات التحليل لفهم استخدام الموقع وتحسينه.' : 'With your permission, we use analytics to understand and improve this website.'} <a href={href('/privacy')}>{ar ? 'سياسة الخصوصية' : 'Privacy policy'}</a></p>
+  <div><button class="btn btn-primary btn-sm" type="button" data-consent="granted">{ar ? 'السماح بالتحليل' : 'Allow analytics'}</button><button class="btn btn-ghost btn-sm" type="button" data-consent="denied">{ar ? 'الرفض' : 'Decline'}</button></div>
+</div>
+<script>
+  const consentWindow = window as typeof window & { ORQOConsent: { decided: () => boolean; set: (value: string) => void } };
+  const bar = document.getElementById('analytics-choice')!;
+  bar.hidden = consentWindow.ORQOConsent.decided();
+  document.querySelectorAll<HTMLButtonElement>('[data-consent]').forEach(button => button.addEventListener('click', () => {
+    consentWindow.ORQOConsent.set(button.dataset.consent!);
+    bar.hidden = true;
+  }));
+  document.querySelector('[data-privacy-settings]')?.addEventListener('click', () => { bar.hidden = false; bar.querySelector('button')?.focus(); });
+</script>
+<style>
+  .consent-bar { position: fixed; z-index: 1000; inset-inline: 16px; bottom: 16px; max-width: 650px; margin-inline: auto; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: var(--shadow-1); }
+  .consent-bar[hidden] { display: none; }
+  .consent-bar p { line-height: 1.7; font-size: var(--t-sm); margin-bottom: 12px; }
+  .consent-bar a { text-decoration: underline; }
+  .consent-bar > div { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

@@ -64,7 +64,7 @@ ORQO must not be used for:
 
 ## Your data and ownership
 
-Your data and your customers' data remain yours. You grant ORQO a limited permission to process it as needed to provide the service, according to the [privacy policy](privacy.html). You can export or delete your data at any time.
+Your data and your customers' data remain yours. You grant ORQO a limited permission to process it as needed to provide the service, according to the [privacy policy](/privacy). You can export or delete your data at any time.
 
 ## Integrations and API
 

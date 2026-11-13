@@ -1,4 +1,5 @@
 ---
+import { labels, kinds } from '../lib/marketing';
 import { site } from '../config/site';
 import { getLang, getT, href, switchPath } from '../i18n';
 const lang = getLang(Astro.currentLocale);
@@ -16,7 +17,7 @@ const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
           <p>{t.footer.founded}</p>
         </div>
         <nav class="fx-links" aria-label={t.footer.navAria}>
-          <div><p>{t.footer.platform.title}</p>{t.footer.platform.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>
+          <div><p>{t.footer.platform.title}</p>{t.footer.platform.links.map((l) => <a href={href(lang, l.href === '/#journey' ? '/features/ai-chatbot' : l.href)}>{l.label}</a>)}{kinds.map(kind => <a href={href(lang, `/${kind}`)}>{labels[lang][kind]}</a>)}<a href={site.docsUrl}>{lang === 'ar' ? 'توثيق المطورين' : 'Developer documentation'}</a></div>
           <div><p>{t.footer.company.title}</p>{t.footer.company.links.map((l) => <a href={href(lang, l.href)}>{l.label}</a>)}</div>
           <div><p>{t.footer.contactTitle}</p>
             <a href={`mailto:${site.email}`}><bdi dir="ltr">{site.email}</bdi></a>
@@ -30,6 +31,7 @@ const altHref = switchPath(Astro.url.pathname, lang === 'ar' ? 'en' : 'ar');
         </nav>
       </div>
 
+      <button type="button" class="privacy-settings" data-privacy-settings>{lang === 'ar' ? 'إعدادات الخصوصية' : 'Privacy preferences'}</button>
       <div class="fx-base">
         <p>© {year} <span lang="en">Orqo Technologies LLC</span>. {t.footer.rights}</p>
         <a class="lang" href={altHref} hreflang={lang === 'ar' ? 'en' : 'ar'} lang={lang === 'ar' ? 'en' : 'ar'} aria-label={t.footer.switchAria}>{t.footer.switchTo}</a>

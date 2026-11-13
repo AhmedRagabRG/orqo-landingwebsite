@@ -1,0 +1,14 @@
+---
+interface Props { items: { label: string; path: string }[] }
+const { items } = Astro.props;
+---
+<nav class="seo-breadcrumbs" aria-label={Astro.currentLocale === 'ar' ? 'مسار الصفحة' : 'Breadcrumb'}>
+  <ol>{items.map((item, i) => <li>{i < items.length - 1 ? <a href={item.path}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</li>)}</ol>
+</nav>
+
+<style>
+  .seo-breadcrumbs { padding-block: 24px 0; color: var(--ink-2); font-size: var(--t-sm); }
+  .seo-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+  .seo-breadcrumbs li + li::before { content: '/'; margin-inline-end: 8px; color: var(--ink-3); }
+  .seo-breadcrumbs a { text-decoration: underline; text-underline-offset: 4px; color: var(--mint-ink); }
+</style>

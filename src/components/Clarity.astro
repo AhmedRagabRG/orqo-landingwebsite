@@ -7,13 +7,19 @@ const { clarityId = site.clarityId } = Astro.props;
 ---
 {clarityId && (
   <script is:inline define:vars={{ clarityId }}>
+    var clarityStarted = false;
     var loadClarity = function () {
+      if (clarityStarted || !window.ORQOConsent.granted() || document.readyState !== 'complete') return;
+      clarityStarted = true;
       (function(c,l,a,r,i,t,y){
           c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
           t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", clarityId);
+      // https://learn.microsoft.com/en-us/clarity/setup-and-installation/clarity-consent-api-v2
+      window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
     };
+    window.addEventListener('orqo:consent', loadClarity);
     if (document.readyState === 'complete') { loadClarity(); } else { window.addEventListener('load', loadClarity); }
   </script>
 )}

@@ -133,6 +133,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error(String(r.status));
           status.textContent = msgs.ok;
+          window.dispatchEvent(new CustomEvent('orqo:contact-success'));
           form.reset();
         })
         .catch(function () {

@@ -1,0 +1,38 @@
+<script is:inline>
+  // Basic consent mode: no analytics SDK requests until an affirmative choice.
+  // https://developers.google.com/tag-platform/security/guides/consent
+  (function () {
+    var key = 'orqo-analytics-consent-v1';
+    var value = null;
+    try { value = localStorage.getItem(key); } catch (_) {}
+    if (value !== 'granted' && value !== 'denied') value = null;
+    window.ORQOConsent = {
+      granted: function () { return value === 'granted'; },
+      decided: function () { return value !== null; },
+      set: function (next) {
+        if (next !== 'granted' && next !== 'denied') return;
+        var wasGranted = value === 'granted';
+        value = next;
+        try { localStorage.setItem(key, value); } catch (_) {}
+        window.dispatchEvent(new CustomEvent('orqo:consent', { detail: value }));
+        // Unload already-running SDKs after withdrawal.
+        if (wasGranted && value === 'denied') {
+          if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied' });
+          if (window.clarity) window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
+          if (window.posthog && window.posthog.opt_out_capturing) window.posthog.opt_out_capturing();
+          try {
+            Object.keys(localStorage).filter(function (name) { return /^ph_/.test(name); }).forEach(function (name) { localStorage.removeItem(name); });
+          } catch (_) {}
+          document.cookie.split(';').forEach(function (part) {
+            var name = part.split('=')[0].trim();
+            if (!/^(_ga|_gid|_clck|_clsk|ph_)/.test(name)) return;
+            ['', location.hostname, '.' + location.hostname.replace(/^www\./, '')].forEach(function (domain) {
+              document.cookie = name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '');
+            });
+          });
+          location.reload();
+        }
+      }
+    };
+  })();
+</script>

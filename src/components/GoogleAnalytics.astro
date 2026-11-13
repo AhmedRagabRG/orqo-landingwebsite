@@ -8,18 +8,24 @@ const { gaId = site.gaId } = Astro.props;
 ---
 {gaId && (
   <script is:inline define:vars={{ gaId }}>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', gaId);
-
+    var gaStarted = false;
     var loadGtag = function () {
+      if (gaStarted || !window.ORQOConsent.granted() || document.readyState !== 'complete') return;
+      gaStarted = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+      window.gtag('js', new Date());
+      var referrer = '';
+      try { var ref = new URL(document.referrer); referrer = ref.origin + ref.pathname; } catch (_) {}
+      window.gtag('config', gaId, { page_location: location.origin + location.pathname, page_referrer: referrer, allow_google_signals: false, allow_ad_personalization_signals: false });
       var s = document.createElement('script');
       s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
       document.head.appendChild(s);
     };
-    if (document.readyState === 'complete') { loadGtag(); } else { window.addEventListener('load', loadGtag); }
+    window.addEventListener('orqo:consent', loadGtag);
+    window.addEventListener('load', loadGtag, { once: true });
+    loadGtag();
   </script>
 )}

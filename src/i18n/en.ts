@@ -6,7 +6,7 @@ import type { ar } from './ar';
 export const en: typeof ar = {
   meta: {
     ogLocale: 'en_US',
-    ogLocaleAlt: 'ar_AR',
+    ogLocaleAlt: 'ar_EG',
     skip: 'Skip to content',
   },
 
@@ -80,8 +80,8 @@ export const en: typeof ar = {
   },
 
   homeMeta: {
-    title: 'ORQO — Customer conversations platform',
-    description: 'ORQO brings WhatsApp, Instagram and Messenger messages into one workspace, with a profile for every customer, WhatsApp campaigns, automation, and an AI agent that replies and hands over to your team.',
+    title: 'ORQO — Shared inbox for WhatsApp, Instagram & Messenger',
+    description: 'Manage WhatsApp, Instagram and Messenger in one shared inbox with ORQO. Keep customer context, automate routine work and hand AI conversations to your team.',
     jsonLd: 'A customer conversations platform that brings WhatsApp, Instagram and Messenger together with AI agents and your team in one workspace.',
   },
 

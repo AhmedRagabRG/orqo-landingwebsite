@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../ui/PageHero.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { entriesFor, entryPath, labels, introductions, type Kind } from '../../lib/marketing';
+import { breadcrumbData } from '../../lib/seo';
+import { I } from '../../i18n';
+import '../../styles/seo.css';
+interface Props { kind: Kind }
+const { kind } = Astro.props;
+const { lang, href } = I(Astro);
+const entries = (await entriesFor(lang)).filter(e => e.data.kind === kind);
+const heading = labels[lang][kind];
+const crumbs = [{ label: lang === 'ar' ? 'الرئيسية' : 'Home', path: href('/') }, { label: heading, path: href(`/${kind}`) }];
+---
+<Base title={`${heading} — ORQO`} description={introductions[lang][kind]} page={kind} jsonLd={breadcrumbData(crumbs)}>
+  <div class="wrap"><Breadcrumbs items={crumbs} /></div>
+  <PageHero chip="ORQO" title={heading} lead={introductions[lang][kind]} />
+  <section class="wrap seo-index" aria-label={heading}>
+    {entries.map(e => <article><h2><a href={entryPath(e)}>{e.data.heading}</a></h2><p>{e.data.description}</p>{e.data.published && <time datetime={e.data.published}>{new Intl.DateTimeFormat(lang, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(e.data.published))}</time>}</article>)}
+  </section>
+</Base>

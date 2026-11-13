@@ -3,7 +3,7 @@ import '../styles/landing.css';
 import '../styles/site.css';
 import '../styles/sections.css';
 import { site } from '../config/site';
-import { getLang, getT, href, switchPath } from '../i18n';
+import { getLang, getT, href } from '../i18n';
 import Icons from '../components/Icons.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -12,23 +12,29 @@ import PostHog from '../components/PostHog.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import Clarity from '../components/Clarity.astro';
 import OrqoWidget from '../components/OrqoWidget.astro';
+import Consent from '../components/seo/Consent.astro';
+import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
+import ConsentBanner from '../components/seo/ConsentBanner.astro';
+import { absolute, alternates, organization, website, serializeJsonLd, breadcrumbData } from '../lib/seo';
 
 interface Props {
   title: string;
   description: string;
   /** Used for page-specific styling (the home header sits on the dark hero). */
   page?: string;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  article?: { published: string; modified: string; author: string };
   noindex?: boolean;
 }
-const { title, description, page, jsonLd, noindex = false } = Astro.props;
+const { title, description, page, jsonLd, article, noindex = false } = Astro.props;
 const lang = getLang(Astro.currentLocale);
 const t = getT(Astro.currentLocale);
-const otherLang: 'ar' | 'en' = lang === 'ar' ? 'en' : 'ar';
-const cleanPath = Astro.url.pathname.replace(/(\.html|\/index\.html)$/, '').replace(/(.)\/$/, '$1') || '/';
-const canonical = new URL(cleanPath, site.url);
-const altPath = new URL(switchPath(Astro.url.pathname, otherLang), site.url);
+const canonical = absolute(Astro.url.pathname);
+const languageLinks = alternates(Astro.url.pathname);
 const ogImage = new URL('/og.png', site.url);
+const coreCrumbs = page && ['pricing', 'contact', 'privacy', 'terms'].includes(page) ? [{ label: lang === 'ar' ? 'الرئيسية' : 'Home', path: href(lang, '/') }, { label: title.replace(/\s*[—|]\s*ORQO$/, ''), path: Astro.url.pathname }] : [];
+const pageNodes = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const graph = { '@context': 'https://schema.org', '@graph': [organization, website, ...(coreCrumbs.length ? [breadcrumbData(coreCrumbs)] : []), ...pageNodes.map(({ '@context': _, ...node }) => node)] };
 const dir = lang === 'ar' ? 'rtl' : 'ltr';
 /** Strings needed by scripts/landing.js at runtime. */
 const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.form };
@@ -41,15 +47,17 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang={lang} href={canonical} />
-    <link rel="alternate" hreflang={otherLang} href={altPath} />
-    {lang === 'en' && <link rel="alternate" hreflang="x-default" href={canonical} />}
-    {noindex && <meta name="robots" content="noindex" />}
+    {!noindex && <>
+      {languageLinks.map((link) => <link rel="alternate" hreflang={link.lang} href={link.url} />)}
+      <link rel="alternate" hreflang="x-default" href={languageLinks[0].url} />
+    </>}
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+    {site.googleSiteVerification && <meta name="google-site-verification" content={site.googleSiteVerification} />}
     <meta name="theme-color" content="#054F56" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
     <meta property="og:locale" content={t.meta.ogLocale} />
     <meta property="og:locale:alternate" content={t.meta.ogLocaleAlt} />
     <meta property="og:site_name" content="ORQO" />
@@ -59,6 +67,16 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={lang === 'ar' ? 'ORQO — منصة محادثات العملاء' : 'ORQO — Customer conversations platform'} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={lang === 'ar' ? 'منصة ORQO' : 'ORQO platform'} />
+    {article && <>
+      <meta property="article:published_time" content={article.published} />
+      <meta property="article:modified_time" content={article.modified} />
+      <meta name="author" content={article.author} />
+    </>}
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="preload" href="/fonts/neo-sans-arabic-medium.woff2" as="font" type="font/woff2" crossorigin />
@@ -66,11 +84,11 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
     <!-- The header AR/EN toggle uses the mono font above the fold; preload so it is
          fetched in parallel with the CSS instead of after it. -->
     <link rel="preload" href="/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/ibm-plex-mono-500.woff2" as="font" type="font/woff2" crossorigin />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    {!noindex && <script type="application/ld+json" set:html={serializeJsonLd(graph)} />}
     <script define:vars={{ jsDict, homePath: href(lang, '/') }} is:inline>
       window.ORQO = { i18n: jsDict, homePath: homePath };
     </script>
+    <Consent />
     <GoogleAnalytics />
     <Clarity />
     <PostHog />
@@ -81,12 +99,15 @@ const jsDict = { menuOpen: t.js.menuOpen, menuClose: t.js.menuClose, form: t.js.
     <a class="skip" href="#main">{t.meta.skip}</a>
     <Header />
     <main id="main">
+      {coreCrumbs.length > 0 && <div class="wrap"><Breadcrumbs items={coreCrumbs} /></div>}
       <slot />
     </main>
     <Footer />
+    <ConsentBanner />
     {site.showReview && <ReviewToggle />}
     <script>
       import '../scripts/landing.js';
+      import '../scripts/conversions';
     </script>
   </body>
 </html>

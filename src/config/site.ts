@@ -13,7 +13,7 @@ export const site = {
   appUrl: 'https://app.orqo.site',
   signupUrl: 'https://app.orqo.site/register',
   loginUrl: 'https://app.orqo.site/login',
-  docsUrl: '/contact', // SAMPLE: replace with the API docs URL
+  docsUrl: 'https://docs.orqo.site',
 
   // Contact details
   whatsappUrl: 'https://wa.me/201557730414',
@@ -40,6 +40,8 @@ export const site = {
   // Microsoft Clarity (session recordings & heatmaps). Defaults to the production project ID;
   // set PUBLIC_CLARITY_ID to override, or to an empty string to disable Clarity entirely.
   clarityId: env.PUBLIC_CLARITY_ID ?? 'ysmjkyk3yw',
+
+  googleSiteVerification: env.PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
 
   // Show the orange review tags and placeholder highlights (design review mode).
   showReview: env.PUBLIC_SHOW_REVIEW === 'true',

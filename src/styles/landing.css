@@ -761,7 +761,7 @@ body:not(.review-on) .review-tag { display: none; }
 .fv-camp { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 14px; align-items: center; }
 .camp-msg { background: #E7F0EC; color: #1E2B2D; border-radius: 12px; padding: 10px; display: grid; gap: 4px; }
 .cm-top { display: flex; align-items: center; gap: 6px; font-weight: 500; flex-wrap: wrap; }
-.cm-top small { font-weight: 400; color: #557B7F; font-size: 11px; }
+.cm-top small { font-weight: 400; color: #416468; font-size: 11px; }
 .camp-msg > p:last-child { background: #fff; border-radius: 4px 12px 12px 12px; padding: 7px 9px; }
 .camp-bars { display: grid; gap: 10px; }
 .camp-bars p { display: grid; grid-template-columns: 3.5em minmax(0, 1fr) auto; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }

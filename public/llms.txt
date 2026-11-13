@@ -1,31 +1,31 @@
 # ORQO
 
-> ORQO (orqo.site) is a WhatsApp-first customer platform for small and medium businesses. It brings WhatsApp, Instagram and Messenger messages into one shared inbox, gives every customer a single profile, and adds WhatsApp campaigns, automation for repetitive work, and an AI agent that replies to customers and hands conversations over to the team when needed.
+> ORQO organizes customer conversations from WhatsApp, Instagram and Facebook Messenger in a shared workspace, with customer profiles, AI replies, team handover, automation and WhatsApp campaigns.
 
-The site is bilingual: the default pages under `/` are in English, and complete Arabic versions (Egyptian market) live under `/ar`. The product itself runs on `app.orqo.site`.
+Canonical marketing host: https://www.orqo.site
+English pages use `/`; Arabic pages use `/ar` and right-to-left layout. `/en` is a legacy English alias. Product capabilities and allowances should be checked against current product pages, pricing and a demonstration of the required workflow.
 
-## Pages
+## Product and buying guides
 
-- [Home (English)](https://www.orqo.site/): Product overview — shared inbox for WhatsApp, Instagram and Messenger, AI agent, campaigns, contacts and automation.
-- [Home (Arabic)](https://www.orqo.site/ar): Same overview in Arabic.
-- [AI agent](https://www.orqo.site/#journey): How the AI agent answers customers, books, and hands over to the team.
-- [WhatsApp campaigns](https://www.orqo.site/#campaigns): Campaigns with Meta-approved templates and a report for every campaign.
-- [Contacts & CRM](https://www.orqo.site/#contacts): Customer profiles, tags and segments that every conversation builds automatically.
-- [Automation](https://www.orqo.site/#automation): No-code automation flows (out-of-hours replies, assignment, follow-ups).
-- [Pricing](https://www.orqo.site/pricing): Every feature is available on every plan; plans differ only in usage size. Includes the integrations list.
-- [Contact](https://www.orqo.site/contact): Talk to the ORQO team — plan questions, demos, channel setup.
-- [Privacy policy](https://www.orqo.site/privacy): How ORQO handles personal data.
-- [Terms & conditions](https://www.orqo.site/terms): Service terms.
+- [Features](https://www.orqo.site/features): Verified messaging and team capabilities.
+- [Solutions](https://www.orqo.site/solutions): Administrative communication workflows for online stores and clinics.
+- [Comparisons](https://www.orqo.site/compare): Source-backed evaluations of respond.io, Wati and Manychat.
+- [Alternatives](https://www.orqo.site/alternatives): Buying criteria and migration considerations.
+- [Guides](https://www.orqo.site/blog): WhatsApp support, shared inbox processes and clinic enquiries.
+- [Pricing](https://www.orqo.site/pricing): Current plans and usage allowances. Confirm channel charges separately.
+- [Arabic overview](https://www.orqo.site/ar): Equivalent Arabic marketing content.
+- [Contact](https://www.orqo.site/contact): Product questions and demonstrations.
+- [Developer documentation](https://docs.orqo.site): Public REST API documentation.
 
-## App (product) links
+## Product access
 
-- [Sign up](https://app.orqo.site/register): Create an ORQO account (free to start).
-- [Log in](https://app.orqo.site/login): Existing accounts.
+- [Sign up](https://app.orqo.site/register)
+- [Log in](https://app.orqo.site/login)
 
-## Contact
+## Policies and contact
 
-- WhatsApp: +20 15 57730414
+- [Privacy](https://www.orqo.site/privacy)
+- [Terms](https://www.orqo.site/terms)
 - Email: hello@orqo.site
-- Facebook: https://www.facebook.com/orqo.site/
-- Instagram: https://www.instagram.com/orqo.ai/
-- LinkedIn: https://www.linkedin.com/company/103601046/
+
+This file is a concise reference for readers, not an indexing directive or a guarantee of AI search inclusion.

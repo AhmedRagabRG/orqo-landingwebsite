@@ -1,0 +1,16 @@
+---
+import ContentPage from '../../components/seo/ContentPage.astro';
+import ContentIndex from '../../components/seo/ContentIndex.astro';
+import { entriesFor, kinds, type MarketingEntry, type Kind } from '../../lib/marketing';
+// Static content routes: https://docs.astro.build/en/guides/routing/#static-ssg-mode
+export async function getStaticPaths() {
+  const entries = await entriesFor('ar');
+  return [
+    ...kinds.map(kind => ({ params: { slug: kind }, props: { kind } })),
+    ...entries.map(entry => ({ params: { slug: `${entry.data.kind}/${entry.data.slug}` }, props: { entry } })),
+  ];
+}
+interface Props { entry?: MarketingEntry; kind?: Kind }
+const { entry, kind } = Astro.props;
+---
+{entry ? <ContentPage entry={entry} /> : kind && <ContentIndex kind={kind} />}

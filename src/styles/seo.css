@@ -1,0 +1,29 @@
+.seo-layout { display: grid; grid-template-columns: minmax(160px, 1fr) minmax(0, 3fr); gap: 48px; padding-block: 0 80px; }
+.seo-toc nav { position: sticky; top: calc(var(--head-h) + 24px); }
+.seo-toc p { font-weight: 500; margin-bottom: 16px; }
+.seo-toc ol { display: grid; gap: 12px; list-style: none; font-size: var(--t-sm); }
+.seo-article { min-width: 0; max-width: 850px; }
+.seo-article h2 { font-size: var(--t-xl); font-weight: 500; line-height: 1.5; margin-block: 40px 16px; scroll-margin-top: calc(var(--head-h) + 24px); }
+.seo-article h3 { font-size: var(--t-lg); margin-block: 24px 12px; }
+.seo-article p, .seo-article li { line-height: 1.95; color: var(--ink-2); }
+.seo-prose p + p, .seo-prose ul, .seo-prose ol { margin-top: 16px; }
+.seo-prose ul, .seo-prose ol, .seo-sources ul, .seo-related ul { padding-inline-start: 24px; }
+.seo-prose li + li { margin-top: 8px; }
+.seo-prose ul, .seo-related ul, .seo-sources ul { list-style: disc; }
+.seo-prose ol { list-style: decimal; }
+.seo-article img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.seo-article figcaption, .seo-byline, .seo-sources p { font-size: var(--t-sm); color: var(--ink-3); margin-block: 12px 24px; }
+.seo-prose table { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; margin-block: 24px; }
+.seo-prose th, .seo-prose td { padding: 16px; text-align: start; border: 1px solid var(--line); min-width: 140px; vertical-align: top; }
+.seo-prose th { background: var(--paper-2); font-weight: 500; }
+.seo-faq details { border-bottom: 1px solid var(--line); padding-block: 16px; }
+.seo-faq summary { cursor: pointer; font-weight: 500; }
+.seo-faq details p { padding-block: 12px; }
+.seo-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; padding-block: 0 80px; }
+.seo-index article { border-top: 1px solid var(--line); padding-block: 24px; }
+.seo-index h2 { font-size: var(--t-xl); font-weight: 500; line-height: 1.5; margin-bottom: 12px; }
+.seo-index p { color: var(--ink-2); line-height: 1.9; }
+.seo-index time { display: block; margin-top: 16px; font-size: var(--t-sm); color: var(--ink-3); }
+.seo-end-cta { border-top: 1px solid var(--line); margin-top: 40px; }
+.seo-article, .seo-index article { overflow-wrap: anywhere; }
+@media (max-width: 800px) { .seo-layout { grid-template-columns: minmax(0, 1fr); gap: 24px; } .seo-toc nav { position: static; } .seo-toc ol { display: flex; flex-wrap: wrap; gap: 12px 24px; } .seo-index { grid-template-columns: minmax(0, 1fr); } }

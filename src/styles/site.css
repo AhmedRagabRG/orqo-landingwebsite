@@ -26,3 +26,5 @@ body:not(.review-on) .legal-draft { display: none; }
 
 /* let wide tables scroll inside the article instead of widening the page */
 .legal-body, .legal-prose { min-width: 0; }
+
+.privacy-settings { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; margin-block: 16px; }

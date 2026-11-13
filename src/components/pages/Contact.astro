@@ -54,7 +54,7 @@ const P = t.contactPage;
       </div>
     </div>
 
-    <form class="cform" id="contact-form" novalidate data-endpoint={site.contactEndpoint} aria-labelledby="cf-title">
+    <form data-clarity-mask="true" class="cform" id="contact-form" novalidate data-endpoint={site.contactEndpoint} aria-labelledby="cf-title">
       <h2 id="cf-title" class="h3">{P.form.h}</h2>
       <div class="cf-row">
         <label for="cf-name">{P.form.name}<input id="cf-name" name="name" type="text" autocomplete="name" required></label>
