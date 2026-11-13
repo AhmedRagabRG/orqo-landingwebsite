@@ -1,0 +1,46 @@
+{
+  "dist/index.html": {
+    "bytes": 65758,
+    "gzip_bytes": 21512
+  },
+  "dist/ar/index.html": {
+    "bytes": 69237,
+    "gzip_bytes": 22261
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_Z2If5y.webp": {
+    "bytes": 66262,
+    "gzip_bytes": 65540
+  },
+  "dist/_astro/SectionHead.f4TNxCep.css": {
+    "bytes": 142576,
+    "gzip_bytes": 27603
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_28SsfI.webp": {
+    "bytes": 23046,
+    "gzip_bytes": 23074
+  },
+  "dist/_astro/Base.astro_astro_type_script_index_0_lang.C4c-SOE2.js": {
+    "bytes": 16838,
+    "gzip_bytes": 6309
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_fyp5y.webp": {
+    "bytes": 39932,
+    "gzip_bytes": 39796
+  },
+  "dist/fonts/ibm-plex-mono-500.woff2": {
+    "bytes": 10060,
+    "gzip_bytes": 10083
+  },
+  "dist/fonts/neo-sans-arabic-regular.woff2": {
+    "bytes": 43956,
+    "gzip_bytes": 43788
+  },
+  "dist/fonts/ibm-plex-mono-400.woff2": {
+    "bytes": 10052,
+    "gzip_bytes": 10075
+  },
+  "dist/fonts/neo-sans-arabic-medium.woff2": {
+    "bytes": 43080,
+    "gzip_bytes": 43086
+  }
+}

@@ -75,7 +75,7 @@ Copy `.env.example` to `.env`.
 
 | Variable | Purpose |
 |---|---|
-| `PUBLIC_CONTACT_ENDPOINT` | URL that receives the contact form as JSON (`POST`). An n8n webhook works well. Empty: the form shows a notice instead of sending. |
+| `PUBLIC_CONTACT_ENDPOINT` | URL that receives the contact form as JSON (`POST`). An n8n webhook works well. Empty uses the existing `/api/telegram` relay. |
 | `PUBLIC_SHOW_REVIEW` | `true` shows design-review tags. Keep `false` in production. |
 
 ## Deploy
@@ -90,10 +90,10 @@ USD. If geolocation is unavailable, the static site keeps its USD prices.
 ### Coolify (Dockerfile)
 
 1. New resource → this repository → build pack **Dockerfile**.
-2. Port **80**. Domain **orqo.site** (and `www.orqo.site` if wanted).
+2. Port **80**. Canonical domain **www.orqo.site**; configure HTTPS and redirect `orqo.site` to it at the trusted ingress.
 3. Optional build args: `PUBLIC_CONTACT_ENDPOINT`.
 
-The image builds the site and serves `dist/` with nginx (`nginx.conf`): clean URLs (each page is built as `page/index.html`, so `/pricing` and `/pricing/` both work on any static host), long caching for hashed assets, and the custom 404 page.
+The image builds the site and serves `dist/` with nginx (`nginx.conf`): clean URLs (each page is built as `page/index.html`), permanent legacy `/en` and trailing-slash normalization, long caching for hashed assets, and the custom 404 page. Other static hosts need equivalent HTTP redirect rules; Astro redirect documents are a fallback.
 
 ### Cloudflare Pages / Netlify / any static host
 
@@ -102,3 +102,10 @@ Build command `npm run build`, output directory `dist`, Node 22.
 ## Fonts
 
 Neo Sans Arabic (Regular and W23 Medium) is self-hosted from `public/fonts/`, subset to Arabic and Latin as WOFF2 (about 44 KB each). Confirm the licence covers public web use.
+
+
+## SEO content and verification
+
+Read [the implementation report](docs/seo/implementation-report.md), [SEO audit](docs/seo/seo-audit.md), [content guide](docs/seo/content-management.md), [analytics setup](docs/seo/analytics-setup.md) and [30/60/90-day roadmap](docs/seo/roadmap.md).
+
+New feature, solution, comparison, alternative and blog pages use paired Arabic/English Markdown under `src/content/marketing/`. Metadata, locale links, listings and sitemap entries are generated consistently. Run `npm run check` and `npm test` (Python 3 required) before release. Optional browser/Lighthouse checks are documented in the content guide. Production deployment still requires approval.

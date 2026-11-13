@@ -1,0 +1,54 @@
+{
+  "dist/index.html": {
+    "bytes": 71582,
+    "gzip_bytes": 23259
+  },
+  "dist/ar/index.html": {
+    "bytes": 75553,
+    "gzip_bytes": 24123
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_Z1GUmw5.webp": {
+    "bytes": 17400,
+    "gzip_bytes": 17428
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_Z2If5y.webp": {
+    "bytes": 66262,
+    "gzip_bytes": 65540
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_28SsfI.webp": {
+    "bytes": 23046,
+    "gzip_bytes": 23074
+  },
+  "dist/_astro/SectionHead.C-kOeTYt.css": {
+    "bytes": 143893,
+    "gzip_bytes": 27878
+  },
+  "dist/_astro/Base.astro_astro_type_script_index_0_lang.e5ONotub.js": {
+    "bytes": 17804,
+    "gzip_bytes": 6702
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_fyp5y.webp": {
+    "bytes": 39932,
+    "gzip_bytes": 39796
+  },
+  "dist/_astro/inbox-booked.CIqQZt5E_12B6vY.webp": {
+    "bytes": 31610,
+    "gzip_bytes": 31615
+  },
+  "dist/fonts/ibm-plex-mono-500.woff2": {
+    "bytes": 10060,
+    "gzip_bytes": 10083
+  },
+  "dist/fonts/neo-sans-arabic-regular.woff2": {
+    "bytes": 43956,
+    "gzip_bytes": 43788
+  },
+  "dist/fonts/ibm-plex-mono-400.woff2": {
+    "bytes": 10052,
+    "gzip_bytes": 10075
+  },
+  "dist/fonts/neo-sans-arabic-medium.woff2": {
+    "bytes": 43080,
+    "gzip_bytes": 43086
+  }
+}

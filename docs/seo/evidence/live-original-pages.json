@@ -1,0 +1,161 @@
+[
+  {
+    "path": "/",
+    "bytes": 68095,
+    "title": "ORQO — Customer conversations platform",
+    "canonical": [
+      "https://www.orqo.site/"
+    ],
+    "alternates": {
+      "en": "https://www.orqo.site/",
+      "ar": "https://www.orqo.site/ar",
+      "x-default": "https://www.orqo.site/"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/pricing",
+    "bytes": 50066,
+    "title": "ORQO pricing — 7-day free trial",
+    "canonical": [
+      "https://www.orqo.site/pricing"
+    ],
+    "alternates": {
+      "en": "https://www.orqo.site/pricing",
+      "ar": "https://www.orqo.site/ar/pricing",
+      "x-default": "https://www.orqo.site/pricing"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/contact",
+    "bytes": 44973,
+    "title": "Contact ORQO",
+    "canonical": [
+      "https://www.orqo.site/contact"
+    ],
+    "alternates": {
+      "en": "https://www.orqo.site/contact",
+      "ar": "https://www.orqo.site/ar/contact",
+      "x-default": "https://www.orqo.site/contact"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/privacy",
+    "bytes": 51513,
+    "title": "Privacy Policy — ORQO",
+    "canonical": [
+      "https://www.orqo.site/privacy"
+    ],
+    "alternates": {
+      "en": "https://www.orqo.site/privacy",
+      "ar": "https://www.orqo.site/ar/privacy",
+      "x-default": "https://www.orqo.site/privacy"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/terms",
+    "bytes": 50403,
+    "title": "Terms & Conditions — ORQO",
+    "canonical": [
+      "https://www.orqo.site/terms"
+    ],
+    "alternates": {
+      "en": "https://www.orqo.site/terms",
+      "ar": "https://www.orqo.site/ar/terms",
+      "x-default": "https://www.orqo.site/terms"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": [
+      "privacy.html"
+    ]
+  },
+  {
+    "path": "/ar",
+    "bytes": 71574,
+    "title": "ORQO — منصة محادثات العملاء",
+    "canonical": [
+      "https://www.orqo.site/ar"
+    ],
+    "alternates": {
+      "ar": "https://www.orqo.site/ar",
+      "en": "https://www.orqo.site/"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/ar/pricing",
+    "bytes": 52293,
+    "title": "أسعار ORQO — تجربة مجانية 7 أيام",
+    "canonical": [
+      "https://www.orqo.site/ar/pricing"
+    ],
+    "alternates": {
+      "ar": "https://www.orqo.site/ar/pricing",
+      "en": "https://www.orqo.site/pricing"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/ar/contact",
+    "bytes": 46031,
+    "title": "تواصل مع ORQO",
+    "canonical": [
+      "https://www.orqo.site/ar/contact"
+    ],
+    "alternates": {
+      "ar": "https://www.orqo.site/ar/contact",
+      "en": "https://www.orqo.site/contact"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/ar/privacy",
+    "bytes": 56333,
+    "title": "سياسة الخصوصية — ORQO",
+    "canonical": [
+      "https://www.orqo.site/ar/privacy"
+    ],
+    "alternates": {
+      "ar": "https://www.orqo.site/ar/privacy",
+      "en": "https://www.orqo.site/privacy"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": []
+  },
+  {
+    "path": "/ar/terms",
+    "bytes": 54207,
+    "title": "الشروط والأحكام — ORQO",
+    "canonical": [
+      "https://www.orqo.site/ar/terms"
+    ],
+    "alternates": {
+      "ar": "https://www.orqo.site/ar/terms",
+      "en": "https://www.orqo.site/terms"
+    },
+    "robots": null,
+    "h1_count": 1,
+    "privacy_html_links": [
+      "privacy.html"
+    ]
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "url": "https://orqo.site",
+    "result": "200 https://www.orqo.site/ 1 0.555002",
+    "error": null
+  },
+  {
+    "url": "http://orqo.site",
+    "result": "200 https://www.orqo.site/ 2 0.770864",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site",
+    "result": "200 https://www.orqo.site/ 0 0.225844",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/en",
+    "result": "200 https://www.orqo.site/en 0 0.416321",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/en/pricing",
+    "result": "200 https://www.orqo.site/en/pricing 0 0.430435",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/ar",
+    "result": "200 https://www.orqo.site/ar 0 0.367950",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/pricing/",
+    "result": "200 https://www.orqo.site/pricing/ 0 0.302567",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/pricing.html",
+    "result": "404 https://www.orqo.site/pricing.html 0 0.381597",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/robots.txt",
+    "result": "200 https://www.orqo.site/robots.txt 0 0.332684",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/sitemap-index.xml",
+    "result": "200 https://www.orqo.site/sitemap-index.xml 0 0.343575",
+    "error": null
+  },
+  {
+    "url": "https://docs.orqo.site",
+    "result": "200 https://docs.orqo.site/ 0 0.203313",
+    "error": null
+  },
+  {
+    "url": "https://www.orqo.site/does-not-exist-seo-check",
+    "result": "404 https://www.orqo.site/does-not-exist-seo-check 0 0.202832",
+    "error": null
+  }
+]

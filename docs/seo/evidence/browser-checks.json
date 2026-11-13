@@ -1,0 +1,157 @@
+{
+  "httpRoutes": [
+    "/",
+    "/alternatives",
+    "/alternatives/respond-io",
+    "/ar",
+    "/ar/alternatives",
+    "/ar/alternatives/respond-io",
+    "/ar/blog",
+    "/ar/blog/automate-whatsapp-customer-support",
+    "/ar/blog/clinic-patient-communication",
+    "/ar/blog/manage-instagram-whatsapp-together",
+    "/ar/compare",
+    "/ar/compare/manychat",
+    "/ar/compare/respond-io",
+    "/ar/compare/wati",
+    "/ar/contact",
+    "/ar/features",
+    "/ar/features/ai-chatbot",
+    "/ar/features/campaigns",
+    "/ar/features/customer-crm",
+    "/ar/features/omnichannel-inbox",
+    "/ar/features/team-collaboration",
+    "/ar/features/whatsapp-automation",
+    "/ar/pricing",
+    "/ar/privacy",
+    "/ar/solutions",
+    "/ar/solutions/clinics",
+    "/ar/solutions/ecommerce",
+    "/ar/terms",
+    "/blog",
+    "/blog/automate-whatsapp-customer-support",
+    "/blog/clinic-patient-communication",
+    "/blog/manage-instagram-whatsapp-together",
+    "/compare",
+    "/compare/manychat",
+    "/compare/respond-io",
+    "/compare/wati",
+    "/contact",
+    "/features",
+    "/features/ai-chatbot",
+    "/features/campaigns",
+    "/features/customer-crm",
+    "/features/omnichannel-inbox",
+    "/features/team-collaboration",
+    "/features/whatsapp-automation",
+    "/pricing",
+    "/privacy",
+    "/solutions",
+    "/solutions/clinics",
+    "/solutions/ecommerce",
+    "/terms"
+  ],
+  "missingRouteStatus": 404,
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/pricing",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/pricing",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/features",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/features",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/features/omnichannel-inbox",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/features/omnichannel-inbox",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/solutions/ecommerce",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/solutions/clinics",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/compare/respond-io",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/compare/manychat",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/alternatives/respond-io",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/alternatives/respond-io",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/blog/automate-whatsapp-customer-support",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/blog/clinic-patient-communication",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "accessibility": []
+    },
+    {
+      "path": "/ar/contact",
+      "status": 200,
+      "accessibility": []
+    }
+  ],
+  "widths": [
+    320,
+    768,
+    1024,
+    1440
+  ],
+  "consent": "passed",
+  "conversions": "passed",
+  "contactSubmission": "intercepted locally; passed",
+  "runtimeErrors": []
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "baseline-home",
+    "samples": 3,
+    "scores": {
+      "performance": 1,
+      "accessibility": 0.97,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "metrics": {
+      "largest-contentful-paint": 1099.164,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0
+    }
+  },
+  {
+    "name": "current-home",
+    "samples": 3,
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "metrics": {
+      "largest-contentful-paint": 1095.4381,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0
+    }
+  },
+  {
+    "name": "current-ar",
+    "samples": 3,
+    "scores": {
+      "performance": 0.98,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "metrics": {
+      "largest-contentful-paint": 2253.3100999999997,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0
+    }
+  },
+  {
+    "name": "current-comparison",
+    "samples": 3,
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "metrics": {
+      "largest-contentful-paint": 903.2502999999999,
+      "total-blocking-time": 0,
+      "cumulative-layout-shift": 0
+    }
+  }
+]

@@ -1,0 +1,1526 @@
+[
+  {
+    "name": "baseline-home",
+    "sample": 1,
+    "url": "http://127.0.0.1:4322/",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:00.335Z",
+    "scores": {
+      "performance": 0.94,
+      "accessibility": 0.97,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1115.7834,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 1115.7834,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 275.6083,
+        "display": "280 ms",
+        "score": 0.81
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 2215.9104460465105,
+        "display": "2.2 s",
+        "score": 0.99
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 23 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/_astro/SectionHead.f4TNxCep.css",
+              "wastedBytes": 23071,
+              "wastedPercent": 82.54544944450679,
+              "totalBytes": 27950
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 23071,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4322/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "baseline-home",
+    "sample": 2,
+    "url": "http://127.0.0.1:4322/",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:07.026Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 0.97,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1099.164,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 1099.164,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1099.164,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 23 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/_astro/SectionHead.f4TNxCep.css",
+              "wastedBytes": 23071,
+              "wastedPercent": 82.54544944450679,
+              "totalBytes": 27950
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 23071,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4322/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "baseline-home",
+    "sample": 3,
+    "url": "http://127.0.0.1:4322/",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:12.701Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 0.97,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1093.6433,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 1093.6433,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1093.6433,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 23 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4322/_astro/SectionHead.f4TNxCep.css",
+              "wastedBytes": 23071,
+              "wastedPercent": 82.54544944450679,
+              "totalBytes": 27950
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 23071,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4322/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-home",
+    "sample": 1,
+    "url": "http://127.0.0.1:4321/",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:18.392Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1095.4381,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 1095.4381,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1095.4381,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 23 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 23200,
+              "wastedPercent": 82.19718818844558,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 23200,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4321/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-home",
+    "sample": 2,
+    "url": "http://127.0.0.1:4321/",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:24.039Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1095.9905,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 1095.9905,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1095.9905,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 23 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 23200,
+              "wastedPercent": 82.19718818844558,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 23200,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4321/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-home",
+    "sample": 3,
+    "url": "http://127.0.0.1:4321/",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:29.676Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1093.053,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 1093.053,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1093.053,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 23 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 23200,
+              "wastedPercent": 82.19718818844558,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 23200,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4321/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-ar",
+    "sample": 1,
+    "url": "http://127.0.0.1:4321/ar",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:35.352Z",
+    "scores": {
+      "performance": 0.98,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1097.3101,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 2253.3100999999997,
+        "display": "2.3 s",
+        "score": 0.94
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1097.3101,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 150,
+        "display": "Est savings of 23 KiB",
+        "score": 0,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 23213,
+              "wastedPercent": 82.24375056465568,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 150,
+          "overallSavingsBytes": 23213,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 150
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4321/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-ar",
+    "sample": 2,
+    "url": "http://127.0.0.1:4321/ar",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:41.063Z",
+    "scores": {
+      "performance": 0.98,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1096.1941,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 2254.1941,
+        "display": "2.3 s",
+        "score": 0.94
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1096.1941,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 150,
+        "display": "Est savings of 23 KiB",
+        "score": 0,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 23213,
+              "wastedPercent": 82.24375056465568,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 150,
+          "overallSavingsBytes": 23213,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 150
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4321/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-ar",
+    "sample": 3,
+    "url": "http://127.0.0.1:4321/ar",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:46.703Z",
+    "scores": {
+      "performance": 0.98,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 1097.1613,
+        "display": "1.1 s",
+        "score": 0.99
+      },
+      "largest-contentful-paint": {
+        "value": 2253.1613,
+        "display": "2.3 s",
+        "score": 0.94
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 1097.1613,
+        "display": "1.1 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 150,
+        "display": "Est savings of 23 KiB",
+        "score": 0,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 23213,
+              "wastedPercent": 82.24375056465568,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 150,
+          "overallSavingsBytes": 23213,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 150
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 0,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": [
+            {
+              "source": "network",
+              "description": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+              "sourceLocation": {
+                "type": "source-location",
+                "url": "http://127.0.0.1:4321/api/currency",
+                "urlProvider": "network",
+                "line": 0,
+                "column": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-comparison",
+    "sample": 1,
+    "url": "http://127.0.0.1:4321/compare/respond-io",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:52.326Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 903.2502999999999,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "largest-contentful-paint": {
+        "value": 903.2502999999999,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 903.2502999999999,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 26 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 26436,
+              "wastedPercent": 93.66265210955362,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 26436,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 1,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": []
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-comparison",
+    "sample": 2,
+    "url": "http://127.0.0.1:4321/compare/respond-io",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:33:57.635Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 903.3601000000001,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "largest-contentful-paint": {
+        "value": 903.3601000000001,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 903.3601000000001,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 26 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 26436,
+              "wastedPercent": 93.66265210955362,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 26436,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 1,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": []
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "name": "current-comparison",
+    "sample": 3,
+    "url": "http://127.0.0.1:4321/compare/respond-io",
+    "lighthouseVersion": "13.6.0",
+    "fetchTime": "2026-11-13T01:34:02.992Z",
+    "scores": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    },
+    "audits": {
+      "first-contentful-paint": {
+        "value": 902.5372,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "largest-contentful-paint": {
+        "value": 902.5372,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "total-blocking-time": {
+        "value": 0,
+        "display": "0 ms",
+        "score": 1
+      },
+      "cumulative-layout-shift": {
+        "value": 0,
+        "display": "0",
+        "score": 1,
+        "details": {
+          "type": "debugdata",
+          "items": [
+            {
+              "cumulativeLayoutShiftMainFrame": 0,
+              "newEngineResult": {
+                "cumulativeLayoutShift": 0,
+                "cumulativeLayoutShiftMainFrame": 0
+              },
+              "newEngineResultDiffered": false
+            }
+          ]
+        }
+      },
+      "speed-index": {
+        "value": 902.5372,
+        "display": "0.9 s",
+        "score": 1
+      },
+      "unused-css-rules": {
+        "value": 0,
+        "display": "Est savings of 26 KiB",
+        "score": 0.5,
+        "details": {
+          "type": "opportunity",
+          "headings": [
+            {
+              "key": "url",
+              "valueType": "url",
+              "label": "URL"
+            },
+            {
+              "key": "totalBytes",
+              "valueType": "bytes",
+              "label": "Transfer Size"
+            },
+            {
+              "key": "wastedBytes",
+              "valueType": "bytes",
+              "label": "Est Savings"
+            }
+          ],
+          "items": [
+            {
+              "url": "http://127.0.0.1:4321/_astro/SectionHead.C-kOeTYt.css",
+              "wastedBytes": 26436,
+              "wastedPercent": 93.66265210955362,
+              "totalBytes": 28225
+            }
+          ],
+          "overallSavingsMs": 0,
+          "overallSavingsBytes": 26436,
+          "sortedBy": [
+            "wastedBytes"
+          ],
+          "debugData": {
+            "type": "debugdata",
+            "metricSavings": {
+              "FCP": 0,
+              "LCP": 0
+            }
+          }
+        }
+      },
+      "errors-in-console": {
+        "score": 1,
+        "details": {
+          "type": "table",
+          "headings": [
+            {
+              "key": "sourceLocation",
+              "valueType": "source-location",
+              "label": "Source"
+            },
+            {
+              "key": "description",
+              "valueType": "code",
+              "label": "Description"
+            }
+          ],
+          "items": []
+        }
+      }
+    },
+    "warnings": []
+  }
+]
